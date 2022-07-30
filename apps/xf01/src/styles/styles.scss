@@ -1,0 +1,92 @@
+/* You can add global styles to this file, and also import other style files */
+@import "./_variables";
+//@import "./stylesnull.scss";
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  min-width: 320px;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+ul{
+  margin-left: 1rem;
+}
+li{
+  list-style-type: none;
+}
+
+.mat-body-2
+{
+  font-weight: 500;
+}
+
+._container
+{
+  min-height: 400px;
+  padding: 0 0;
+  margin: 0 0;
+  display: block;
+  overflow:  hidden;
+  //padding: 0;
+ // display: flex;
+  //background-color: $bg-color;
+  //justify-content: space-between;
+}
+
+.img-social-apps{  // vk instogramm wathaap
+  height: 20px;
+  vertical-align: middle;
+}
+.conteiner-social-apps{
+  display: flex;
+}
+h4 {
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: $h-color;
+}
+.navigate{
+  display: flex;
+  justify-content: space-between;
+
+}
+.navigate-route{
+  color: #e66333;
+  margin-left: 1rem;
+}
+.navigate-route-link{
+  color: var(--bs-blue);
+  margin-right: 1rem;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

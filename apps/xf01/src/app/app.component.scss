@@ -1,0 +1,21 @@
+
+@import "../styles/variables" ;
+
+//$bg-color: #284074;
+//$bg-footer-color: #445477;
+//$color-logo: #ffbd35
+$nav-color: $c5;
+$color-hover: #dfe6e7;
+.footer {
+  display: flex;
+  padding: 20px;
+  background: $bg-footer-color;
+  min-height: 60px;
+  color: $nav-color;
+ // align-items: center;
+}
+.copirate{
+  display: flex;
+  //align-self: center;
+
+}

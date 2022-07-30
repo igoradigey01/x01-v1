@@ -1,0 +1,10 @@
+@import "../../../styles/variables";
+@import './../../../styles/header-styles.scss';
+
+@for $i from 2 through 4 {
+  h#{$i} {
+    color: $h-color;
+    font-size: 1.1em;
+    margin-left: 40px;
+  }
+}

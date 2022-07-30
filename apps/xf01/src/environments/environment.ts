@@ -4,6 +4,15 @@
 
 export const environment = {
   production: false,
+
+  clientRoot:  'http://localhost:4200/', //'https://x-01.ru/',       //  Host client
+  serverRoot: 'http://localhost:8080/',  //'https://s.x-01.ru/',               //
+  serverAuthority:'http://localhost:5010/',//'https://s.x-01.ru/',             //
+  clientId:'angular-client',
+  postavchikId:'1',//xf-01.ru
+  version:'b2.05.22',
+  description:"Client shop- вторая редакция (angular:13.1.2)(11.05.22)"
+
 };
 
 /*
