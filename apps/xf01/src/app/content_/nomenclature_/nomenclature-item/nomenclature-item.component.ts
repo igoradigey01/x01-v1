@@ -118,7 +118,7 @@ export class NomenclatureItemComponent implements OnInit {
 
   public onBack() {
     if (this._isChildComponent) {
-      this._onChangeBack.next();
+      this._onChangeBack.next(undefined);
       return;
     }
     if (this._nomenclature) {
