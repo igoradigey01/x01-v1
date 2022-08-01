@@ -1,0 +1,46 @@
+create dir----
+git clone path/to/source/folder path/to/destination/folder
+ng config --global cli.packageManager yarn      // error npm
+ng update @angular/core@14 @angular/cli@14     
+yarn remove  @angular/material @angular/cli 
+ng update @angular/material @angular/cli
+ng add @nrwl/workspace // create workspace 
+// если не получается зоздаем отделное ws и переносим туда файлы 
+yarn create nx-workspace my-name-workspace --package-manager=yarn
+// копируем из одного проекта в другой 
+  app enviropnent stitly assept 
+// перезаписать в  apps/xf01/src/*.ts корневые импорты
+   import "src/..." on "apps/xf01/src"
+// добавить angular-material
+yarn add @angular/material @angular/cdk @angular/animations
+// добавть другие пакеты используемые в проекте
+yarn add jspdf
+yarn add ng-qrcode
+yarn add ngx-image-cropper
+
+// изменить package.json
+"scripts": {
+    "ng": "nx",
+    "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2020 browser module main",
+    "xf01:start": "nx serve xf01",
+    "xf01:build": "nx build xf01",
+    "xf01:test": "nx test xf01",
+    "xl01:start": "nx serve xl01",
+    "xl01:build": "nx build xl01",
+    "xl01:test": "nx test xl01",
+    "start": "nx serve",
+    "build": "nx build",
+    "test": "nx test"
+  },
+
+  // Изменить порты запруска 
+  
+
+
+// добавть новый проект
+https://nx.dev/nx/generate
+nx generate @nrwl/angular:app myapp
+nx generate @nrwl/angular:library mylibrary
+
+chore(help-migration-to-nx):add // поденная работа || работа по дому
+git commit -m "chore(app enviropnent stitly assept*src/ ):replase 
