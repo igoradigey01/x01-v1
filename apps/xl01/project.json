@@ -57,7 +57,8 @@
           "browserTarget": "xl01:build:production"
         },
         "development": {
-          "browserTarget": "xl01:build:development"
+          "browserTarget": "xl01:build:development",
+          "port": 4201
         }
       },
       "defaultConfiguration": "development"

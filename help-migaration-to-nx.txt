@@ -1,22 +1,42 @@
-create dir----
+create dir----"my-nx-dir"
 git clone path/to/source/folder path/to/destination/folder
-ng config --global cli.packageManager yarn      // error npm
-ng update @angular/core@14 @angular/cli@14     
+ng config --global cli.packageManager  yarn     // error npm
+ng update @angular/core@14 @anngular/cli@14     
 yarn remove  @angular/material @angular/cli 
 ng update @angular/material @angular/cli
-ng add @nrwl/workspace // create workspace 
-// если не получается зоздаем отделное ws и переносим туда файлы 
+
+// create workspace
+ng add @nrwl/workspace  
+
+// если не получается cоздаем отделное ws и переносим туда файлы 
 yarn create nx-workspace my-name-workspace --package-manager=yarn
+// сделать commit 
+cd my-app <br>
+git init <br>
+git add README.md <br>
+git commit -m "feat(nx-ws):create"
+git branch -M main
 // копируем из одного проекта в другой 
   app enviropnent stitly assept 
 // перезаписать в  apps/xf01/src/*.ts корневые импорты
    import "src/..." on "apps/xf01/src"
+ // сделать commit
+ git commit -m "chore(app enviropnent stitly assept*src/ ):replase "   // поденная работа || работа по дому
+
 // добавить angular-material
 yarn add @angular/material @angular/cdk @angular/animations
+
 // добавть другие пакеты используемые в проекте
 yarn add jspdf
 yarn add ng-qrcode
 yarn add ngx-image-cropper
+ // сделать commit
+ git commit -m "feat(material jspdf ng-qrcode ngx-image-cropper):add" 
+
+// добавть новый проект
+https://nx.dev/nx/generate
+nx generate @nrwl/angular:app myapp
+nx generate @nrwl/angular:library mylibrary
 
 // изменить package.json
 "scripts": {
@@ -33,14 +53,25 @@ yarn add ngx-image-cropper
     "test": "nx test"
   },
 
-  // Изменить порты запруска 
-  
+  // Изменить порты запруска angular.json
+  https://www.youtube.com/watch?v=EnwVZC0W-g8
+  git add .
+  git commit -m "feat(xl01*app):add 
+
+  //Создать удаленный репозиторий на gitHub и заргрузить проект ----git branch -M main --!!!!
+
+ git remote add origin https://github.com/igoradigey01/x01-v1.git
+ git push -u origin main
+
+ // or если существует ----git branch -M main --!!!!
+ git remote add origin https://github.com/igoradigey01/x01-v1.git
+ git push -u origin main
+
+ //изменить url удаленнного репозитория можно
+ git remote -v   <br>
+ git remote set-url origin git@github.com:igoradigey01/nx01.git <br>
+ git remote -v 
 
 
-// добавть новый проект
-https://nx.dev/nx/generate
-nx generate @nrwl/angular:app myapp
-nx generate @nrwl/angular:library mylibrary
+---chore(help-migration-to-nx):add // поденная работа || работа по дому---
 
-chore(help-migration-to-nx):add // поденная работа || работа по дому
-git commit -m "chore(app enviropnent stitly assept*src/ ):replase 

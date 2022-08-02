@@ -57,7 +57,8 @@
           "browserTarget": "xf01:build:production"
         },
         "development": {
-          "browserTarget": "xf01:build:development"
+          "browserTarget": "xf01:build:development",
+          "port": 4200
         }
       },
       "defaultConfiguration": "development"
