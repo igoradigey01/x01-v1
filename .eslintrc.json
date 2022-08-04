@@ -13,8 +13,12 @@
             "allow": [],
             "depConstraints": [
               {
-                "sourceTag": "*",
-                "onlyDependOnLibsWithTags": ["*"]
+                "sourceTag": "scope:xl01",
+                "onlyDependOnLibsWithTags": ["scope:xl01"]
+              },
+              {
+                "sourceTag": "scope:xf01",
+                "onlyDependOnLibsWithTags": ["scope:xf01"]
               }
             ]
           }

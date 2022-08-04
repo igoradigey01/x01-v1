@@ -14,7 +14,7 @@
         "tsConfig": "apps/xf01/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": ["apps/xf01/src/favicon.ico", "apps/xf01/src/assets"],
-        "styles": ["apps/xf01/src/styles.scss"],
+        "styles": ["apps/xf01/src/styles/styles.scss"],
         "scripts": []
       },
       "configurations": {
@@ -84,5 +84,5 @@
       }
     }
   },
-  "tags": []
+  "tags": ["scope:xf01", "type:app"]
 }

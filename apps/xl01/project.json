@@ -84,5 +84,5 @@
       }
     }
   },
-  "tags": []
+  "tags": ["scope:xl01", "type:app"]
 }
