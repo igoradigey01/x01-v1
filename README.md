@@ -16,7 +16,13 @@ This project was generated using [Nx](https://nx.dev).
 ### Shared Styles
   [youtube](https://www.youtube.com/watch?v=w_J8dGSPHZU)
   yarn add @angular/material @angular/cdk @angular/animations // если не добавлен <br>
-  yarn add bootstrap@next  // add in default project <br>
-  [Sass doc](https://bootstrap-4.ru/docs/5.0/customize/sass/)
-
+  yarn add bootstrap@next  <br>
+  [Sass doc](https://bootstrap-4.ru/docs/5.0/customize/sass/) 
+  ```
+   // add in project.json "stylePreprocessorOptions" 
+  "styles": ["apps/xf01/src/styles/styles.scss"], 
+  "stylePreprocessorOptions": {                    
+        "includePaths": ["apps/xf01/src/styles/"] 
+        },                                        
+   ```
 

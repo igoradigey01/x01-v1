@@ -1,0 +1,5 @@
+ // creat путой файл
+type null> help-cmd-command.txt  
+mkdir my-dir 
+// показать содержание 
+dir /b
