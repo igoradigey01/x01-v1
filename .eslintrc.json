@@ -14,7 +14,7 @@
             "depConstraints": [
               {
                 "sourceTag": "scope:xl01",
-                "onlyDependOnLibsWithTags": ["scope:xl01"]
+                "onlyDependOnLibsWithTags": ["scope:xl01","type:lib"]
               },
               {
                 "sourceTag": "scope:xf01",
