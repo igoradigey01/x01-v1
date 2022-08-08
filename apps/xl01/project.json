@@ -15,9 +15,9 @@
         "inlineStyleLanguage": "scss",
         "assets": ["apps/xl01/src/favicon.ico", "apps/xl01/src/assets"],
         "styles": ["apps/xl01/src/styles/styles.scss"],
-        "stylePreprocessorOptions": {                    
-        "includePaths": ["apps/xl01/src/styles/"] 
-        },                                      
+        "stylePreprocessorOptions": {
+          "includePaths": ["apps/xl01/src/styles/"]
+        },
         "scripts": []
       },
       "configurations": {

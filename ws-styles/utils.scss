@@ -1,0 +1,17 @@
+
+//сначало импортируем 
+//@import will be deprecated in favor of @use and @forward, 
+//and support will be dropped by October 2022 at the latest.
+// _doc @use https://sass-lang.su/documentation/at-rules/use
+// _doc @forward https://sass-lang.su/documentation/at-rules/forward
+// _doc bootstrap  https://getbootstrap.com/docs/5.0/customize/sass/
+//                 https://bootstrap5.ru/docs/customize/sass
+
+@forward 'import/material/theme';
+@forward "../node_modules/bootstrap/scss/functions";
+@forward "../node_modules/bootstrap/scss/variables";
+@forward "../node_modules/bootstrap/scss/mixins";
+//если нужно то  необходимые переменные мексины и функции голобально перезаписываем своими
+@forward "abstract/functions";
+@forward "abstract/mixins";
+@forward "abstract/variables";

@@ -1,7 +1,7 @@
  // creat путой файл
 type null> help-cmd-command.txt  
 .>  _variables.scss 
----or create powerShell ----
+---or open powerShell ----
 ls -name
 ni text.txt , text2.txt
 mkdir material
