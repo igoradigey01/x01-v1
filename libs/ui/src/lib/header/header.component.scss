@@ -1,1 +1,6 @@
-@import   "/ws-styles/import/material/theme" ;
+@import "../../../../../ws-styles/style";
+@import '../../style.scss';
+
+.my_test{
+    color: $col;
+}

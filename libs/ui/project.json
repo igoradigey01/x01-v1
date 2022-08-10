@@ -3,6 +3,14 @@
   "sourceRoot": "libs/ui/src",
   "prefix": "x01-v1",
   "targets": {
+    "build": {
+      "options": {
+        "styles": [
+          "ws-styles/_style.scss",
+          "ws-styles/util.scss",
+          "libs/ui/src/style.scss"
+        ]
+      }},
     "test": {
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/ui"],
@@ -14,10 +22,7 @@
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
-        "lintFilePatterns": ["libs/ui/**/*.ts", "libs/ui/**/*.html"],
-        "stylePreprocessorOptions": {
-          "includePaths": ["ws-style"]
-        }
+        "lintFilePatterns": ["libs/ui/**/*.ts", "libs/ui/**/*.html"]
       }
     }
   },
