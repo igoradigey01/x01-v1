@@ -2,7 +2,7 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
-    "shared-styles": "libs/shared-styles",
+   
     "ui": "libs/ui",
     "xf01": "apps/xf01",
     "xf01-e2e": "apps/xf01-e2e",
