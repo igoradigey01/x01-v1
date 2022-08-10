@@ -1,14 +1,118 @@
 <p>header works!</p>
 
-<section>
-    <div class="example-label">Raised</div>
-    <div class="example-button-row">
-      <button mat-raised-button>Basic</button>
-      <button mat-raised-button color="primary">Primary</button>
-      <button mat-raised-button color="accent">Accent</button>
-      <button class="my_test" mat-raised-button color="warn">Warn</button>
-      <button mat-raised-button disabled>Disabled</button>
-      <a mat-raised-button href="https://www.google.com/" target="_blank">Link</a>
-      <p class="my_test">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias accusamus repellendus iure provident dicta? Maxime quas deleniti accusamus sapiente voluptatibus placeat saepe officiis voluptate provident delectus hic, iure excepturi voluptatem!</p>
+
+  
+<mat-toolbar class="_container_nav">
+    <div class="col_inner">
+      <a routerLink="" class="nav_link">
+        <span class="logo_inner-name" >{{company_name_1}}</span>
+  
+        <img
+          class="logo_inner-img"
+          src={{logoSrc}}
+          alt=""
+          loading="lazy"
+        />
+        <span class="logo_inner-name-2">{{ company_name_2}}</span>
+      </a>
     </div>
-  </section>
+    <div class="col_inner logo-column">
+      <div class="logo-position-name"> <span > {{company_name_1}}</span><span> </span> <span style="color: black;"> {{company_name_2}}</span></div>
+      <div class="commutation"></div>
+      <a class="nav_link" href="tel:+79280361055"> (+7-928-036-10-55 ) </a>
+  
+      <div class="conteiner-social-apps">
+     
+        <button type="button" class="btn btn-link">
+          <a href=" https://wa.me/+79280361055?text=Здравствуйте%20(xf-01)%20Меня%20интересует%20информация%20о%20 ">
+        <img src="./../../../assets/images/massager_social/Whatsapp_64.png" class="img-social-apps" alt="whatsapp" >
+      </a>
+        </button>
+  
+      </div>
+    </div>
+  
+    <div class="col_inner">
+      <!------------ start button menu-->
+      <div class="mobile-nav">
+        <!---       statr -->
+        <div class="menu-md">
+          <button mat-icon-button (click)="onMobaleMeny()" class="nav_link">
+            <mat-icon>menu</mat-icon>
+          </button>
+        </div>
+        <!---------/-->
+      </div>
+  
+      <div class="menu-lg">
+        <span>
+          <a class="nav_link" routerLink="menu/kak-zakazat">Как заказать?</a>
+        </span>
+        <span>
+          <a class="nav_link" routerLink="menu/oplata-i-dostavka">Оплата и Доставка</a>
+        </span>
+        <span>
+          <a class="nav_link" routerLink="menu/garantiya">Гарантии</a>
+        </span>
+  
+        <span>
+          <a class="nav_link" routerLink="menu/about">онас</a>
+        </span>
+  
+          <!--start Role  --------------->
+             <!--- start Role ------>
+        <div style="display: inline-block;"  *ngIf="IsAdmin">
+          <button type="button"  class="btn navbar-btn account_botton_ok" routerLink="admin">
+            Admin
+          </button>
+          <button type="button"  class="btn navbar-btn account_botton_ok" routerLink="manager">
+            Manager
+          </button>
+        </div>
+  
+        <div class="nav-item" *ngIf="IsManager">
+          <button type="button" class="btn navbar-btn account_botton_ok" routerLink="manager">
+            Manager
+          </button>
+        </div>
+  
+        <div class="nav-item" *ngIf="IsShopper">
+          <button type="button" class="btn navbar-btn account_botton_ok" routerLink="orders">
+            Заказы
+          </button>
+        </div>
+  
+        <div class="nav-item" *ngIf="IsShopperOpt">
+          <button type="button" class="btn navbar-btn account_botton_ok" routerLink="/content/opt">
+            Оптовые цены
+          </button>
+        </div>
+        <!--end Role  --------------->
+  
+        <div class="nav-item">
+          <div *ngIf="InvalidLogin; then thenBlock; else elseBlock"></div>
+          <ng-template #elseBlock>
+            <button type="button" class="btn navbar-btn account_botton_ok" routerLink="/account/user-profile">
+              <picture>
+                <source srcset="./../../../assets/icon/log-in-1.webp" type="image/webp">
+              <img class="card-img-top" src="./../../../assets/icon/log-in-1.png" height="23" alt="ВХОД"  />
+            </picture>
+  
+            </button>
+          </ng-template>
+          <ng-template #thenBlock>
+            <button type="button" class="btn navbar-btn account_botton_false" routerLink="/account">
+              <picture>
+                <source srcset="./../../../assets/icon/log-in-1.webp" type="image/webp">
+              <img class="card-img-top" src="./../../../assets/icon/log-in-1.png" height="23" alt="ВЫХОД"  />
+            </picture>
+  
+  
+            </button>
+          </ng-template>
+        </div>
+  
+      </div>
+    </div>
+  </mat-toolbar>
+  
