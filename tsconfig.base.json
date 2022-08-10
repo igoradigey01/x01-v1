@@ -16,7 +16,7 @@
     "baseUrl": ".",
     "paths": {
      
-      "@x01-v1/ui": ["libs/ui/src/index.ts"],
+      "@x01-v1/ui": ["libs/ui/src/index.ts"]
       
      
     }
