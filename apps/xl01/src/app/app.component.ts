@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'xl01';
+  public _srcLogo:string='./../assets/logo/logo.webp';
+  public _company_name_1:string="XL"
+  public _company_name_2:string="01"
 }

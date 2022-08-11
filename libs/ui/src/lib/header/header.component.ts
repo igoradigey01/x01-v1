@@ -22,9 +22,9 @@ export class HeaderComponent implements OnInit {
 
  
 
- company_name_1:string="test1";
- company_name_2:string="test2"; //First Site
-  logoSrc:string='';
+@Input() public company_name_1:string|undefined;
+@Input() public company_name_2:string=""; //First Site
+@Input() public srcLogo:string='';
   constructor() {}
 
   ngOnInit(): void {}

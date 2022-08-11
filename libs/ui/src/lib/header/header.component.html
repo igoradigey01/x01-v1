@@ -5,11 +5,12 @@
 <mat-toolbar class="_container_nav">
     <div class="col_inner">
       <a routerLink="" class="nav_link">
-        <span class="logo_inner-name" >{{company_name_1}}</span>
+        
+        <span class="logo_inner-name" *ngIf="company_name_1" >{{company_name_1}}</span>
   
         <img
           class="logo_inner-img"
-          src={{logoSrc}}
+          [src]="srcLogo"
           alt=""
           loading="lazy"
         />

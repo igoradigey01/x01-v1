@@ -2,3 +2,5 @@
 // _doc @forward https://sass-lang.su/documentation/at-rules/forward
 
 // _doc bootstrap  https://getbootstrap.com/docs/5.0/customize/sass/
+@forward '~bootstrap/scss/containers';
+@import "~bootstrap/scss/grid";
