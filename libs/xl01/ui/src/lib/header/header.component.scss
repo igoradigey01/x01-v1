@@ -3,12 +3,7 @@
 //include stl.basereset;
 @use '@angular/material' as mat;
 
-$bg-header-color: #ff6628;
-$bg-footer-color: #111c2b;
-$c5: #f3f6f6;
-$c7: #e5ebee;
-$c3: #3b3f40;
-$c6: #8c989b;
+
 $color-not-viaw-logo:mat.get-color-from-palette(style.$mat-warn,"lighter");// #ffbd35;
 $bg-color:  mat.get-color-from-palette(style.$theme-primary,"main");
 $color: mat.get-color-from-palette(style.$theme-primary,"main-contrast");
@@ -97,19 +92,8 @@ $color-hover:mat.get-color-from-palette(style.$theme-primary,"lighter");
   display: block;
   position: relative;
 }
-.app-navbar{
-  padding-left: 1rem;
-    min-width: 10rem;
 
-  background-color:$c7 ; //#fafafa
-}
-.app-nav-link{
-  color: $c3;
-  &:hover {
-    color: $c6;
-  }
 
-}
 
 
 .img-social-apps{
