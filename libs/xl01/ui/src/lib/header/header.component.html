@@ -1,7 +1,4 @@
-<p>header works!</p>
 
-<div class="">
-  
 <mat-toolbar color="primary" class="_container_nav ">
     <div class="col_inner">
       <a routerLink="" class="nav_link">
@@ -18,7 +15,7 @@
       </a>
     </div>
     <div class="col_inner logo-column">
-      <div class="logo-position-name"> <span > {{company_name_1}}</span><span> </span> <span style="color: black;"> {{company_name_2}}</span></div>
+      <div class="logo-position-name"> <span > {{company_name_1}}</span><span> -</span> <span > {{company_name_2}}</span></div>
       <div class="commutation"></div>
       <a class="nav_link" href="tel:+79280361055"> (+7-928-036-10-55 ) </a>
   
@@ -62,29 +59,29 @@
   
           <!--start Role  --------------->
              <!--- start Role ------>
-        <div style="display: inline-block;"  *ngIf="IsAdmin">
-          <button type="button"  class="btn navbar-btn account_botton_ok" routerLink="admin">
+        <div style="display: flex"  *ngIf="IsAdmin">
+          <button mat-flat-button color="accent" routerLink="admin">
             Admin
           </button>
-          <button type="button"  class="btn navbar-btn account_botton_ok" routerLink="manager">
+          <button mat-flat-button color="accent" routerLink="manager">
             Manager
           </button>
         </div>
   
         <div class="nav-item" *ngIf="IsManager">
-          <button type="button" class="btn navbar-btn account_botton_ok" routerLink="manager">
+          <button mat-flat-button color="accent" routerLink="manager">
             Manager
           </button>
         </div>
   
         <div class="nav-item" *ngIf="IsShopper">
-          <button type="button" class="btn navbar-btn account_botton_ok" routerLink="orders">
+          <button mat-flat-button color="accent" routerLink="orders">
             Заказы
           </button>
         </div>
   
         <div class="nav-item" *ngIf="IsShopperOpt">
-          <button type="button" class="btn navbar-btn account_botton_ok" routerLink="/content/opt">
+          <button mat-flat-button color="accent" routerLink="/content/opt">
             Оптовые цены
           </button>
         </div>
@@ -117,4 +114,3 @@
     </div>
   </mat-toolbar>
   
-</div>

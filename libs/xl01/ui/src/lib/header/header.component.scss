@@ -1,28 +1,25 @@
 
-@import    '../../styles/style.scss' ;
+@use     '../../styles/style.scss' ;
 //include stl.basereset;
+@use '@angular/material' as mat;
 
-
-
-//---------------------------------------------------
-// region
 $bg-header-color: #ff6628;
 $bg-footer-color: #111c2b;
 $c5: #f3f6f6;
 $c7: #e5ebee;
 $c3: #3b3f40;
 $c6: #8c989b;
-$color-logo: #ffbd35;
-$bg-color: $bg-header-color;  // #284074;
-//$bg-footer-color: #f05e25;  // #445477;
-//$color-logo: #ffbd35;
-$nav-color: $c5;
-$color-hover: #dfe6e7;
+$color-not-viaw-logo:mat.get-color-from-palette(style.$mat-warn,"lighter");// #ffbd35;
+$bg-color:  mat.get-color-from-palette(style.$theme-primary,"main");
+$color: mat.get-color-from-palette(style.$theme-primary,"main-contrast");
+$color-hover:mat.get-color-from-palette(style.$theme-primary,"lighter");
+//---------------------------------------------------
+// region
+
 ._container_nav {
   min-height: 95px;
   padding: 0;
-  display: flex;
- // background-color: $bg-color;
+  display: flex; 
   justify-content: space-between;
 }
 
@@ -34,7 +31,7 @@ $color-hover: #dfe6e7;
 .nav_link {
   display: flex;
   align-items: center;
-  color: $nav-color;
+  color: $color;
   text-decoration: none;  // test host!!!
   background-color: $bg-color;
   &:hover {
@@ -51,7 +48,7 @@ $color-hover: #dfe6e7;
   height: 70px;;
   // width: 70px;
   display: flex;
-  border-radius: 20%;
+  //border-radius: 20%;
   vertical-align: middle ;
   margin-left: 0.9rem;
   margin-right: 0.2rem;
@@ -60,7 +57,7 @@ $color-hover: #dfe6e7;
   //argin-top: 10px;
   margin-left: 0.4rem;
   display: none;
-  color: $color-logo;
+ // color: $color-logo;
   &:hover {
     color: $color-hover;
   }
@@ -68,14 +65,14 @@ $color-hover: #dfe6e7;
 .logo_inner-name-2 {
   //argin-top: 10px;
   display: none;
-  color: $bg-footer-color;
+ // color: $bg-footer-color;
   &:hover {
     color: $color-hover;
   }
 }
 .logo-position-name{
   display: flex;
-  color: $color-logo;
+  color: $color-not-viaw-logo;
   &:hover {
     color: $color-hover;
   }
@@ -120,24 +117,8 @@ $color-hover: #dfe6e7;
   margin-left: 0.5rem;
 }
 
-.account_botton_false{
-  // background-color: none; // #eeeff1;
-  border-color: #dfe6e7;
-  margin-left: 0.2rem;
-  background-color: burlywood;
 
- }
-
-  .account_botton_ok{
-  background-color: #4cb66c;
-  color: #fff;
-   border-color: #dfe6e7;
-   margin-left: 0.2rem;
-
- }
-  .active{
-    color: #000;
-  }
+  
 //-------------------------------
 @media (min-width: 450px){
 

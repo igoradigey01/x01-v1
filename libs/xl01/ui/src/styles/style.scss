@@ -1,11 +1,10 @@
-
-
 /**
 * Generated theme by Material Theme Generator
 * https://materialtheme.arcsine.dev
-* Fork at: https://materialtheme.arcsine.dev/?c=YHBhbGV0dGU$YHByaW1hcnk$YF48IzYwNjA0MiIsIj9lcjwjY2ZjZmM2IiwiO2VyPCM0NDQ0MmJ$LCIlPmBePCNjNmM2MmUiLCI~ZXI8I2VlZWVjMCIsIjtlcjwjYjFiMTFkfiwid2Fybj5gXjwjZjMwMDAwIiwiP2VyPCNmYmIzYjMiLCI7ZXI8I2VkMDAwMH4sIj9UZXh0PCMwMDAwMDAiLCI~PTwjZmFmYWZhIiwiO1RleHQ8I2ZmZmZmZiIsIjs9PCMyYzJjMmN$LCJmb250cz5bYEA8KC00fixgQDwoLTN$LGBAPCgtMn4sYEA8KC0xfixgQDxoZWFkbGluZX4sYEA8dGl0bGV$LGBAPHN1YiktMn4sYEA8c3ViKS0xfixgQDxib2R5LTJ$LGBAPGJvZHktMX4sYEA8YnV0dG9ufixgQDxjYXB0aW9ufixgQDxpbnB1dCIsInNpemU$bnVsbH1dLCJpY29uczxGaWxsZWQiLCI~bmVzcz50cnVlLCJ2ZXJzaW9uPjEzfQ==
+* Fork at: https://materialtheme.arcsine.dev/?c=YHBhbGV0dGU$YHByaW1hcnk$YF48I2NjMzNjYSIsIj9lcjwjZjBjMmVmIiwiO2VyPCNiOTIwYjd$LCIlPmBePCM3OTc5NzkiLCI~ZXI8I2Q3ZDdkNyIsIjtlcjwjNWM1YzVjfiwid2Fybj5gXjwjZmYwMDAwIiwiP2VyPCNmZmIzYjMiLCI7ZXI8I2ZmMDAwMH4sIj9UZXh0PCMwMDAwMDAiLCI~PTwjZmFmYWZhIiwiO1RleHQ8I2ZmZmZmZiIsIjs9PCMyYzJjMmN$LCJmb250cz5bYEA8KC00fixgQDwoLTN$LGBAPCgtMn4sYEA8KC0xfixgQDxoZWFkbGluZX4sYEA8dGl0bGV$LGBAPHN1YiktMn4sYEA8c3ViKS0xfixgQDxib2R5LTJ$LGBAPGJvZHktMX4sYEA8YnV0dG9ufixgQDxjYXB0aW9ufixgQDxpbnB1dCIsInNpemU$bnVsbH1dLCJpY29uczxGaWxsZWQiLCI~bmVzcz50cnVlLCJ2ZXJzaW9uPjEzfQ==
 */
 
+@use "sass:map";
 @use '@angular/material' as mat;
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -151,18 +150,18 @@ $mat-dark-theme-background: (
 // Theme Config
 
 body {
-  --primary-color: #606042;
-  --primary-lighter-color: #cfcfc6;
-  --primary-darker-color: #44442b;
+  --primary-color: #cc33ca;
+  --primary-lighter-color: #f0c2ef;
+  --primary-darker-color: #b920b7;
   --text-primary-color: #{$light-primary-text};
   --text-primary-lighter-color: #{$dark-primary-text};
   --text-primary-darker-color: #{$light-primary-text};
 }   
 $mat-primary: (
-  main: #606042,
-  lighter: #cfcfc6,
-  darker: #44442b,
-  200: #606042, // For slide toggle,
+  main: #cc33ca,
+  lighter: #f0c2ef,
+  darker: #b920b7,
+  200: #cc33ca, // For slide toggle,
   contrast : (
     main: $light-primary-text,
     lighter: $dark-primary-text,
@@ -173,40 +172,40 @@ $theme-primary: mat.define-palette($mat-primary, main, lighter, darker);
 
 
 body {
-  --accent-color: #c6c62e;
-  --accent-lighter-color: #eeeec0;
-  --accent-darker-color: #b1b11d;
-  --text-accent-color: #{$dark-primary-text};
+  --accent-color: #797979;
+  --accent-lighter-color: #d7d7d7;
+  --accent-darker-color: #5c5c5c;
+  --text-accent-color: #{$light-primary-text};
   --text-accent-lighter-color: #{$dark-primary-text};
-  --text-accent-darker-color: #{$dark-primary-text};
+  --text-accent-darker-color: #{$light-primary-text};
 }   
 $mat-accent: (
-  main: #c6c62e,
-  lighter: #eeeec0,
-  darker: #b1b11d,
-  200: #c6c62e, // For slide toggle,
+  main: #797979,
+  lighter: #d7d7d7,
+  darker: #5c5c5c,
+  200: #797979, // For slide toggle,
   contrast : (
-    main: $dark-primary-text,
+    main: $light-primary-text,
     lighter: $dark-primary-text,
-    darker: $dark-primary-text,
+    darker: $light-primary-text,
   )
 );
 $theme-accent: mat.define-palette($mat-accent, main, lighter, darker);
 
 
 body {
-  --warn-color: #f30000;
-  --warn-lighter-color: #fbb3b3;
-  --warn-darker-color: #ed0000;
+  --warn-color: #ff0000;
+  --warn-lighter-color: #ffb3b3;
+  --warn-darker-color: #ff0000;
   --text-warn-color: #{$light-primary-text};
   --text-warn-lighter-color: #{$dark-primary-text};
   --text-warn-darker-color: #{$light-primary-text};
 }   
 $mat-warn: (
-  main: #f30000,
-  lighter: #fbb3b3,
-  darker: #ed0000,
-  200: #f30000, // For slide toggle,
+  main: #ff0000,
+  lighter: #ffb3b3,
+  darker: #ff0000,
+  200: #ff0000, // For slide toggle,
   contrast : (
     main: $light-primary-text,
     lighter: $dark-primary-text,
@@ -234,11 +233,13 @@ $altTheme: (
 );
 
 // Theme Init
-@include mat.all-component-themes($theme);
+@include  mat.button-theme($theme);
+@include mat.toolbar-theme($theme);
+@include mat.icon-theme($theme);
 
-.theme-alternate {
-  @include mat.all-component-themes($altTheme);
-}
+//.theme-alternate {
+//  @include mat.all-component-themes($altTheme);
+//}
 
 // Specific component overrides, pieces that are not in line with the general theming
 

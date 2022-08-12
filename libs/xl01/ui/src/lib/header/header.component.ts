@@ -14,9 +14,9 @@ export class HeaderComponent implements OnInit {
   @Output()
   meny = new EventEmitter()
 
-  private _invalidLogin: boolean = true;
+  private _invalidLogin: boolean = false;
   private _isManager: boolean = false;
-  private _isAdmin: boolean = false;
+  private _isAdmin: boolean = true;
   private _isShopper: boolean = false;
   private _isOptovik:boolean=false;
 
