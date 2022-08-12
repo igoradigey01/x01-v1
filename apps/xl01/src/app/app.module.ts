@@ -4,13 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 
 import { RouterModule } from '@angular/router';
-import { UiModule } from '@x01-v1/ui';
+import { Xl01UiModule } from '@x01-v1/xl01/ui';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
-    UiModule,
+    Xl01UiModule,
     RouterModule.forRoot([], { initialNavigation: 'enabledBlocking' }),
   ],
   providers: [],

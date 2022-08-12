@@ -1,0 +1,14 @@
+{
+  "projectType": "library",
+  "sourceRoot": "libs/xl01/ui/src",
+  "prefix": "x01-v1",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/xl01/ui/**/*.ts", "libs/xl01/ui/**/*.html"]
+      }
+    }
+  },
+  "tags": ["scope:xl01ui-lib", "type:xl01-lib"]
+}

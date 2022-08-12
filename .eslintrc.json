@@ -14,20 +14,17 @@
             "depConstraints": [
               {
                 "sourceTag": "scope:xl01",
-                "onlyDependOnLibsWithTags": ["scope:xl01","type:lib","type:style-lib"]
+                "onlyDependOnLibsWithTags": ["scope:xl01","type:xl01-lib"]
               },
               {
                 "sourceTag": "scope:xf01",
                 "onlyDependOnLibsWithTags": ["scope:xf01"]
               },
               {
-                "sourceTag": "scope:ui-lib",
-                "onlyDependOnLibsWithTags": ["scope:ui-lib","type:style-lib"]
-              },
-              {
-                "sourceTag": "scope:shared-styles-lib",
-                "onlyDependOnLibsWithTags": ["scope:shared-styles-lib"]
+                "sourceTag": "scope:xl01ui-lib",
+                "onlyDependOnLibsWithTags": ["scope:xl01ui-lib","type:xl01-lib"]
               }
+              
             ]
           }
         ]

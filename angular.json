@@ -2,11 +2,10 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
-   
-    "ui": "libs/ui",
     "xf01": "apps/xf01",
     "xf01-e2e": "apps/xf01-e2e",
     "xl01": "apps/xl01",
-    "xl01-e2e": "apps/xl01-e2e"
+    "xl01-e2e": "apps/xl01-e2e",
+    "xl01-ui": "libs/xl01/ui"
   }
 }

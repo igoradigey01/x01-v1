@@ -1,8 +1,27 @@
 
-@import '../../style.scss';
+@use     '../../style' as stl ;
+//include stl.basereset;
 
+@use '@angular/material' as mat;
+//mat.core()(Основной) миксин должен быть включен ровно один раз для вашего приложения,
+// даже если вы определяете несколько тем.
+//@include mat.core();// o
+$my-primary: mat.define-palette(mat.$indigo-palette, 800);
+$my-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+// может быть свелой или темной 
+$my-light-theme: mat.define-light-theme((
+ color: (
+   primary: $my-primary,
+   accent: $my-accent,
+ )
+));
 
-.x01-tolbar{
+.x01-tolbar{  
+
+@include mat.core-theme($my-light-theme);
+
+@include mat.button-theme($my-light-theme);
+@include mat.toolbar-theme($my-light-theme);
 
 }
 
@@ -25,7 +44,7 @@ $color-hover: #dfe6e7;
   min-height: 95px;
   padding: 0;
   display: flex;
-  background-color: $bg-color;
+ // background-color: $bg-color;
   justify-content: space-between;
 }
 

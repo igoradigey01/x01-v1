@@ -1,5 +1,5 @@
 import { Component, OnInit,Output, EventEmitter,Input } from '@angular/core';
-import {meny} from './../_shared/_interfaces/meny.model'
+//import {meny} from './../_shared/_interfaces/meny.model'
 // ChangeDetectionStrategy https://habr.com/ru/company/infopulse/blog/358860/
 // logi_form https://github.com/VladiRR/svvs/blob/master/libs/frontend/client/ui/login-form/src/lib/login-form-ui/login-form-ui.component.ts
 //sample https://code-maze.com/angular-material-navigation/

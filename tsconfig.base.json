@@ -15,10 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-     
-      "@x01-v1/ui": ["libs/ui/src/index.ts"]
-      
-     
+      "@x01-v1/xl01/ui": ["libs/xl01/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
