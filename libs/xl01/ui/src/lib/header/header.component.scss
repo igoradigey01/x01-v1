@@ -1,7 +1,17 @@
 
 @use     '../../styles/style.scss' ;
+//@use   '../../styles/green' as pl;
 //include stl.basereset;
 @use '@angular/material' as mat;
+
+
+
+// .green-style {
+//   $green-palette: mat.define-palette(pl.$green-palette);
+//  background-color: mat.get-color-from-palette($green-palette,A100);
+//  color: mat.get-color-from-palette($green-palette, A100-contrast);
+//   @debug "color green_style :#{ background-color} " 
+// }
 
 
 $color-not-viaw-logo:mat.get-color-from-palette(style.$mat-warn,"lighter");// #ffbd35;

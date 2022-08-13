@@ -13,7 +13,9 @@
         "polyfills": "apps/xl01/src/polyfills.ts",
         "tsConfig": "apps/xl01/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
-        "assets": ["apps/xl01/src/favicon.ico", "apps/xl01/src/assets"],
+        "assets": ["apps/xl01/src/favicon.ico",
+         "apps/xl01/src/assets"        
+        ],
         "styles": ["apps/xl01/src/styles/styles.scss"],
         "stylePreprocessorOptions": {
           "includePaths": ["apps/xl01/src/styles/"]

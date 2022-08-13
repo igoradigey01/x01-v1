@@ -1,116 +1,109 @@
-
 <mat-toolbar color="primary" class="_container_nav ">
-    <div class="col_inner">
-      <a routerLink="" class="nav_link">
-        
-        <span class="logo_inner-name" *ngIf="company_name_1" >{{company_name_1}}</span>
-  
-        <img
-          class="logo_inner-img"
-          [src]="srcLogo"
-          alt=""
-          loading="lazy"
-        />
-        <span class="logo_inner-name-2">{{ company_name_2}}</span>
-      </a>
+  <div class="col_inner">
+    <a routerLink="" class="nav_link">
+
+      <span class="logo_inner-name" *ngIf="company_name_1">{{company_name_1}}</span>
+
+      <img class="logo_inner-img" [src]="srcLogo" alt="" loading="lazy" />
+      <span class="logo_inner-name-2">{{ company_name_2}}</span>
+    </a>
+  </div>
+  <div class="col_inner logo-column">
+    <div class="logo-position-name"> <span> {{company_name_1}}</span><span> -</span> <span> {{company_name_2}}</span>
     </div>
-    <div class="col_inner logo-column">
-      <div class="logo-position-name"> <span > {{company_name_1}}</span><span> -</span> <span > {{company_name_2}}</span></div>
-      <div class="commutation"></div>
-      <a class="nav_link" href="tel:+79280361055"> (+7-928-036-10-55 ) </a>
-  
-      <div class="conteiner-social-apps">
-     
-        <button type="button" class="btn btn-link">
-          <a href=" https://wa.me/+79280361055?text=Здравствуйте%20(xf-01)%20Меня%20интересует%20информация%20о%20 ">
-        <img src="./../../../assets/images/massager_social/Whatsapp_64.png" class="img-social-apps" alt="whatsapp" >
-      </a>
+    <div class="commutation"></div>
+    <a class="nav_link" href="tel:+79280361055"> (+7-928-036-10-55 ) </a>
+
+    <div class="conteiner-social-apps">
+
+      <button type="button" class="btn btn-link">
+        <a href=" https://wa.me/+79280361055?text=Здравствуйте%20(xf-01)%20Меня%20интересует%20информация%20о%20 ">
+          <img src="./../../../assets/images/massager_social/Whatsapp_64.png" class="img-social-apps" alt="whatsapp">
+        </a>
+      </button>
+
+    </div>
+  </div>
+
+  <div class="col_inner">
+    <!------------ start button menu-->
+    <div class="mobile-nav">
+      <!---       statr -->
+      <div class="menu-md">
+        <button mat-icon-button (click)="onMobaleMeny()" class="nav_link">
+          <mat-icon>menu</mat-icon>
         </button>
-  
       </div>
+      <!---------/-->
     </div>
-  
-    <div class="col_inner">
-      <!------------ start button menu-->
-      <div class="mobile-nav">
-        <!---       statr -->
-        <div class="menu-md">
-          <button mat-icon-button (click)="onMobaleMeny()" class="nav_link">
-            <mat-icon>menu</mat-icon>
-          </button>
-        </div>
-        <!---------/-->
+
+    <div class="menu-lg">
+      <span>
+        <a class="nav_link" routerLink="menu/kak-zakazat">Как заказать?</a>
+      </span>
+      <span>
+        <a class="nav_link" routerLink="menu/oplata-i-dostavka">Оплата и Доставка</a>
+      </span>
+      <span>
+        <a class="nav_link" routerLink="menu/garantiya">Гарантии</a>
+      </span>
+
+      <span>
+        <a class="nav_link" routerLink="menu/about">онас</a>
+      </span>
+
+      <!--start Role  --------------->
+      <!--- start Role ------>
+      <div style="display: flex" *ngIf="IsAdmin">
+
+        <button mat-raised-button color="accent" routerLink="admin">
+          Admin
+        </button>
+        <button mat-raised-button color="accent" routerLink="manager">
+          Manager
+        </button>
       </div>
-  
-      <div class="menu-lg">
-        <span>
-          <a class="nav_link" routerLink="menu/kak-zakazat">Как заказать?</a>
-        </span>
-        <span>
-          <a class="nav_link" routerLink="menu/oplata-i-dostavka">Оплата и Доставка</a>
-        </span>
-        <span>
-          <a class="nav_link" routerLink="menu/garantiya">Гарантии</a>
-        </span>
-  
-        <span>
-          <a class="nav_link" routerLink="menu/about">онас</a>
-        </span>
-  
-          <!--start Role  --------------->
-             <!--- start Role ------>
-        <div style="display: flex"  *ngIf="IsAdmin">
-          <button mat-flat-button color="accent" routerLink="admin">
-            Admin
-          </button>
-          <button mat-flat-button color="accent" routerLink="manager">
-            Manager
-          </button>
-        </div>
-  
-        <div class="nav-item" *ngIf="IsManager">
-          <button mat-flat-button color="accent" routerLink="manager">
-            Manager
-          </button>
-        </div>
-  
-        <div class="nav-item" *ngIf="IsShopper">
-          <button mat-flat-button color="accent" routerLink="orders">
-            Заказы
-          </button>
-        </div>
-  
-        <div class="nav-item" *ngIf="IsShopperOpt">
-          <button mat-flat-button color="accent" routerLink="/content/opt">
-            Оптовые цены
-          </button>
-        </div>
-        <!--end Role  --------------->
-  
-        <div class="nav-item">
-          <div *ngIf="InvalidLogin; then thenBlock; else elseBlock"></div>
-          <ng-template #elseBlock>
-            <button type="button" class="btn navbar-btn account_botton_ok" routerLink="/account/user-profile">
-              <picture>
-                <source srcset="./../../../assets/icon/log-in-1.webp" type="image/webp">
-              <img class="card-img-top" src="./../../../assets/icon/log-in-1.png" height="23" alt="ВХОД"  />
-            </picture>
-  
-            </button>
-          </ng-template>
-          <ng-template #thenBlock>
-            <button type="button" class="btn navbar-btn account_botton_false" routerLink="/account">
-              <picture>
-                <source srcset="./../../../assets/icon/log-in-1.webp" type="image/webp">
-              <img class="card-img-top" src="./../../../assets/icon/log-in-1.png" height="23" alt="ВЫХОД"  />
-            </picture>
-  
-  
-            </button>
-          </ng-template>
-        </div>
-  
+
+      <div class="nav-item" *ngIf="IsManager">
+        <button mat-raised-button color="accent" routerLink="manager">
+          Manager
+        </button>
       </div>
+
+      <div class="nav-item" *ngIf="IsShopper">
+        <button mat-raised-button color="accent" routerLink="orders">
+          Заказы
+        </button>
+      </div>
+
+      <div class="nav-item" *ngIf="IsShopperOpt">
+        <button mat-raised-button color="accent" routerLink="/content/opt">
+          Оптовые цены
+        </button>
+      </div>
+      <!--end Role  --------------->
+
+      <div class="nav-item">
+        <div *ngIf="InvalidLogin; else elseBlock">
+
+          <button type="button" class="btn navbar-btn account_botton_false" routerLink="/account">
+            
+              <img  src="../../assets/icon/log-in-out.webp" height="23" alt="ВЫХОД" />
+                
+          </button>
+        </div>
+
+        <ng-template #elseBlock>
+          <button type="button" class="btn navbar-btn account_botton_ok" routerLink="/account/user-profile">
+            <picture>
+              <source srcset="../../assets/icon/log-in-ok.webp" type="image/webp">
+              <img class="card-img-top" src="../../assets/icon/log-in-ok.webp" height="23" alt="ВХОД" />
+            </picture>
+
+          </button>
+        </ng-template>
+      </div>
+
     </div>
-  </mat-toolbar>
-  
+  </div>
+</mat-toolbar>
