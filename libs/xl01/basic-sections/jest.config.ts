@@ -1,6 +1,6 @@
 /* eslint-disable */
 export default {
-  displayName: 'xl01-footer',
+  displayName: 'xl01-basic-sections',
   preset: '../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
@@ -9,7 +9,7 @@ export default {
       stringifyContentPathRegex: '\\.(html|svg)$',
     },
   },
-  coverageDirectory: '../../../coverage/libs/xl01/footer',
+  coverageDirectory: '../../../coverage/libs/xl01/basic-sections',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': 'jest-preset-angular',
   },

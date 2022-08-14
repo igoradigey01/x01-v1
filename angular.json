@@ -5,10 +5,9 @@
     "xf01": "apps/xf01",
     "xf01-e2e": "apps/xf01-e2e",
     "xl01": "apps/xl01",
+    "xl01-basic-sections": "libs/xl01/basic-sections",
     "xl01-e2e": "apps/xl01-e2e",
-    "xl01-footer": "libs/xl01/footer",
     "xl01-shared-styles": "libs/xl01/shared/styles",
-    "xl01-sidebar": "libs/xl01/sidebar",
     "xl01-ui": "libs/xl01/ui"
   }
 }

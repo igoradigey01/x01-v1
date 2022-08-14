@@ -1,13 +1,13 @@
 {
   "projectType": "library",
-  "sourceRoot": "libs/xl01/sidebar/src",
+  "sourceRoot": "libs/xl01/basic-sections/src",
   "prefix": "x01-v1",
   "targets": {
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/xl01/sidebar"],
+      "outputs": ["coverage/libs/xl01/basic-sections"],
       "options": {
-        "jestConfig": "libs/xl01/sidebar/jest.config.ts",
+        "jestConfig": "libs/xl01/basic-sections/jest.config.ts",
         "passWithNoTests": true
       }
     },
@@ -15,8 +15,8 @@
       "executor": "@nrwl/linter:eslint",
       "options": {
         "lintFilePatterns": [
-          "libs/xl01/sidebar/**/*.ts",
-          "libs/xl01/sidebar/**/*.html"
+          "libs/xl01/basic-sections/**/*.ts",
+          "libs/xl01/basic-sections/**/*.html"
         ]
       }
     }
