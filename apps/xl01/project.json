@@ -13,14 +13,14 @@
         "polyfills": "apps/xl01/src/polyfills.ts",
         "tsConfig": "apps/xl01/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
-        "assets": ["apps/xl01/src/favicon.ico",
-         "apps/xl01/src/assets" ,
-         
-         {
-          "glob": "**/*",
-          "input": "libs/xl01/iu/src/assets",
-          "output": "assets/ui"
-          }       
+        "assets": [
+          "apps/xl01/src/favicon.ico",
+          "apps/xl01/src/assets",
+          {
+            "glob": "**/*",
+            "input": "libs/xl01/iu/src/assets",
+            "output": "assets/ui"
+          }
         ],
         "styles": ["apps/xl01/src/styles/styles.scss"],
         "stylePreprocessorOptions": {
