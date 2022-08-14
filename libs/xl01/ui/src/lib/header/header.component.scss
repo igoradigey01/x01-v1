@@ -4,14 +4,11 @@
 //include stl.basereset;
 @use '@angular/material' as mat;
 
+.mat-button-base {
+  margin: 8px 8px 8px 0;
+}
 
 
-// .green-style {
-//   $green-palette: mat.define-palette(pl.$green-palette);
-//  background-color: mat.get-color-from-palette($green-palette,A100);
-//  color: mat.get-color-from-palette($green-palette, A100-contrast);
-//   @debug "color green_style :#{ background-color} " 
-// }
 
 
 $color-not-viaw-logo:mat.get-color-from-palette(style.$mat-warn,"lighter");// #ffbd35;
@@ -19,6 +16,35 @@ $bg-color:  mat.get-color-from-palette(style.$theme-primary,"main");
 $color: mat.get-color-from-palette(style.$theme-primary,"main-contrast");
 $color-hover:mat.get-color-from-palette(style.$theme-primary,"lighter");
 //---------------------------------------------------
+.log-in{
+  background-color: $bg-color;
+  margin-top: 4px;
+  &:hover {
+    border-radius: 10%;
+    background-color: mat.get-color-from-palette(style.$mat-accent,"main");
+  }
+  
+}
+
+.log-ok{
+  background-color:  mat.get-color-from-palette(style.$mat-accent,"main");
+  margin-top: 4px;
+  border-radius: 10%;
+  &:hover {
+    background-color: $bg-color;
+  }  
+}
+
+.watchapp{
+  background-color: $bg-color;
+   width: 32px;
+   height: 32px;
+  &:hover {
+    border-radius: 50%;
+    background-color: mat.get-color-from-palette(style.$mat-accent,"main");
+  }
+
+}
 // region
 
 ._container_nav {
@@ -35,7 +61,8 @@ $color-hover:mat.get-color-from-palette(style.$theme-primary,"lighter");
 
 .nav_link {
   display: flex;
-  align-items: center;
+  margin-top: 8px;
+  align-items: stretch;
   color: $color;
   text-decoration: none;  // test host!!!
   background-color: $bg-color;

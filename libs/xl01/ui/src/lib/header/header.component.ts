@@ -17,7 +17,7 @@ export class HeaderComponent implements OnInit {
 
   private _invalidLogin: boolean = true;
   private _isManager: boolean = false;
-  private _isAdmin: boolean = true;
+  private _isAdmin: boolean = false;
   private _isShopper: boolean = false;
   private _isOptovik:boolean=false;
 
