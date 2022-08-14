@@ -1,1 +1,80 @@
 <p>sidebar works!</p>
+ <!--
+    <ul class="navbar-nav me-auto my-2 pe-2">
+      <li class="nav-item py-1">
+        <div style="display: inline-block;">
+          <div *ngIf="InvalidLogin; then falseAccout_md; else okAccount_md"></div>
+          <ng-template #okAccount_md>
+            <button type="button" class="btn navbar-btn account_botton_ok" (click)="drawer.toggle()"
+              routerLink="/account/user-profile">
+              <picture>
+                <source srcset="./../../../assets/icon/log-in-1.webp" type="image/webp">
+              <img class="card-img-top" src="./../../../assets/icon/log-in-1.png" height="23" alt="ВХОД"  />
+            </picture>
+
+            </button>
+          </ng-template>
+          <ng-template #falseAccout_md>
+            <button type="button" class="btn navbar-btn account_botton_false" (click)="drawer.toggle()"
+              routerLink="/account">
+              <picture>
+                <source srcset="./../../../assets/icon/log-in-1.webp" type="image/webp">
+              <img class="card-img-top" src="./../../../assets/icon/log-in-1.png" height="23" alt="ВЫХОД"  />
+            </picture>
+
+            </button>
+          </ng-template>
+        </div>
+
+
+      </li>
+      <li class="nav-item py-1" >
+          
+      <div style="display: inline-block;"  *ngIf="IsAdmin">
+        <button type="button" (click)="drawer.toggle()" class="btn navbar-btn account_botton_ok" routerLink="admin">
+          Admin
+        </button>
+        <button type="button" (click)="drawer.toggle()" class="btn navbar-btn account_botton_ok" routerLink="manager">
+          Manager
+        </button>
+      </div>
+        <div  style="display: inline-block;" *ngIf="IsManager">
+          <button type="button" (click)="drawer.toggle()" class="btn navbar-btn account_botton_ok" routerLink="manager">
+            Manager
+          </button>
+        </div>
+
+        <div  style="display: inline-block;" *ngIf="IsShopper">
+          <button type="button" (click)="drawer.toggle()" class="btn navbar-btn account_botton_ok" routerLink="orders">
+            Заказы
+          </button>
+        </div>
+        <div class="nav-item" *ngIf="IsShopperOpt">
+          <button type="button" (click)="drawer.toggle()" class="btn navbar-btn account_botton_ok" routerLink="/content/opt">
+            Оптовые цены
+          </button>
+        </div>
+      </li>
+
+      <li class="nav-item py-1" >
+        <a class="nav-link body-2 app-nav-link " (click)="drawer.toggle()" routerLink="">Home</a>
+      </li>
+
+      <li class="nav-item py-1" >
+        <a class="nav-link body-2 app-nav-link " (click)="drawer.toggle()" routerLink="menu/kak-zakazat">Как заказать?</a>
+      </li>
+      <li class="nav-item py-1" >
+        <a class="nav-link body-2 app-nav-link " (click)="drawer.toggle()" routerLink="menu/oplata-i-dostavka">Оплата и Доставка</a>
+      </li>
+      <li class="nav-item py-1">
+        <a class="nav-link body-2 app-nav-link " (click)="drawer.toggle()" routerLink="menu/garantiya">Гарантии</a>
+      </li>
+
+      <li class="nav-item py-1">
+        <a class="nav-link body-2 app-nav-link " (click)="drawer.toggle()" routerLink="menu/about">онас</a>
+      </li>
+
+
+    </ul>
+
+-->

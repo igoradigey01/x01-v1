@@ -1,11 +1,23 @@
-<div >
-    <div class="x01-tolbar">
+<div>
 <x01-v1-header
 [srcLogo]="_srcLogo"
 [company_name_1]=" _company_name_1"
 [company_name_2]=" _company_name_2"
 ></x01-v1-header>
-</div>
+<mat-drawer-container class="example-container">
+    <mat-drawer mode="side" opened>
+        Drawer content
+        <x01-v1-sidebar>
 
-<router-outlet></router-outlet>
+        </x01-v1-sidebar>
+    
+    </mat-drawer>
+    <mat-drawer-content>Main content
+       
+    </mat-drawer-content>
+  </mat-drawer-container>
+
+
+
+<x01-v1-footer></x01-v1-footer>
 </div>
