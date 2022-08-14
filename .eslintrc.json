@@ -24,6 +24,16 @@
                 "sourceTag": "scope:xl01ui-lib",
                 "onlyDependOnLibsWithTags": ["scope:xl01ui-lib","type:xl01-lib"]
               }
+              ,
+              {
+                "sourceTag": "scope:xl01bs-lib",
+                "onlyDependOnLibsWithTags": ["scope:xl01bs-lib", "type:xl01-lib"]
+              }
+              ,
+              {
+                "sourceTag": "scope:styles-lib",
+                "onlyDependOnLibsWithTags": ["scope:styles-lib", "type:xl01-lib"]
+              }
               
             ]
           }

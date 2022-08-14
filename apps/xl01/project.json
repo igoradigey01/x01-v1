@@ -15,12 +15,7 @@
         "inlineStyleLanguage": "scss",
         "assets": [
           "apps/xl01/src/favicon.ico",
-          "apps/xl01/src/assets",
-          {
-            "glob": "**/*",
-            "input": "libs/xl01/iu/src/assets",
-            "output": "assets/ui"
-          }
+          "apps/xl01/src/assets"
         ],
         "styles": ["apps/xl01/src/styles/styles.scss"],
         "stylePreprocessorOptions": {
