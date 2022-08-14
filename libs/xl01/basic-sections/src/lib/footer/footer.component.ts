@@ -6,6 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./footer.component.scss'],
 })
 export class FooterComponent implements OnInit {
+
+  name = 'ЛДСП && МДФ Ханская';
+  year:number=new Date(2022,8,14).getFullYear();
+  title:string=" ИП Дячук ";
+
   constructor() {}
 
   ngOnInit(): void {}

@@ -1,23 +1,33 @@
-<div>
-<x01-v1-header
+
+<x01-v1-header 
 [srcLogo]="_srcLogo"
 [company_name_1]=" _company_name_1"
 [company_name_2]=" _company_name_2"
+class="example-toolbar"
 ></x01-v1-header>
-<mat-drawer-container class="example-container">
-    <mat-drawer mode="side" opened>
-        Drawer content
-        <x01-v1-sidebar>
 
-        </x01-v1-sidebar>
-    
-    </mat-drawer>
-    <mat-drawer-content>Main content
+<div name="main" class="_conteiner"
+    [ngClass]="{
+      'grid-container2': _flagPanel,
+      'grid-container1': ! _flagPanel 
+    }"
+  >
+    <div class="sidenav" [ngClass]="{ hiden: !_flagKatalogHiden }" (click)="ViwePanel()">
+     
+       <x01-v1-sidebar>
+        
+       </x01-v1-sidebar>
        
-    </mat-drawer-content>
-  </mat-drawer-container>
+       
+     
+    </div>
+    
+    <div class="main_content">
+           
+              <p>main content</p>
+              <button mat-raised-button color="accent" (click)="ViwePanel()" >on_meny_clicK</button>
+  </div>
 
-
-
-<x01-v1-footer></x01-v1-footer>
+  <!----------------- create end-->
 </div>
+<x01-v1-footer></x01-v1-footer>
