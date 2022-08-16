@@ -1,13 +1,13 @@
 @use "../styles/style";
-@use '@angular/material' as mat;
+@use "@angular/material" as mat;
 
 $border: 2px inset #393939;
 // #ffbd35;
 
-$color: mat.get-color-from-palette(style.$theme-primary,"main-contrast");
-$color-hover:mat.get-color-from-palette(style.$theme-primary,"lighter");
+$color: mat.get-color-from-palette(style.$theme-primary, "main-contrast");
+$color-hover: mat.get-color-from-palette(style.$theme-primary, "lighter");
 
-._conteiner{
+._conteiner {
   width: 100%;
   height: 400px;
 }
@@ -15,16 +15,25 @@ $color-hover:mat.get-color-from-palette(style.$theme-primary,"lighter");
 .hiden {
   display: none;
 }
-.sidenav{
-  background-color: rgba( mat.get-color-from-palette(style.$mat-accent,"lighter"),0.4);
+.sidenav {
+  background-color: rgba(mat.get-color-from-palette(style.$mat-accent, "lighter"), 0.4);
   justify-items: start;
   border-right: $border;
-  opacity: 0.4;
+}
+.sidenav-header {
+  width: 100%;
+  height: 24px;
+  margin-top: 8px;
+  background-color: mat.get-color-from-palette(style.$theme-accent, "lighter");
+  :hover{
+    background-color: mat.get-color-from-palette(style.$theme-accent, "main");
+    color: mat.get-color-from-palette(style.$theme-accent, "main-contrast");;
+  }
 }
 
-.main_content{
-  background-color: white;
 
+.main_content {
+  background-color: white;
 }
 
 .grid-container1 {
@@ -40,5 +49,5 @@ $color-hover:mat.get-color-from-palette(style.$theme-primary,"lighter");
   width: 100%;
   margin-left: 0;
   margin-right: 0;
-  grid-template-columns:  auto;
+  grid-template-columns: auto;
 }

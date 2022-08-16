@@ -1,0 +1,35 @@
+@use     '../../style.scss'  ;
+//@use   '../../styles/green' as pl;
+//include stl.basereset;
+@use '@angular/material' as mat;
+
+.mat-button-base {
+  margin: 8px 8px 8px 0;
+}
+
+
+
+
+$color-not-viaw-logo:mat.get-color-from-palette(style.$mat-warn,"lighter");// #ffbd35;
+$bg-color:  mat.get-color-from-palette(style.$theme-primary,"main");
+$color: mat.get-color-from-palette(style.$theme-primary,"main-contrast");
+$color-hover:mat.get-color-from-palette(style.$theme-primary,"lighter");
+//---------------------------------------------------
+.log-in{
+  background-color: $bg-color;
+  margin-top: 4px;
+  &:hover {
+    border-radius: 10%;
+    background-color: mat.get-color-from-palette(style.$mat-accent,"main");
+  }
+  
+}
+
+.log-ok{
+  background-color:  mat.get-color-from-palette(style.$mat-accent,"main");
+  margin-top: 4px;
+  border-radius: 10%;
+  &:hover {
+    background-color: $bg-color;
+  }  
+}

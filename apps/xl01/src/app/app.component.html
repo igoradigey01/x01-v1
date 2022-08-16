@@ -3,6 +3,7 @@
 [srcLogo]="_srcLogo"
 [company_name_1]=" _company_name_1"
 [company_name_2]=" _company_name_2"
+(onSideBar)="onSideBarVisible()"
 class="example-toolbar"
 ></x01-v1-header>
 
@@ -12,9 +13,18 @@ class="example-toolbar"
       'grid-container1': ! _flagPanel 
     }"
   >
-    <div class="sidenav" [ngClass]="{ hiden: !_flagKatalogHiden }" (click)="ViwePanel()">
+    <div class="sidenav" [ngClass]="{ hiden: !_flagSideBarHiden }" >
+    <div class="sidenav-header" (click)="onSideBarVisible()" >
+      <div style=" height: 24px;">
+        <span><mat-icon aria-hidden="false" aria-label="navigate before icon" fontIcon="navigate_before"></mat-icon></span>
+  
+       
+    </div>
+    </div>
      
-       <x01-v1-sidebar>
+       <x01-v1-sidebar
+       (onSideBar)="onSideBarVisible()"
+       >
         
        </x01-v1-sidebar>
        
@@ -25,7 +35,7 @@ class="example-toolbar"
     <div class="main_content">
            
               <p>main content</p>
-              <button mat-raised-button color="accent" (click)="ViwePanel()" >on_meny_clicK</button>
+              <button mat-raised-button color="accent" (click)="onSideBarVisible()" >on_meny_clicK</button>
   </div>
 
   <!----------------- create end-->

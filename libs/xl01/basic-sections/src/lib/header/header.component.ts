@@ -1,4 +1,5 @@
 import { Component, OnInit,Output, EventEmitter,Input  } from '@angular/core';
+
 // ChangeDetectionStrategy https://habr.com/ru/company/infopulse/blog/358860/
 // logi_form https://github.com/VladiRR/svvs/blob/master/libs/frontend/client/ui/login-form/src/lib/login-form-ui/login-form-ui.component.ts
 //sample https://code-maze.com/angular-material-navigation/
@@ -10,7 +11,7 @@ import { Component, OnInit,Output, EventEmitter,Input  } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   @Output()
-  meny = new EventEmitter()
+  onSideBar = new EventEmitter()
 
   private _invalidLogin: boolean = true;
   private _isManager: boolean = false;
@@ -54,8 +55,8 @@ export class HeaderComponent implements OnInit {
     public get InvalidLogin():boolean{
       return this._invalidLogin;
     }
-    public onMobaleMeny(): void {
-    //  this.login.emit(this.loginForm.value)
-     this.meny.emit();
-    }
+    public onSideBarVisible(): void {
+      //  this.login.emit(this.loginForm.value)
+       this.onSideBar.emit();
+      }
 }

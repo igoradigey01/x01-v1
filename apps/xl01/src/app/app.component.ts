@@ -14,13 +14,13 @@ export class AppComponent {
 
   _flagPanel: boolean = true;
  // _flagPanel2: boolean = false;
-  _flagKatalogHiden = false;
+  _flagSideBarHiden = false;
 
   //---------------------------------------
-  ViwePanel() {
+  onSideBarVisible() {
     this._flagPanel = !this._flagPanel;
   //  this._flagPanel2 = !this._flagPanel2;
-    this._flagKatalogHiden = !this._flagKatalogHiden;
+    this._flagSideBarHiden = !this._flagSideBarHiden;
   }
   
 }
