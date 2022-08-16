@@ -1,3 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
-@forward  'libs/xl01/shared/styles/src/styles/_style.scss';
-//@include r.reset-css() ;
+@forward    'libs/xl01/shared/styles/src/styles/_style.scss';
+@use '../../../../ws-styles/base/reset' as r;
+@include r.reset-css() ;

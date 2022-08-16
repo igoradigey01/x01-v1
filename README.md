@@ -25,4 +25,4 @@ This project was generated using [Nx](https://nx.dev).
         "includePaths": ["apps/xf01/src/styles/"] 
         },                                        
    ```
-
+  [MaterialThemeGenerator](https://github.com/arciisine/MaterialThemeGenerator)
