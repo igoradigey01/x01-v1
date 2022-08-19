@@ -1,14 +1,14 @@
 @use     '../../style.scss'  ;
-@use '@angular/material' as mat;
+//@use '@angular/material' as mat;
 
 
 
 .footer {
     display: flex;
     padding: 20px;
-    background :mat.get-color-from-palette(style.$theme-accent,"darker");
+    background : style.$bg-color-accent-darker;
     min-height: 60px;
-    color: mat.get-color-from-palette(style.$theme-accent,"darker-contrast");
+    color: style.$color-accent-darker;
    // align-items: center;
   }
   .copirate{
@@ -19,7 +19,7 @@
   .nav_link{
     &:hover {
         border-radius: 10%;
-        color: mat.get-color-from-palette(style.$theme-accent,"lighter");
+        color: style.$bg-color-accent-lighter;
       }
 
   }

@@ -19,3 +19,9 @@ yarn init <br>
 // vender-doc color theme created https://material.io/design/color/the-color-system.html#color-theme-creation
 // vender-doc      palete                       https://material.io/design/color/the-color-system.html#color-theme-creation
 ```
+
+### Сhoice of application state storage Subject/BehaviorSubject or NGRX
+[Как управлять состоянием ](https://habr.com/ru/company/custis/blog/516290/)
+[NgRx && NGXS ](https://medium.com/@overthesanity/ngrx-ngxs-%D0%B2%D0%B7%D0%B3%D0%BB%D1%8F%D0%B4-%D1%81-%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B9-%D1%81%D1%82%D0%BE%D1%80%D0%BE%D0%BD%D1%8B-b03c11c3d529)
+
+[Динамические модули](https://nestjs.ru.com/guide/fundamentals/dynamic-modules.html)
