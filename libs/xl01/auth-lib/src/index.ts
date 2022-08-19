@@ -1,1 +1,1 @@
-export * from './lib/xl01-auth-lib.module';
+export * from './lib/xl01-auth.module';

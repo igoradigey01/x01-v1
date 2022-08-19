@@ -4,4 +4,4 @@ import { CommonModule } from '@angular/common';
 @NgModule({
   imports: [CommonModule],
 })
-export class Xl01AuthLibModule {}
+export class Xl01AuthModule {}
