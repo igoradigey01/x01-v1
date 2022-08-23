@@ -13,7 +13,15 @@
         "polyfills": "apps/xl01/src/polyfills.ts",
         "tsConfig": "apps/xl01/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
-        "assets": ["apps/xl01/src/favicon.ico", "apps/xl01/src/assets"],
+        "assets": ["apps/xl01/src/favicon.ico",
+         "apps/xl01/src/assets",
+         {"input" :"libs/xl01/ui/src/assets",
+            "glob":"**/*",
+            "output":"assets/ui"
+
+         }
+        
+        ],
         "styles": ["apps/xl01/src/styles/_style.scss"],
         "scripts": []
       },

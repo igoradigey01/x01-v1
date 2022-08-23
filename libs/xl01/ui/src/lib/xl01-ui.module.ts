@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {MaterialModule} from './material.module'
+import {ImgRenderComponent} from  '../lib/img-render/img-render.component'
 
 
 @NgModule({
@@ -9,9 +10,11 @@ import {MaterialModule} from './material.module'
     MaterialModule
   ],
   declarations:[
+    ImgRenderComponent
   
   ],
   exports:[
+    ImgRenderComponent
 
   ]
 })

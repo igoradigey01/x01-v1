@@ -1,6 +1,7 @@
 
 import {ChangeDetectorRef, Component, OnDestroy} from '@angular/core';
 
+
 @Component({
   selector: 'x01-v1-root',
   templateUrl: './app.component.html',
@@ -9,6 +10,7 @@ import {ChangeDetectorRef, Component, OnDestroy} from '@angular/core';
 export class AppComponent {
   title = 'xl01';
   public _srcLogo:string='./../assets/logo/logo.webp';
+  public _srcMenuJson:string="../assets/menu.json"
   public _company_name_1:string|undefined;
   public _company_name_2:string="XL01"
 

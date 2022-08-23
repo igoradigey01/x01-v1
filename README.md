@@ -25,4 +25,24 @@ This project was generated using [Nx](https://nx.dev).
         "includePaths": ["apps/xf01/src/styles/"] 
         },                                        
    ```
+
+  ###  Material Theme
   [MaterialThemeGenerator](https://github.com/arciisine/MaterialThemeGenerator)
+
+  ### assets in libs/ui img-render
+  ```
+  [libs/xl01/ui/src/assets/logo1.jpg]
+  [libs/xl01/ui/src/lib/img-render.componet.html ]
+  <img height="60" width="300" src="/assets/ui/logo1.jpg">
+  
+  [apps/xl01/project.json]
+
+  "assets": ["apps/xl01/src/favicon.ico",
+         "apps/xl01/src/assets",
+         {"input" :"libs/xl01/ui/src/assets",
+            "glob":"**/*",
+            "output":"assets/ui"
+
+         }
+
+  ```

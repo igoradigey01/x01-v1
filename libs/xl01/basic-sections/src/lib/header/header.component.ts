@@ -1,4 +1,14 @@
-import { Component, OnInit,Output, EventEmitter,Input  } from '@angular/core';
+import { Component, OnInit,Output, EventEmitter,Input, OnDestroy  } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable, Subscription } from 'rxjs';
+import {MenuService} from './../shared/services/menu.service'
+import { MenuItem } from '../shared/_interfaces/menu-item.model';
+
+
+// json https://www.angularjswiki.com/angular/how-to-read-local-json-files-in-angular/
+
+
+
 
 // ChangeDetectionStrategy https://habr.com/ru/company/infopulse/blog/358860/
 // logi_form https://github.com/VladiRR/svvs/blob/master/libs/frontend/client/ui/login-form/src/lib/login-form-ui/login-form-ui.component.ts
@@ -9,9 +19,13 @@ import { Component, OnInit,Output, EventEmitter,Input  } from '@angular/core';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit ,OnDestroy{
   @Output()
   onSideBar = new EventEmitter()
+   
+  
+  
+
 
   private _invalidLogin: boolean = true;
   private _isManager: boolean = false;
@@ -21,12 +35,35 @@ export class HeaderComponent implements OnInit {
 
  
 
+ private subscription: Subscription|undefined ;
+
+ 
+
 @Input() public company_name_1:string|undefined;
 @Input() public company_name_2:string=""; //First Site
 @Input() public srcLogo:string='';
-  constructor() {}
+@Input() public jsonMenuURL:string='';
 
-  ngOnInit(): void {}
+  constructor(
+    private menuService:MenuService
+
+  ) {}
+
+  ngOnInit(): void {
+   this.menuService.setMenuFromJSON(this.jsonMenuURL);
+  }
+
+  ngOnDestroy(): void {
+    this.subscription?.unsubscribe();
+      
+  }
+
+  public MenuItems=():MenuItem[]=>{
+    return this.menuService.getMenuItems();
+  }
+
+
+
   public get IsAdmin(): boolean {
     //  return true;
        if(this._isAdmin && !this._invalidLogin){
@@ -59,4 +96,5 @@ export class HeaderComponent implements OnInit {
       //  this.login.emit(this.loginForm.value)
        this.onSideBar.emit();
       }
+
 }

@@ -22,7 +22,7 @@ export class SessionService {
     this.sessionStore.add(session);
   }
 
-  update(id, session: Partial<Session>) {
+  update(id:ID, session: Partial<Session>) {
     this.sessionStore.update(id, session);
   }
 

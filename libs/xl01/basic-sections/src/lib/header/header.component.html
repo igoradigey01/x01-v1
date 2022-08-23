@@ -87,20 +87,10 @@
       </div>
   
       <div class="menu-lg">
-  
-        <span>
-          <a class="nav_link" routerLink="menu/kak-zakazat">Как заказать?</a>
-        </span>
-        <span>
-          <a class="nav_link" routerLink="menu/oplata-i-dostavka">Оплата и Доставка</a>
-        </span>
-        <span>
-          <a class="nav_link" routerLink="menu/garantiya">Гарантии</a>
-        </span>
-  
-        <span>
-          <a class="nav_link" routerLink="menu/about">онас</a>
-        </span>
+          <span  *ngFor="let item of _menuItems  " >
+            <a class="nav_link" routerLink="item.url" >{{ item.name }}</a>
+          </span>
+       
   
   
         <!--start Role  --------------->
@@ -219,3 +209,6 @@
       </div>
     </div>
   </mat-toolbar>
+  <ul>
+    <li *ngFor="let item of _menuItems  ">{{ item.name }} --{{item.url}}</li>
+  </ul> 
