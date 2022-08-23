@@ -1,6 +1,6 @@
 import { Component, OnInit,Output, EventEmitter,Input, OnDestroy  } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable, Subscription } from 'rxjs';
+
+
 import {MenuService} from './../shared/services/menu.service'
 import { MenuItem } from '../shared/_interfaces/menu-item.model';
 
@@ -19,7 +19,7 @@ import { MenuItem } from '../shared/_interfaces/menu-item.model';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit ,OnDestroy{
+export class HeaderComponent implements OnInit {
   @Output()
   onSideBar = new EventEmitter()
    
@@ -35,7 +35,7 @@ export class HeaderComponent implements OnInit ,OnDestroy{
 
  
 
- private subscription: Subscription|undefined ;
+// private subscription: Subscription|undefined ;
 
  
 
@@ -53,10 +53,7 @@ export class HeaderComponent implements OnInit ,OnDestroy{
    this.menuService.setMenuFromJSON(this.jsonMenuURL);
   }
 
-  ngOnDestroy(): void {
-    this.subscription?.unsubscribe();
-      
-  }
+  
 
   public MenuItems=():MenuItem[]=>{
     return this.menuService.getMenuItems();

@@ -87,7 +87,7 @@
       </div>
   
       <div class="menu-lg">
-          <span  *ngFor="let item of _menuItems  " >
+          <span  *ngFor="let item of MenuItems()  " >
             <a class="nav_link" routerLink="item.url" >{{ item.name }}</a>
           </span>
        
@@ -209,6 +209,4 @@
       </div>
     </div>
   </mat-toolbar>
-  <ul>
-    <li *ngFor="let item of _menuItems  ">{{ item.name }} --{{item.url}}</li>
-  </ul> 
+ 
