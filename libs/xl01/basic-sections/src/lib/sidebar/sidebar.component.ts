@@ -1,4 +1,6 @@
 import { Component, OnInit,Output, EventEmitter,Input  } from '@angular/core';
+import {MenuService} from './../shared/services/menu.service'
+import { MenuItem } from '../shared/_interfaces/menu-item.model';
 
 @Component({
   selector: 'x01-v1-sidebar',
@@ -10,15 +12,28 @@ export class SidebarComponent implements OnInit {
   @Output()
   onSideBar = new EventEmitter()
 
+  @Input() public jsonMenuURL:string='';
+
   private _invalidLogin: boolean = false;
   private _isManager: boolean = false;
   private _isAdmin: boolean = false;
   private _isShopper: boolean = false;
   private _isOptovik:boolean=false;
 
-  constructor() {}
 
-  ngOnInit(): void {}
+  public MenuItems=():MenuItem[]=>{
+    return this.menuService.getMenuItems();
+  }
+
+  constructor(
+    private menuService:MenuService
+
+  ) {}
+
+  ngOnInit(): void {
+
+    this.menuService.setMenuFromJSON(this.jsonMenuURL);
+  }
 
   public get IsAdmin(): boolean {
     //  return true;

@@ -44,6 +44,10 @@ export class HeaderComponent implements OnInit {
 @Input() public srcLogo:string='';
 @Input() public jsonMenuURL:string='';
 
+public MenuItems=():MenuItem[]=>{
+  return this.menuService.getMenuItems();
+}
+
   constructor(
     private menuService:MenuService
 
@@ -55,10 +59,7 @@ export class HeaderComponent implements OnInit {
 
   
 
-  public MenuItems=():MenuItem[]=>{
-    return this.menuService.getMenuItems();
-  }
-
+  
 
 
   public get IsAdmin(): boolean {

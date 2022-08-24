@@ -141,5 +141,9 @@
         </a>
       </ng-template>
     </span>
+
+    
+      <span *ngFor="let item of MenuItems()  ">{{ item.name }} -- {{item.url}}</span>
+  
   </mat-list-item>
 </mat-nav-list>

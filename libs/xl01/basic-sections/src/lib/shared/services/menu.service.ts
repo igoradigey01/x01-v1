@@ -20,17 +20,7 @@ export class MenuService {
         // console.log("test -- Katalog Servises - init ok")
     }
 
-    public MenuItems = (urlMenuJson: string): Observable<MenuItem[]> => {
-
-
-        let headers: HttpHeaders = new HttpHeaders({
-            Accept: 'application/json',
-            // Authorization: 'Bearer ' + this._token.AccessToken,
-        });
-
-
-        return this._http.get<MenuItem[]>(urlMenuJson, { headers });
-    };
+   
 
 
    public setMenuFromJSON(jsonMenuURL: string) {
