@@ -15,6 +15,7 @@ import {Xl01SharedStylesModule} from '@x01-v1/xl01/shared/styles';
   declarations: [AppComponent],
   imports: [
     BrowserModule,
+    
     Xl01UiModule,
     Xl01BasicSectionsModule,
     Xl01SharedStylesModule,

@@ -1,6 +1,7 @@
 import { Component, OnInit,Output, EventEmitter,Input  } from '@angular/core';
 import {MenuService} from './../shared/services/menu.service'
 import { MenuItem } from '../shared/_interfaces/menu-item.model';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'x01-v1-sidebar',
@@ -22,11 +23,16 @@ export class SidebarComponent implements OnInit {
 
 
   public MenuItems=():MenuItem[]=>{
-    return this.menuService.getMenuItems();
+
+    let m=this.menuService.getMenuItems();
+    console.log(m);
+
+    return m;
   }
 
   constructor(
-    private menuService:MenuService
+    private menuService:MenuService,
+    private router:Router
 
   ) {}
 
@@ -68,4 +74,12 @@ export class SidebarComponent implements OnInit {
     //  this.login.emit(this.loginForm.value)
      this.onSideBar.emit();
     }
+  public goTo(i:number){
+    let navs=this.MenuItems()
+  if(navs.length>0){
+
+   let nav  = navs[i];
+   this.router.navigate([nav.url]);
+  }
+  }  
 }

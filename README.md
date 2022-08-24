@@ -29,7 +29,7 @@ This project was generated using [Nx](https://nx.dev).
   ###  Material Theme
   [MaterialThemeGenerator](https://github.com/arciisine/MaterialThemeGenerator)
 
-  ### assets in libs/ui img-render
+  ### assets in libs/ui img-render  is ok
   ```
   [libs/xl01/ui/src/assets/logo1.jpg]
   [libs/xl01/ui/src/lib/img-render.componet.html ]
@@ -46,3 +46,9 @@ This project was generated using [Nx](https://nx.dev).
          }
 
   ```
+
+  ### Router not work routerLink="{{item.url}}"
+  ```
+   import { RouterModule } from '@angular/router';
+  ```
+  ### Prettier - Code formatter (расширение)

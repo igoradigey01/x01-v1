@@ -28,11 +28,13 @@ export class MenuService {
         // .map(data => data.json() as Array<Item>).map(data => data.json() as Array<Item>);
         fetch(jsonMenuURL).then(res => res.json())
             .then(jsonData => {
-                jsonData.map((menuItem: any) => {
-                    //  console.log(`${menuItem.id}: ${menuItem.name} ${menuItem.url}`);
-                    this._menuItems.push(<MenuItem>{ id: menuItem.id, name: menuItem.name, url: menuItem.url });
-                }
-                )
+                // jsonData.map((menuItem: any) => {
+                //     //  console.log(`${menuItem.id}: ${menuItem.name} ${menuItem.url}`);
+                //     this._menuItems.push(<MenuItem>{ id: menuItem.id, name: menuItem.name, url: menuItem.url });
+                // }
+                // )
+
+                this._menuItems =   jsonData
             });
 
 

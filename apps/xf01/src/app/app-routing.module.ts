@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 //import {ContentComponent} from './content-old_/content/content.component';
-import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
+import {PageNotFoundComponent} from '../../../../libs/xl01/basic-sections/src/lib/page-not-found/page-not-found.component';
 import {CategoriaNComponent} from './content_/categoria_/categoria-n/categoria-n.component'
 
 

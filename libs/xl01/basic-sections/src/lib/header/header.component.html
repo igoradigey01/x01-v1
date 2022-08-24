@@ -89,7 +89,7 @@
       <div class="menu-lg">
         
         <span  *ngFor="let item of MenuItems()  " >
-            <a class="nav_link"  >{{ item.name }}</a>
+            <a class="nav_link" routerLink="{{item.url}}" >{{ item.name }}</a>
           </span>
        
   
