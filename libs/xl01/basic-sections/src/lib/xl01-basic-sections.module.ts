@@ -13,7 +13,7 @@ import {PageNotFoundComponent } from '../lib/page-not-found/page-not-found.compo
 
 
 
-const routes: Routes = [
+export const routes: Routes = [
   {
     path: '',
     component: X01ShellComponent,
@@ -33,6 +33,7 @@ const routes: Routes = [
     RouterModule,
     HttpClientModule,
     ManagerServiceModule,
+    RouterModule.forRoot([], { initialNavigation: 'enabledNonBlocking' }),
   ],
   declarations: [
     FooterComponent,
