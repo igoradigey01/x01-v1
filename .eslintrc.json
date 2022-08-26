@@ -34,7 +34,11 @@
                 "sourceTag": "scope:styles-lib",
                 "onlyDependOnLibsWithTags": ["scope:styles-lib", "type:xl01-lib"]
               }
-              
+              ,
+              {
+                "sourceTag": "scope:xl01cs-lib",
+                "onlyDependOnLibsWithTags": ["scope:xl01cs-lib", "type:xl01-lib"]
+              }
             ]
           }
         ]

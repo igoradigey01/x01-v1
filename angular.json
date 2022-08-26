@@ -7,6 +7,7 @@
     "xl01": "apps/xl01",
     "xl01-auth-lib": "libs/xl01/auth-lib",
     "xl01-basic-sections": "libs/xl01/basic-sections",
+    "xl01-content-section": "libs/xl01/content-section",
     "xl01-e2e": "apps/xl01-e2e",
     "xl01-shared-styles": "libs/xl01/shared/styles",
     "xl01-ui": "libs/xl01/ui"
