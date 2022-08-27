@@ -9,7 +9,7 @@ $color-hover: style.$bg-color-primary-lighter;
 
 ._conteiner {
   width: 100%;
-  height: 400px;
+  min-height: 400px;
 }
 
 .hiden {
@@ -34,6 +34,8 @@ $color-hover: style.$bg-color-primary-lighter;
 
 .main_content {
   background-color: white;
+  margin: 0;
+  padding: 0;
 }
 
 .grid-container1 {

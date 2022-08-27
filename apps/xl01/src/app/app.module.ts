@@ -8,10 +8,11 @@ import { RouterModule } from '@angular/router';
 import { Xl01BasicSectionsModule } from '@x01-v1/xl01/basic-sections';
 import { MaterialModule } from './material.module';
 import { Xl01SharedStylesModule } from '@x01-v1/xl01/shared/styles';
-
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import {MainComponent} from '@x01-v1/xl01/basic-sections'
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, PageNotFoundComponent],
   imports: [
     BrowserModule,
 
@@ -20,7 +21,11 @@ import { Xl01SharedStylesModule } from '@x01-v1/xl01/shared/styles';
     MaterialModule,
     RouterModule.forRoot(
       [
-        
+        {
+          path: '',
+          component: MainComponent}
+        ,
+       
         {
           path: 'menu',
           loadChildren: () =>
@@ -32,14 +37,18 @@ import { Xl01SharedStylesModule } from '@x01-v1/xl01/shared/styles';
           path: 'content',
           loadChildren: () =>
             import('@x01-v1/xl01/content-section').then(
-              
               (module) => module.Xl01ContentSectionModule
             ),
+        },
+        {
+          path: '**',
+          component: PageNotFoundComponent,
         },
       ],
       { initialNavigation: 'enabledNonBlocking' }
     ),
   ],
+
   providers: [],
   bootstrap: [AppComponent],
 })
