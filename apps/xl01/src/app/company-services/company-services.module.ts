@@ -6,13 +6,15 @@ import { OplataIDostavkaComponent } from './oplata-i-dostavka/oplata-i-dostavka.
 import { GarantiyaComponent } from './garantiya/garantiya.component';
 import { CompanyServicesRoutingModule } from './company-services-routing.module';
 import { YanyandexMapComponent } from './yanyandex-map/yandex-map.component';
+import {PrivacyComponent} from './privacy-policy/privacy.component'
 @NgModule({
   declarations: [
     AboutComponent,
     KakZakazatComponent,
     OplataIDostavkaComponent,
     GarantiyaComponent,
-    YanyandexMapComponent
+    YanyandexMapComponent,
+    PrivacyComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +25,8 @@ import { YanyandexMapComponent } from './yanyandex-map/yandex-map.component';
     KakZakazatComponent,
     OplataIDostavkaComponent,
     GarantiyaComponent,
-    YanyandexMapComponent
+    YanyandexMapComponent,
+    PrivacyComponent
   ],
 })
 export class CompanyServicesModule { }

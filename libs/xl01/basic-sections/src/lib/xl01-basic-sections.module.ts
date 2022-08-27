@@ -10,7 +10,7 @@ import { Xl01SharedStylesModule } from '@x01-v1/xl01/shared/styles';
 import { HttpClientModule } from '@angular/common/http';
 import { ManagerServiceModule } from './shared/services/maneger-service.module';
 
-import { Routes,RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 
 
