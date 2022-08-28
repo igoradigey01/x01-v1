@@ -87,12 +87,12 @@
       </ng-template>
   </mat-list-item>
   <mat-list-item >
-    <a routerLink="" ><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon></a>
+    <a routerLink="" (click)="onSideBarVisible()" ><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon></a>
    
     </mat-list-item>
  <div *ngIf="MenuItems().length > 0">
   <mat-list-item *ngFor="let item of MenuItems();let i = index"  >
-  <a routerLink="{{item.url}}" >{{ item.name }}</a>
+  <a routerLink="{{item.url}}" (click)="onSideBarVisible()" >{{ item.name }}</a>
 </mat-list-item>
 </div>
 

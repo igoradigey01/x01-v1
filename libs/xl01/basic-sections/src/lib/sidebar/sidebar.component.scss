@@ -10,10 +10,10 @@
 
 
 
-$color-not-viaw-logo:style.$color-warn-lighter;// #ffbd35;
-$bg-color:  style.$bg-color-primary;
-$color: style.$color-primary;
-$color-hover:style.$bg-color-primary-lighter;
+$color-not-viaw-logo: style.$warn-lighter-color;// #ffbd35;
+$bg-color:   style.$primary-color;
+$color:  style.$text-primary-color;
+$color-hover: style.$primary-lighter-color;
 //---------------------------------------------------
 .log-in{
   background-color: $bg-color;

@@ -11,7 +11,7 @@ import {Router} from '@angular/router';
 export class SidebarComponent implements OnInit {
 
   @Output()
-  onSideBar = new EventEmitter()
+  onToggleSideBar = new EventEmitter()
 
   @Input() public jsonMenuURL:string='';
 
@@ -71,15 +71,17 @@ export class SidebarComponent implements OnInit {
     }
 
   public onSideBarVisible(): void {
-    //  this.login.emit(this.loginForm.value)
-     this.onSideBar.emit();
+    this.onToggleSideBar.emit();
+     
     }
-  public goTo(i:number){
+    
+  /* public goTo(i:number){
     let navs=this.MenuItems()
   if(navs.length>0){
-
+      this.onToggleSideBar.emit();
    let nav  = navs[i];
    this.router.navigate([nav.url]);
+   
   }
-  }  
+  }   */
 }

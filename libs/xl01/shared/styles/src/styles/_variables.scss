@@ -5,15 +5,15 @@ $waite:#f8faf7;
 $green:#bff09e;;
 
 
-$color-warn-lighter:mat.get-color-from-palette(style.$theme-warn,"lighter");// #ffbd35;
-$bg-color-primary:  mat.get-color-from-palette(style.$theme-primary,"main");
-$color-primary: mat.get-color-from-palette(style.$theme-primary,"main-contrast");
-$bg-color-primary-lighter:mat.get-color-from-palette(style.$theme-primary,"lighter");
+//$color-warn-lighter:mat.get-color-from-palette(style.$theme-warn,"lighter");// #ffbd35;
+//$bg-color-primary:  mat.get-color-from-palette(style.$theme-primary,"main");
+//$color-primary: mat.get-color-from-palette(style.$theme-primary,"main-contrast");
+//$bg-color-primary-lighter:mat.get-color-from-palette(style.$theme-primary,"lighter");
 $color-accent :mat.get-color-from-palette(style.$mat-accent,"main");
 $color-accent-contrast:mat.get-color-from-palette(style.$theme-accent, "main-contrast");
 $bg-color-accent-darker: mat.get-color-from-palette(style.$theme-accent,"darker");
-$color-accent-darker : mat.get-color-from-palette(style.$theme-accent,"darker-contrast");
-$bg-color-accent-lighter : mat.get-color-from-palette(style.$theme-accent,"lighter");
+//$color-accent-darker : mat.get-color-from-palette(style.$theme-accent,"darker-contrast");
+//$bg-color-accent-lighter : mat.get-color-from-palette(style.$theme-accent,"lighter");
 
 
     $accent-color: #797979;

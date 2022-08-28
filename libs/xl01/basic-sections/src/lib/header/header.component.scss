@@ -11,10 +11,10 @@
 
 
 
-$color-not-viaw-logo:      style.$color-warn-lighter;// #ffbd35;
-$bg-color:   style.$bg-color-primary;
-$color:  style.$color-primary;
-$color-hover:  style.$bg-color-primary-lighter;
+$color-not-viaw-logo: style.$warn-lighter-color;// #ffbd35;
+$bg-color:   style.$primary-color;
+$color:  style.$text-primary-color;
+$color-hover:  style.$primary-lighter-color;
 //---------------------------------------------------
 .log-in{
   background-color: $bg-color;
@@ -61,8 +61,8 @@ $color-hover:  style.$bg-color-primary-lighter;
 // region
 
 ._container_nav {
-  min-height: 95px;
-  padding: 0;
+  min-height: 100px;
+  padding:  0;
   display: flex; 
   justify-content: space-between;
 }
@@ -116,8 +116,9 @@ $color-hover:  style.$bg-color-primary-lighter;
   }
 }
 .logo-position-name{
+  margin-top: 0.5rem;
   display: flex;
-  color: $color-not-viaw-logo;
+  color:  rgba(style.$accent-lighter-color, $alpha:0.9)  ;       //$color-not-viaw-logo;
   &:hover {
     color: $color-hover;
   }

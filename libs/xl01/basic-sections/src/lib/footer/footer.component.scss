@@ -6,9 +6,9 @@
 .footer {
     display: flex;
     padding: 20px;
-    background : style.$bg-color-accent-darker;
+    background : style.$accent-darker-color;
     min-height: 60px;
-    color: style.$color-accent-darker;
+    color: style.$text-accent-darker-color;
    // align-items: center;
   }
   .copirate{
@@ -17,9 +17,10 @@
   
   }
   .nav_link{
+    color: style.$text-accent-darker-color;
     &:hover {
         border-radius: 10%;
-        color: style.$bg-color-accent-lighter;
+        color: style.$accent-lighter-color;
       }
 
   }
