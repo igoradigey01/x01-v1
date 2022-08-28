@@ -1,0 +1,98 @@
+
+//-------------------
+ssh root@46.173.223.214
+//deploy
+scp -r C:\Users\Ks34\Documents\AngularProject\xf01\dist\xf01 root@46.173.223.214:~/myapp/nginx/data
+// backup
+scp -r root@46.173.223.214:~/myapp/images  E:\Backup_Host\Backup_images\12-05-22
+//---- docker-отчет об использовании дискового пространства
+docker system df
+docker volume ls
+docker volume prune
+
+
+//------------------------
+Откройте командой mmsys.cpl настройки звука
+
+// load js files and add var in angular (on jsPDF not relize)
+ //unzip <br/>
+  //convert<br/>
+  https://rawgit.com/MrRio/jsPDF/master/fontconverter/fontconverter.html <br/>
+  add file to assets/font/my-font.js <br/>
+  delete : import { jsPDF } from "jspdf"; and function
+  add angular.json /first  prodject section / "scripts": ["src/assets/fonts/my-font.js"] <br/>
+  add ( declare var font: any; ) header qr-code.component.ts
+  restart ( ng s )
+
+//--------------------------------------
+certbot certonly  --webroot    -m admin@x-01.ru -d s.x-01.ru
+//----------------------------------------
+certbot certonly  --webroot    -m admin@x-01.ru -d xf-01.ru
+
+Input the webroot for s.x-01.ru: (Enter 'c' to cancel): nginx/data
+
+//-----------------------------------
+Certificate is saved at: /etc/letsencrypt/live/xf-01.ru/fullchain.pem
+Key is saved at:         /etc/letsencrypt/live/xf-01.ru/privkey.pem
+This certificate expires on 2021-11-25.
+
+//---------------------------------
+
+Successfully received certificate.
+Certificate is saved at: /etc/letsencrypt/live/s.x-01.ru/fullchain.pem
+Key is saved at:         /etc/letsencrypt/live/s.x-01.ru/privkey.pem
+This certificate expires on 2021-09-23.
+These files will be updated when the certificate renews.
+Certbot has set up a scheduled task to automatically renew this certificate in the background.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+If you like Certbot, please consider supporting our work by:
+ * Donating to ISRG / Let's Encrypt:   https://letsencrypt.org/donate
+ * Donating to EFF:                    https://eff.org/donate-le
+
+//----------------------------------
+worker_processes auto;
+events { worker_connections 1024; }
+
+http{
+     sendfile on;
+     client_max_body_size 10M;
+
+     server {
+        listen 80 default_server;
+        listen [::]:80 default_server;
+        server_name _;
+        return 301 https://$host$request_uri;
+            }
+      server {
+
+                 listen 443 ssl;
+                         listen [::]:443 ssl;
+                         server_name xf-01.ru ;
+                         resolver 8.8.8.8;
+                         ssl_certificate  /etc/nginx/certs/s.x-01.ru.crt;
+                         ssl_certificate_key   /etc/nginx/certs/s.x-01.ru.key;
+
+                          location / {
+                            root /var/www/xf01/html;
+                            index index.html index.htm;
+                               try_files $uri $uri/ /index.html;
+                                  }
+
+            }
+     server {
+
+                         listen 443 ssl;
+                         listen [::]:443 ssl;
+                         server_name s.x-01.ru ;
+                         resolver 8.8.8.8;
+                         ssl_certificate  /etc/nginx/certs/s.x-01.ru.crt;
+                         ssl_certificate_key   /etc/nginx/certs/s.x-01.ru.key;
+
+                          location / {
+                            root /var/www/x01/html;
+                            index index.html index.htm;
+                               try_files $uri $uri/ /index.html;
+                                  }
+                }
+     }
