@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: ManagerServiceModule,
 })
 export class YandexMapJsService {
-  private _urlYandexMapJs: string = '/assets/yandex-map.js';
+ /*  private _urlYandexMapJs: string = '/assets/yandex-map.js';
   private _load_js: string | null = null; //Roboto-Regular-normal.js'
   private var_yandex_js: string = 'yandex_map_js';
 
@@ -40,5 +40,5 @@ export class YandexMapJsService {
       return true;
     }
     return false;
-  }
+  } */
 }

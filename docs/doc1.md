@@ -123,3 +123,11 @@ docker volume ls <br/>
 docker volume prune // delete volume <br/>
  docker ps <br/>
  ```
+ ### Yandex Map
+ ```
+ https://www.npmjs.com/package/angular8-yandex-maps
+ https://github.com/ddubrava/angular8-yandex-maps
+ https://github.com/ddubrava/angular8-yandex-maps/blob/master/docs/EXAMPLES.md
+ https://yandex.ru/dev/maps/jsapi/doc/2.1/quick-start/index.html
+ https://yandex.ru/dev/maps/jsapi/?from=mapsapi
+ ```
