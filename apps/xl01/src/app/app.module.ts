@@ -10,6 +10,7 @@ import { MaterialModule } from './material.module';
 import { Xl01SharedStylesModule } from '@x01-v1/xl01/shared/styles';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import {MainComponent} from '@x01-v1/xl01/basic-sections'
+import {Xl01AuthModule} from "@x01-v1/xl01/auth-service"
 
 @NgModule({
   declarations: [AppComponent, PageNotFoundComponent],
@@ -18,6 +19,7 @@ import {MainComponent} from '@x01-v1/xl01/basic-sections'
 
     Xl01BasicSectionsModule,
     Xl01SharedStylesModule,
+    Xl01AuthModule,
     MaterialModule,
     RouterModule.forRoot(
       [

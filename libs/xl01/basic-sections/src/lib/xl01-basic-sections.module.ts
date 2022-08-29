@@ -23,7 +23,7 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     MaterialModule,
     Xl01SharedStylesModule,
-    RouterModule,
+    RouterModule,// елси не задать неработает routerLink=''
     HttpClientModule,
     ManagerServiceModule,
    

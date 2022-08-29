@@ -1,8 +1,13 @@
 import { Injectable } from '@angular/core';
 import {Storage} from '../_class/storage.class';
 import {authSorageKey} from './auth-storage.services';
+import {ManagerServiceModule} from '../services/maneger-service.module'
 
-@Injectable()
+@Injectable(
+    {
+        providedIn: ManagerServiceModule
+    }
+)
 export class OptShopperStorage implements Storage{
 
 

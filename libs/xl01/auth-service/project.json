@@ -1,13 +1,13 @@
 {
   "projectType": "library",
-  "sourceRoot": "libs/xl01/auth-lib/src",
+  "sourceRoot": "libs/xl01/auth-service/src",
   "prefix": "x01-v1",
   "targets": {
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/xl01/auth-lib"],
+      "outputs": ["coverage/libs/xl01/auth-service"],
       "options": {
-        "jestConfig": "libs/xl01/auth-lib/jest.config.ts",
+        "jestConfig": "libs/xl01/auth-service/jest.config.ts",
         "passWithNoTests": true
       }
     },
@@ -15,8 +15,8 @@
       "executor": "@nrwl/linter:eslint",
       "options": {
         "lintFilePatterns": [
-          "libs/xl01/auth-lib/**/*.ts",
-          "libs/xl01/auth-lib/**/*.html"
+          "libs/xl01/auth-service/**/*.ts",
+          "libs/xl01/auth-service/**/*.html"
         ]
       }
     }

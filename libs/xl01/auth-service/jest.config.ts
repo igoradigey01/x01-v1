@@ -1,6 +1,6 @@
 /* eslint-disable */
 export default {
-  displayName: 'xl01-auth-lib',
+  displayName: 'xl01-auth-service',
   preset: '../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
@@ -9,7 +9,7 @@ export default {
       stringifyContentPathRegex: '\\.(html|svg)$',
     },
   },
-  coverageDirectory: '../../../coverage/libs/xl01/auth-lib',
+  coverageDirectory: '../../../coverage/libs/xl01/auth-service',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': 'jest-preset-angular',
   },
