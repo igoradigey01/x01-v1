@@ -7,6 +7,8 @@ import {ManagerServiceModule} from '../services/maneger-service.module'
 import {CarStorage} from '../services/car-strorage.services'
 
 
+
+
 @Injectable(
   {
     providedIn: ManagerServiceModule
@@ -34,6 +36,13 @@ export class UserManagerService{
 
      /** Client subscribe() for _invalidLogin chenged; !! ngOnDestroy()-- unsubscribe !!  */
   public get InvalidOptShopper$(): BehaviorSubject<boolean> {
+    let opt =this.optShopperStorage.Get;
+    if(opt){
+      if(opt === 'opt-1'){
+        this._invalidOptShopper$.next(false)
+      }
+
+    }
     return this._invalidOptShopper$;
   }
 

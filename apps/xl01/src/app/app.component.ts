@@ -1,5 +1,7 @@
 
-import {ChangeDetectorRef, Component, OnDestroy} from '@angular/core';
+import { OnInit, Component, OnDestroy} from '@angular/core';
+import { UserManagerService } from '@x01-v1/xl01/auth-service';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -18,7 +20,7 @@ export class AppComponent {
  // _flagPanel2: boolean = false;
   _flagSideBarHiden = false;
 
-  //---------------------------------------
+  //---------------------------------
   onSideBarVisible() {
     this._flagPanel = !this._flagPanel;
   //  this._flagPanel2 = !this._flagPanel2;

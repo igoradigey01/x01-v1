@@ -9,8 +9,8 @@ import { Xl01BasicSectionsModule } from '@x01-v1/xl01/basic-sections';
 import { MaterialModule } from './material.module';
 import { Xl01SharedStylesModule } from '@x01-v1/xl01/shared/styles';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import {MainComponent} from '@x01-v1/xl01/basic-sections'
-import {Xl01AuthModule} from "@x01-v1/xl01/auth-service"
+import { MainComponent } from '@x01-v1/xl01/basic-sections';
+import { Xl01AuthModule } from '@x01-v1/xl01/auth-service';
 
 @NgModule({
   declarations: [AppComponent, PageNotFoundComponent],
@@ -25,9 +25,8 @@ import {Xl01AuthModule} from "@x01-v1/xl01/auth-service"
       [
         {
           path: '',
-          component: MainComponent}
-        ,
-       
+          component: MainComponent,
+        },
         {
           path: 'menu',
           loadChildren: () =>

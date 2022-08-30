@@ -8,8 +8,11 @@ import {UserManagerService} from './_shared/services/user-manager.service'
     CommonModule,
     ManagerServiceModule
   ],
+  declarations:[
+    
+  ],
   exports:[
-    UserManagerService
+    ManagerServiceModule
   ]
  
 })

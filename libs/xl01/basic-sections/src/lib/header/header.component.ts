@@ -1,8 +1,8 @@
 import { Component, OnInit,Output, EventEmitter,Input, OnDestroy  } from '@angular/core';
-
-
+import { Subscription } from 'rxjs';
 import {MenuService} from './../shared/services/menu.service'
 import { MenuItem } from '../shared/_interfaces/menu-item.model';
+import {UserManagerService} from '@x01-v1/xl01/auth-service'
 
 
 // json https://www.angularjswiki.com/angular/how-to-read-local-json-files-in-angular/
@@ -20,22 +20,19 @@ import { MenuItem } from '../shared/_interfaces/menu-item.model';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  @Output()
-  onSideBar = new EventEmitter()
-   
+  
   
   
 
 
-  private _invalidLogin: boolean = true;
-  private _isManager: boolean = false;
-  private _isAdmin: boolean = false;
-  private _isShopper: boolean = false;
+  private _invalidLogin: boolean = true;  
   private _isOptovik:boolean=false;
+  private _userRole:string|null=null;
 
  
-
+  private _subscriptions: Subscription[] = [];
 // private subscription: Subscription|undefined ;
+  
 
  
 
@@ -43,42 +40,71 @@ export class HeaderComponent implements OnInit {
 @Input() public company_name_2:string=""; //First Site
 @Input() public srcLogo:string='';
 @Input() public jsonMenuURL:string='';
+@Output()
+     onToggleSideBar = new EventEmitter()
+   
 
 public MenuItems=():MenuItem[]=>{
   return this.menuService.getMenuItems();
 }
 
   constructor(
-    private menuService:MenuService
+    private menuService:MenuService,
+    private userManager:UserManagerService
 
   ) {}
 
   ngOnInit(): void {
    this.menuService.setMenuFromJSON(this.jsonMenuURL);
+   let sub1=  this.userManager.InvalidLogin$.subscribe(
+    d => {
+      this._invalidLogin = d;
+      this._userRole = this.userManager.RoleUser;
+     
+      console.log("menu conctructor -- userManager.InvalidLogin$--"+ d);
+    }
+  )
+
+ let sub2= this.userManager.InvalidOptShopper$.subscribe(
+    d=>{
+      this._isOptovik=d;
+    }
+  )
+  this._subscriptions.push(sub1);
+  this._subscriptions.push(sub2);
+
   }
 
   
-
-  
+  ngOnDestroy() {
+    this._subscriptions
+      .forEach(s => s.unsubscribe());
+  }
 
 
   public get IsAdmin(): boolean {
     //  return true;
-       if(this._isAdmin && !this._invalidLogin){
+       if(this. _userRole==='admin' && !this._invalidLogin){
                  return true;
        }
       return false;
     }
     public get IsManager(): boolean {
+          let manager=false;
+
+      if (this._userRole === 'manager' || this._userRole === 'furniture') {
+       manager=true;
+      }
+      
      // return true;
-       if(this._isManager  && !this._invalidLogin){
+       if( manager  && !this._invalidLogin){
                  return true;
        }
       return false;
     }
     public get IsShopper(): boolean {
      // return true;
-       if(this._isShopper && !this._invalidLogin){
+       if(this._userRole==='shopper' && !this._invalidLogin){
                  return true;
        }
       return false;
@@ -92,7 +118,7 @@ public MenuItems=():MenuItem[]=>{
     }
     public onSideBarVisible(): void {
       //  this.login.emit(this.loginForm.value)
-       this.onSideBar.emit();
+       this.onToggleSideBar.emit();
       }
 
 }

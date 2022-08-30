@@ -10,4 +10,5 @@ export class AppComponent {
   name = 'Мебельная Фурнитура Ханская';
   year:number=new Date(2021,0,1).getFullYear();
   title:string=" ИП Должанский ";
+ 
 }
