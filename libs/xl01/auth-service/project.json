@@ -5,7 +5,9 @@
   "targets": {
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/xl01/auth-service"],
+      "outputs": [
+        "coverage/libs/xl01/auth-service"
+      ],
       "options": {
         "jestConfig": "libs/xl01/auth-service/jest.config.ts",
         "passWithNoTests": true
@@ -21,5 +23,8 @@
       }
     }
   },
-  "tags": ["scope:xl01as-lib", "type:xl01-lib"]
+  "tags": [
+    "scope:xl01as-lib",
+    "type:xl01-lib"
+  ]
 }

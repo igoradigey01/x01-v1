@@ -6,9 +6,15 @@
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
-        "lintFilePatterns": ["libs/xl01/ui/**/*.ts", "libs/xl01/ui/**/*.html"]
+        "lintFilePatterns": [
+          "libs/xl01/ui/**/*.ts",
+          "libs/xl01/ui/**/*.html"
+        ]
       }
     }
   },
-  "tags": ["scope:xl01ui-lib", "type:xl01-lib"]
+  "tags": [
+    "scope:xl01ui-lib",
+    "type:xl01-lib"
+  ]
 }
