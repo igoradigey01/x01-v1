@@ -1,0 +1,80 @@
+<div class="container" style="margin: auto">
+  <div class="row">
+    <div class="col-md-6 offset-md-3 col-xs-12">
+<div class="card">
+  <div class="card-body">
+
+      <div class="card-header" style="text-align: center;">РЕГИСТРАЦИЯ</div>
+
+     <div  class="card-body _body">
+       <!--Error messages Server output start-->
+
+      <div class="alert alert-danger" role="alert" *ngIf="_errorMgs?.length">
+
+        <ul>
+          <li *ngFor="let error of _errorMgs">
+            {{ error }}
+          </li>
+        </ul>
+
+      </div>
+      <div class="alert alert-success" role="alert" *ngIf="_successfulSave">
+       Пользователь Успешно Зарегистрирован!<br>
+       Необходимо подтвердить введённый адрес электронной почты.<br>
+       Нажав на ссылку которую мы вам отправили
+      </div>
+       <!--Error messages Server output end-->
+      <form [formGroup]="registerForm" autocomplete="off" novalidate (ngSubmit)="registerUser(registerForm.value)">
+          <div class="form-group row">
+              <label for="firstName" class="col-form-label  "> Ваше Имя:</label>
+              <div >
+                  <input type="text" id="firstName" formControlName="firstName" class="form-control" />
+              </div>
+          </div>
+          <div class="form-group row">
+              <label for="lastName" class="col-form-label "> Ваше Отчество:</label>
+              <div >
+                  <input type="text" id="lastName" formControlName="lastName" class="form-control" />
+              </div>
+          </div>
+          <div class="form-group row">
+              <label for="email" class="col-form-label ">Email:</label>
+              <div >
+                  <input type="email" id="email" formControlName="email" class="form-control" />
+              </div>
+              <div >
+                  <em *ngIf="validateControl('email') && hasError('email', 'email')">Пожалуйста, предоставьте действительный адрес электронной почты</em>
+                  <em *ngIf="validateControl('email') && hasError('email', 'required')">Электронная почта обязательна</em>
+              </div>
+          </div>
+          <div class="form-group row">
+              <label for="password" class="col-form-label ">Пароль:</label>
+              <div >
+                  <input type="password" id="password" formControlName="password" class="form-control" />
+              </div>
+              <div >
+                  <em *ngIf="validateControl('password') && hasError('password', 'required')">необходим пароль</em>
+              </div>
+          </div>
+          <div class="form-group row">
+              <label for="confirm" class="col-form-label">Подтверждение пароля:</label>
+              <div >
+                  <input type="password" id="confirm" formControlName="confirm" class="form-control" />
+              </div>
+              <div >
+                <em *ngIf="validateControl('confirm') && hasError('confirm', 'required')">необходимо подтверждение пароля</em>
+                <em *ngIf="hasError('confirm', 'mustMatch')">Пароли должны совпадать</em>
+            </div>
+          </div>
+          <br>
+          <div class="form-group row">
+              <div class="col-md-1  offset-md-3">
+                  <button type="submit" class="btn btn-info" [disabled]="!registerForm.valid" [disabled]="!_flagButoon" >Зарегистрироваться</button>
+              </div>
+          </div>
+      </form>
+    </div>
+  </div>
+</div>
+</div></div>
+</div>

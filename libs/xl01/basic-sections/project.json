@@ -5,9 +5,7 @@
   "targets": {
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": [
-        "coverage/libs/xl01/basic-sections"
-      ],
+      "outputs": ["coverage/libs/xl01/basic-sections"],
       "options": {
         "jestConfig": "libs/xl01/basic-sections/jest.config.ts",
         "passWithNoTests": true
@@ -23,8 +21,5 @@
       }
     }
   },
-  "tags": [
-    "scope:xl01bs-lib",
-    "type:xl01-lib"
-  ]
+  "tags": ["scope:xl01bs-lib", "type:xl01-lib"]
 }

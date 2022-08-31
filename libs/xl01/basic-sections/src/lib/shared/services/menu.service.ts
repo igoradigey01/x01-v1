@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ManagerServiceModule } from './maneger-service.module';
 
-
+// json https://www.angularjswiki.com/angular/how-to-read-local-json-files-in-angular/
 @Injectable({
   providedIn: ManagerServiceModule,
 })

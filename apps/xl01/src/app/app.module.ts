@@ -33,6 +33,11 @@ import { Xl01AuthModule } from '@x01-v1/xl01/auth-service';
             import('./company-services/company-services.module').then(
               (m) => m.CompanyServicesModule
             ),
+        },        
+        {
+          path: 'account',
+          loadChildren: () =>
+            import('@x01-v1/xl01/account').then((m) => m.Xl01AccountModule),
         },
         {
           path: 'content',

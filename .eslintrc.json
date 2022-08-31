@@ -44,6 +44,7 @@
                 "sourceTag": "scope:xl01as-lib",
                 "onlyDependOnLibsWithTags": ["scope:xl01as-lib", "type:xl01-lib"]
               }
+              
             ]
           }
         ]

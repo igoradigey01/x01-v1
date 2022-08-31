@@ -5,7 +5,7 @@ import { MenuItem } from '../shared/_interfaces/menu-item.model';
 import {UserManagerService} from '@x01-v1/xl01/auth-service'
 
 
-// json https://www.angularjswiki.com/angular/how-to-read-local-json-files-in-angular/
+
 
 
 
