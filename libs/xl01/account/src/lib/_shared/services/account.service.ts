@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { from, Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
-import { AccoutServiceModule } from './accout-service.module';
+import {ManagerServiceModule } from './maneger-service.module';
 
 import { TokenService } from 'apps/xf01/src/app/_shared/services/token.service';
 import { TokenModel } from 'apps/xf01/src/app/_shared/_interfaces/token.model';
@@ -16,7 +16,7 @@ import { UrlEncoder } from 'apps/xf01/src/app/_shared/_class/url-encoder.class';
 import { ResetPasswordDto } from '../_interfaces/reset-passwordDto.model';
 
 @Injectable({
-  providedIn: AccoutServiceModule,
+  providedIn: ManagerServiceModule,
 })
 export class AccountService {
   readonly _controller: string = 'Account';

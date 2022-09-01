@@ -3,10 +3,10 @@ import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 //import { tap } from 'rxjs/operators';
 import { NgForm } from '@angular/forms';
-import { UserManagerService } from 'apps/xf01/src/app/_shared/services/user-manager.service';
+import { UserManagerService } from '@x01-v1/xl01/auth-service';
 import { AccountService } from '../_shared/services/account.service';
 //import { User } from 'apps/xf01/src/app/shared/_interfaces/user.model';
-import { TokenService } from 'apps/xf01/src/app/_shared/services/token.service';
+//import { TokenService } from 'apps/xf01/src/app/_shared/services/token.service';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -19,6 +19,7 @@ export class SignInComponent implements OnInit {
 
   _flagButoon: boolean = false;
   _errorMgs: string[] = [];
+  _isUserValid=false;
 
   // parser file on load
   password: string = '';
@@ -29,19 +30,14 @@ export class SignInComponent implements OnInit {
     private _accountServie: AccountService,
     private _userManager: UserManagerService,
     private router: Router,
-    private tokenService: TokenService
+  
   ) { }
 
   ngOnInit(): void {
-    let subLogin = this._userManager.InvalidLogin$.subscribe();
-    if (this._userManager.Exists) {
-      this._accountServie
-        .isUserValid(this.tokenService.AccessToken || '')
-
-        .subscribe(() => {
-          this._userManager.setInvalidLogin$(false);
-        });
-    }
+    let subLogin = this._userManager.InvalidLogin$.subscribe(
+      d=>this._isUserValid
+    );
+   
     this._subscriptions.push(subLogin);
   }
 
@@ -63,23 +59,23 @@ export class SignInComponent implements OnInit {
     // this._errorMgs.length=0;
 
     this._accountServie.login(credentials).subscribe(
-      (next) => {
+      (d) => {
       //  debugger
-        this._userManager.setInvalidLogin$(false);
+        this._userManager.setInvalidLogin$(false,d.access_token);
         this._flagButoon = true;
         /* if (this.tokenService.IsAdmin()) {
           this.userManagerService.isAdimin = true;
         } */
         this.router.navigateByUrl('');
       },
-      (error: HttpErrorResponse) => {
+      (err: HttpErrorResponse) => {
         let body: string;
-        this._userManager.setInvalidLogin$(true);
+        this._userManager.setInvalidLogin$(true,null);
         this._flagButoon = false;
-        if (error.status === 401 || error.status == 400) {
+        if (err.status === 401 || err.status == 400) {
           //this.userManagerService.invalidLogin = true;
           //  console.log(  error.message);
-          this._errorMgs.push(error.error);
+          this._errorMgs.push(err.error);
 
           return;
 
@@ -97,9 +93,7 @@ export class SignInComponent implements OnInit {
     // this.router.navigate(['/auth/sing-off']);
   }
 
-  onUserChenged() {
-    console.log('userManager.IsAdmin--' + this._userManager.IsAdmin);
-  }
+ 
 
   onFileInput(event: any) {
     let data = event.target.files[0];

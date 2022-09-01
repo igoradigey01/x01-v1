@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { AbstractControl, ValidatorFn } from '@angular/forms';
+import {ManagerServiceModule} from './maneger-service.module'
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: ManagerServiceModule
 })
 export class PasswordConfirmationValidatorService {
 

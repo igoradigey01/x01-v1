@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { TokenService } from 'apps/xf01/src/app/_shared/services/token.service';
-import { AccoutServiceModule } from './accout-service.module';
+import { ManagerServiceModule } from './maneger-service.module';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { RouteApiService } from 'apps/xf01/src/app/_shared/services/route-api.service';
 import { User } from 'apps/xf01/src/app/_shared/_interfaces/user.model';
 
 @Injectable({
-  providedIn: AccoutServiceModule
+  providedIn: ManagerServiceModule
 })
 export class ProfileService {
   readonly _controller: string = 'Account';
