@@ -1,27 +1,74 @@
+@use "../../style.scss" as st;
+
+.container {
+  min-height: 400px;
+  width: 100%;
+  margin: 0;
+}
+.form-signin{
+  margin-bottom: 1rem;
+}
+.cart {
+  width: 100%;
+  margin: auto;
+}
+.title {
+  display: flex;
+  justify-content: space-between;
+}
 
 .btn-circle {
-    width: 30px;
-    height: 30px;
-    border-radius: 15px;
-    text-align: center;
-    padding: 0;
-  
-    font-size: 16px;
-  }
-  .note-login{
-    background-color: #f1c40f;
-  }
-  
-  .form-social {
-    background-color: #fff;
-  }
-  
-  .btn-social {
-    background-color: #fff;
-    border: none;
-  }
-  
-  .dot {
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  text-align: center;
+  padding: 0;
+
+  font-size: 16px;
+  background-color: st.$accent-color;
+
+  color: st.$text-accent-color;
+}
+.note-login {
+  background-color: #f1c40f;
+}
+
+.input-field {
+  width: 100%;
+  // background-color: st.$accent-lighter-color ;
+
+  color: st.$text-accent-lighter-color;
+}
+
+.check-field {
+  display: flex;
+  justify-content: end;
+}
+.route-field {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1.5rem;
+}
+
+.cansel {
+  background-color: st.$warn-lighter-color;
+  color: st.$text-warn-color;
+}
+.form-social {
+  background-color: #fff;
+}
+.social-blok{
+  display: flex;
+  justify-content: center;
+  margin-left: 3rem;
+}
+
+.btn-social {
+  background-color: #fff;
+  border: none;
+}
+
+.dot {
   height: 3rem;
   width: 3rem;
   //background-color: #ad63b9;
@@ -30,35 +77,45 @@
   justify-content: center;
   align-self: center;
   align-items: center;
-  }
-  
-  .social-icons {
+}
+
+.social-icons {
   list-style: none;
   display: inline-flex;
   right: 16px;
   position: relative;
-  }
-  
-  .social-icons li {
+}
+
+.social-icons li {
   padding: 10px;
-  }
-  
-  .goole {
+}
+
+.goole {
   background-color: #ea4335;
   color: #fff;
-  }
-  
-  .facebook {
-  background-color: #3b5998;
-  color: #fff;
-  }
-  
-  .vk {
+}
+
+.vk {
   background-color: #2787f5;
   color: #fff;
+}
+.error {
+  color: st.$warn-color;
+
+ // background-color: st.$warn-color;
+}
+
+
+
+@media (min-width: 768px) {
+  .cart {
+    width: 70%;
+    margin: auto;
   }
-  .instagram {
-  color: #fff;
-  background-color: #ad63b9;
+}
+@media (min-width: 960px) {
+  .cart {
+    width: 50%;
+    margin: auto;
   }
-  
+}

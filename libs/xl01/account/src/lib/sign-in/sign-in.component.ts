@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
-//import { tap } from 'rxjs/operators';
+
 import { NgForm } from '@angular/forms';
 import { UserManagerService } from '@x01-v1/xl01/auth-service';
 import { AccountService } from '../_shared/services/account.service';
-//import { User } from 'apps/xf01/src/app/shared/_interfaces/user.model';
-//import { TokenService } from 'apps/xf01/src/app/_shared/services/token.service';
+
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -22,9 +21,9 @@ export class SignInComponent implements OnInit {
   _isUserValid=false;
 
   // parser file on load
-  password: string = '';
-  email: string = '';
-  rememberme: boolean = false;
+  public password: string = '';
+  public email: string = '';
+  public rememberme: boolean = false;
   /** вход пользователья ;создание токена */
   constructor(
     private _accountServie: AccountService,

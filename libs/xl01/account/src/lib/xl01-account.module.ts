@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
+import {MaterialModule} from './material.module'
 import { SignInComponent } from './sign-in/sign-in.component';
 //import { MatButtonModule, MatCardModule, MatInputModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -14,7 +15,7 @@ import { UserProfileDeleteComponent } from './profile_/user-profile-delete/user-
 import { EmailConfirmationComponent } from './email-confirmation/email-confirmation.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
-import { UserManagerService } from '@x01-v1/xl01/auth-service';
+import { Xl01AuthModule } from '@x01-v1/xl01/auth-service';
 
 const routes: Routes = [
   { path: '', component: SignInComponent },
@@ -34,9 +35,10 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MaterialModule,
     ManagerServiceModule,
     RouterModule.forChild(routes),
-    UserManagerService
+    Xl01AuthModule
   ],
   declarations: [
     SignInComponent,
