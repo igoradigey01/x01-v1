@@ -5,6 +5,8 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
 import { UserManagerService } from '@x01-v1/xl01/auth-service';
 import { AccountService } from '../_shared/services/account.service';
+//import { MatCheckboxDefaultOptions, MAT_CHECKBOX_DEFAULT_OPTIONS } from '@angular/material/checkbox';
+
 
 import { Subscription } from 'rxjs';
 
@@ -12,6 +14,9 @@ import { Subscription } from 'rxjs';
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
   styleUrls: ['./sign-in.component.scss'],
+  providers:[
+   
+  ]
 })
 export class SignInComponent implements OnInit {
   private _subscriptions: Subscription[] = [];
@@ -23,7 +28,7 @@ export class SignInComponent implements OnInit {
   // parser file on load
   public password: string = '';
   public email: string = '';
-  public rememberme: boolean = false;
+  public rememberme: boolean = true;
   /** вход пользователья ;создание токена */
   constructor(
     private _accountServie: AccountService,
@@ -42,6 +47,11 @@ export class SignInComponent implements OnInit {
 
   ngOnDestroy() {
     this._subscriptions.forEach((s) => s.unsubscribe());
+  }
+
+  noCheckBox(){
+    console.log("noCheckBox------------------")
+    this.rememberme=!this.rememberme;
   }
 
   externalLogin( name:string){

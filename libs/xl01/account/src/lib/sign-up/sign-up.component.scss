@@ -1,27 +1,45 @@
-input.ng-touched.ng-invalid {border:solid red 2px;}
-input.ng-touched.ng-valid {border:solid green 2px;}
-em{
-  color: #e71515;
-  font-weight: bold;
-}
-.ng-invalid.ng-touched{
-  border-color: red;
-}
-.card{
-  margin-top: 10px;
-  background-color: #fff;
-  box-shadow: 1px 1px 1px #cabcbc;
-}
-._body{
+@use "../../style.scss" as st;
+
+.container {
+  min-height: 400px;
   width: 100%;
+  margin: 0;
 }
-@media (min-width: 450px){
-  ._body{
-   // width: 90%;
+.cart {
+  width: 100%;
+  margin: auto;
+}
+.title {
+  display: flex;
+  justify-content: center;
+}
+
+.card-header{
+  text-align: center;
+
+}
+.input-field {
+  width: 100%;
+  // background-color: st.$accent-lighter-color ;
+
+  color: st.$text-accent-lighter-color;
+}
+
+.error {
+  color: st.$warn-color;
+
+ // background-color: st.$warn-color;
+}
+
+@media (min-width: 768px) {
+  .cart {
+    width: 70%;
+    margin: auto;
   }
 }
-@media (min-width: 960px){
-  ._body{
-  //   width: 70%;
+@media (min-width: 960px) {
+  .cart {
+    width: 50%;
+    margin: auto;
   }
 }

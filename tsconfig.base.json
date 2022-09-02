@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@x01-v1/xl01/account": ["libs/xl01/account/src/index.ts"],
+      "@x01-v1/xl01/app-config": ["libs/xl01/app-config/src/index.ts"],
       "@x01-v1/xl01/auth-service": ["libs/xl01/auth-service/src/index.ts"],
       "@x01-v1/xl01/basic-sections": ["libs/xl01/basic-sections/src/index.ts"],
       "@x01-v1/xl01/content-section": [

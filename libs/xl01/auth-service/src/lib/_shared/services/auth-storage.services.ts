@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Storage} from '../_class/storage.class'
-import {ManagerServiceModule} from '../services/maneger-service.module'
+
 
 export const authSorageKey:{[key:string]:string}={
     accessToken:'access_token',
@@ -9,7 +9,7 @@ export const authSorageKey:{[key:string]:string}={
 }
 
 @Injectable({
-    providedIn: ManagerServiceModule
+    providedIn: 'root'
 }
 )
 export class AuthStorage implements Storage{

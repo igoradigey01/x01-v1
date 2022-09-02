@@ -5,6 +5,8 @@ import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+
 
 
 const material = [
@@ -13,7 +15,8 @@ const material = [
   MatCardModule,
   MatIconModule,
   MatInputModule,
-  MatFormFieldModule
+  MatFormFieldModule,
+  MatCheckboxModule
 
   
 ]
@@ -21,6 +24,9 @@ const material = [
 @NgModule({
   declarations: [],
   imports: [material],
-  exports:[material]
+  exports:[material],
+  providers:[
+   
+  ]
 })
 export class MaterialModule { }

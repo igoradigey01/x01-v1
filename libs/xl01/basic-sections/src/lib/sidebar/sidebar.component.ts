@@ -24,7 +24,7 @@ export class SidebarComponent implements OnInit {
 
   public MenuItems = (): MenuItem[] => {
     let m = this.menuService.getMenuItems();
-    console.log(m);
+  //  console.log(m);
 
     return m;
   };

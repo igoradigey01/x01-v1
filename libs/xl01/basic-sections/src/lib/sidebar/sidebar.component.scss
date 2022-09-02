@@ -11,13 +11,14 @@
 
 
 $color-not-viaw-logo: style.$warn-lighter-color;// #ffbd35;
-$bg-color:   style.$primary-color;
+//$bg-color:   style.$primary-color;
 $color:  style.$text-primary-color;
 $color-hover: style.$primary-lighter-color;
 //---------------------------------------------------
 .log-in{
-  background-color: $bg-color;
+  background-color:  style.$primary-color;
   margin-top: 4px;
+  border-radius: 10%;
   &:hover {
     border-radius: 10%;
     background-color: style.$color-accent;
@@ -27,9 +28,10 @@ $color-hover: style.$primary-lighter-color;
 
 .log-ok{
   background-color:  style.$color-accent;
+ 
   margin-top: 4px;
   border-radius: 10%;
   &:hover {
-    background-color: $bg-color;
+    background-color: style.$accent-lighter-color;
   }  
 }

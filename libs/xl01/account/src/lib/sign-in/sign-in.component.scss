@@ -10,7 +10,7 @@
 }
 .cart {
   width: 100%;
-  margin: auto;
+  margin:1rem auto auto auto;
 }
 .title {
   display: flex;
@@ -30,7 +30,8 @@
   color: st.$text-accent-color;
 }
 .note-login {
-  background-color: #f1c40f;
+  //background-color: #f1c40f;
+  background-color: st.$warn-lighter-color;
 }
 
 .input-field {
@@ -60,7 +61,7 @@
 .social-blok{
   display: flex;
   justify-content: center;
-  margin-left: 3rem;
+  margin-left: 2rem;
 }
 
 .btn-social {

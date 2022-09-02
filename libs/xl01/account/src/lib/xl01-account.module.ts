@@ -17,6 +17,8 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { Xl01AuthModule } from '@x01-v1/xl01/auth-service';
 
+
+
 const routes: Routes = [
   { path: '', component: SignInComponent },
   { path: 'sing-up', component: SignUpComponent },
@@ -32,13 +34,15 @@ const routes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
+   
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     MaterialModule,
     ManagerServiceModule,
     RouterModule.forChild(routes),
-    Xl01AuthModule
+    Xl01AuthModule,
+    
   ],
   declarations: [
     SignInComponent,
@@ -62,5 +66,8 @@ const routes: Routes = [
     ForgotPasswordComponent,
     ResetPasswordComponent,
   ],
+  providers:[
+  
+  ]
 })
 export class Xl01AccountModule {}

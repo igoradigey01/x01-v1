@@ -3,7 +3,7 @@ import {AuthStorage} from './auth-storage.services';
 import {OptShopperStorage} from './opt-shopper-storage.services';
 import { BehaviorSubject, timeout } from 'rxjs';
 import {JwtHelper} from '../_class/jwt-helper.class'
-import {ManagerServiceModule} from '../services/maneger-service.module'
+
 import {CarStorage} from '../services/car-strorage.services'
 
 
@@ -11,7 +11,7 @@ import {CarStorage} from '../services/car-strorage.services'
 
 @Injectable(
   {
-    providedIn: ManagerServiceModule
+    providedIn: 'root'
 }
 )
 export class UserManagerService{

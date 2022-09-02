@@ -4,7 +4,7 @@ import { ManagerServiceModule } from './maneger-service.module';
 
 // json https://www.angularjswiki.com/angular/how-to-read-local-json-files-in-angular/
 @Injectable({
-  providedIn: ManagerServiceModule,
+  providedIn: 'root'
 })
 export class MenuService {
   

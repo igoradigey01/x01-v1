@@ -1,16 +1,12 @@
-<div class="container">
-  <mat-card class="cart" >
+<div class="container mat-typography">
+  <mat-card class="cart">
     <mat-card-header class="title">
       <div class="name-inter">
         Вход На - <strong class="note-login">[XL-01.ru]</strong>
       </div>
 
-      <div >
-        <button
-          type="file"
-          class="btn-circle"
-          (click)="fileInput.click()"
-        >
+      <div>
+        <button type="file" class="btn-circle" (click)="fileInput.click()">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -53,59 +49,44 @@
         (ngSubmit)="submitForm(myForm)"
       >
         <div class="item-form">
-          <div class="_input-group">
-           
-            <mat-form-field class="input-field"  appearance="outline">
+          
+            <mat-form-field class="input-field" appearance="outline">
               <mat-label>Email</mat-label>
-                <input 
-                  matInput
-                  
-                  type="email"
-                  name="email"
-                  [(ngModel)]="email"
-                  #mail="ngModel"
-                  class="form-control"
-                 
-                  required                
-                />
-                <mat-error *ngIf="pass.invalid"> </mat-error>
-            
+              <input
+                matInput
+                type="email"
+                name="email"
+                [(ngModel)]="email"
+                #mail="ngModel"
+                class="form-control"
+                required
+              />
+              <mat-error *ngIf="pass.invalid"> </mat-error>
             </mat-form-field>
           </div>
 
           <div class="item-form">
-            <div class="_input-group">
-              
+            
               <mat-form-field class="input-field" appearance="outline">
                 <mat-label>Пароль:</mat-label>
-                  <input
-                    matInput
-                    type="password"
-                    name="password"
-                    [(ngModel)]="password"
-                    #pass="ngModel"
-                   
-                    required
-                  />
-                  <mat-error *ngIf="pass.invalid"> </mat-error>
-            
+                <input
+                  matInput
+                  type="password"
+                  name="password"
+                  [(ngModel)]="password"
+                  #pass="ngModel"
+                  required
+                />
+                <mat-error *ngIf="pass.invalid"> </mat-error>
               </mat-form-field>
             </div>
-          </div>
-        </div>
+          
+       
 
         <div class="check-field">
-          <div class="form-group form-check">
-            <input
-              type="checkbox"
-              class="form-check-input"
-              [(ngModel)]="rememberme"
-              name="rememberMe"
-            />
-            <label class="form-check-label" for="rememberMe"
-              >запомнить меня
-            </label>
-          </div>
+          <mat-checkbox   [(ngModel)]="rememberme"  (click)="noCheckBox()" [ngModelOptions]="{standalone: true}"
+            >запомнить меня</mat-checkbox
+          >
         </div>
         <div class="route-field">
           <div>
@@ -125,19 +106,20 @@
 
         <div>
           <button
-          mat-raised-button color="accent"
+            mat-raised-button
+            color="accent"
             type="submit"
             [disabled]="_flagButoon"
-            class="btn btn-primary"
+           
             style="width: 100%; margin-bottom: 0.5rem"
           >
             Войти
           </button>
 
           <button
-          mat-raised-button 
-           class="cansel"
-            routerLinkActive=""
+            mat-flat-button
+            class="cansel"
+            routerLink=""
             style="width: 100%"
             name="login_button"
             value="cancel"
@@ -146,11 +128,11 @@
           </button>
         </div>
       </form>
-     
+
       <!--------------------------- social-form start-->
 
       <form>
-        <div style="text-align: center;"> или войти через</div>
+        <div style="text-align: center">или войти через</div>
         <div class="social-blok">
           <ul class="social-icons">
             <li>
