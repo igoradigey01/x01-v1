@@ -4,15 +4,16 @@ import {Storage} from '../_class/storage.class'
 
 export const authSorageKey:{[key:string]:string}={
     accessToken:'access_token',
-    optShopper:'opt_var',
-    carShop:'car_obj'
+    refreshToken:'refresh_token',
+    optShopper:'opt_var', //оптовые цены
+    carShop:'car_obj' //корзина 
 }
 
 @Injectable({
     providedIn: 'root'
 }
 )
-export class AuthStorage implements Storage{
+export class AccessTokenStorage implements Storage{
 
     constructor() {}
     /** clear all obj in storage */

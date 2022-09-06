@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
 import { environment } from 'apps/xf01/src/environments/environment';
@@ -12,10 +12,14 @@ import { PasswordConfirmationValidatorService } from '../_shared/services/passwo
   styleUrls: ['./sign-up.component.scss'],
 })
 export class SignUpComponent implements OnInit {
+  @ViewChild('registerForm', {static: false}) _registerForm: NgForm|undefined;
+
   public _user: UserRegistrationDto = {
     clientURI: '',
     firstName: '',
     lastName: '',
+    address:'',
+    phone:'',
     confirmPassword: '',
     email: '',
     password: '',
@@ -39,6 +43,10 @@ export class SignUpComponent implements OnInit {
     const credentials = JSON.stringify(registerForm.value);
     // this._errorMgs.length=0;
 
+  }
+
+  onReset(form: NgForm): void {
+    form.reset();
   }
 
   private registerUser = (registerFormValue: any) => {
@@ -72,4 +80,11 @@ export class SignUpComponent implements OnInit {
       }
     );
   };
+
+  private setRequired() {
+    // if(this._registerForm!==undefined){
+    // this._registerForm.form.get('confirm').setValidators([Validators.required])
+    // this._registerForm.form.get('confirm').updateValueAndValidity();
+    // }
+  }
 }

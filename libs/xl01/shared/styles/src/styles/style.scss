@@ -227,9 +227,19 @@ $altTheme: (
 );
 
 // Theme Init
+@include  mat.core-theme($theme);
 @include  mat.button-theme($theme);
 @include mat.toolbar-theme($theme);
 @include mat.icon-theme($theme);
+@include mat.menu-theme($theme);
+@include mat.checkbox-theme($theme);
+@include mat.card-theme($theme);
+@include mat.input-theme($theme);
+@include mat.form-field-theme($theme);
+@include mat.tabs-theme($theme);
+@include mat.list-theme($theme);
+//@include mat.all-component-themes($theme);
+
 
 //.theme-alternate {
 //  @include mat.all-component-themes($altTheme);

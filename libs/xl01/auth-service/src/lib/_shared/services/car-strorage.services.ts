@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '../_class/storage.class';
-import { authSorageKey } from './auth-storage.services';
+import { authSorageKey } from './access-token-storage.services';
 
 
 @Injectable({

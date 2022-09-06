@@ -16,6 +16,7 @@ import { EmailConfirmationComponent } from './email-confirmation/email-confirmat
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { Xl01AuthModule } from '@x01-v1/xl01/auth-service';
+import { MatchPasswordDirective } from './_shared/_helpers/must-match.directive';
 
 
 
@@ -54,6 +55,7 @@ const routes: Routes = [
     EmailConfirmationComponent,
     ForgotPasswordComponent,
     ResetPasswordComponent,
+    MatchPasswordDirective
   ],
   exports: [
     SignInComponent,

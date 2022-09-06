@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { from, Observable } from 'rxjs';
+import {  Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
 import {ManagerServiceModule } from './maneger-service.module';
@@ -24,7 +24,7 @@ export class AccountService {
 
   constructor(
     private http: HttpClient,
-    private tokenService: TokenService,
+   // private tokenService: TokenService,
     private url: RouteApiService
   ) {
 
@@ -44,22 +44,22 @@ export class AccountService {
           'Content-Type': 'application/json',
         }),
       })
-      .pipe(
-        tap(
-          (res) => {
-            let token = res as TokenModel;
-            if (token) {
-              this.tokenService.AccessToken = token.access_token;
-              this.tokenService.RefreshToken = token.refresh_token;
-            } else {
-              console.log('error---  res as TokenModel = null');
-            }
-          },
-          (error) => {
-            console.log(error);
-          }
-        )
-      );
+      // .pipe(
+      //   tap(
+      //     (res) => {
+      //       let token = res as TokenModel;
+      //       if (token) {
+      //         this.tokenService.AccessToken = token.access_token;
+      //         this.tokenService.RefreshToken = token.refresh_token;
+      //       } else {
+      //         console.log('error---  res as TokenModel = null');
+      //       }
+      //     },
+      //     (error) => {
+      //       console.log(error);
+      //     }
+      //   )
+      // );
   }
 
   public registerUser = (body: UserRegistrationDto) => {
@@ -96,7 +96,7 @@ export class AccountService {
     return this.http.post(this.url.Url, body);
   }
 
-  public isUserValid(token: string): Observable<any> {
+  /* public isUserValid(token: string): Observable<any> {
     this.url.Controller = this._controller;
     this.url.Action = 'IsTokenValid';
     this.url.ID=null;
@@ -106,5 +106,5 @@ export class AccountService {
     });
 
     return this.http.get(this.url.Url, { headers });
-  }
+  } */
 }

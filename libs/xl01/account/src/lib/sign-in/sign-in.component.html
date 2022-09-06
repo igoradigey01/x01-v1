@@ -1,7 +1,7 @@
 <div class="container mat-typography">
   <mat-card class="cart">
     <mat-card-header class="title">
-      <div class="name-inter">
+      <div class="name-inter mat-h3">
         Вход На - <strong class="note-login">[XL-01.ru]</strong>
       </div>
 
@@ -44,61 +44,66 @@
       <!--Error messages Server output end-->
       <form
         class="form-signin"
-        #myForm="ngForm"
+        #authForm="ngForm"
         novalidate
-        (ngSubmit)="submitForm(myForm)"
+        (ngSubmit)="submitForm(authForm)"
       >
         <div class="item-form">
-          
-            <mat-form-field class="input-field" appearance="outline">
-              <mat-label>Email</mat-label>
-              <input
-                matInput
-                type="email"
-                name="email"
-                [(ngModel)]="email"
-                #mail="ngModel"
-                class="form-control"
-                required
-              />
-              <mat-error *ngIf="pass.invalid"> </mat-error>
-            </mat-form-field>
-          </div>
+          <mat-form-field class="input-field" appearance="standard">
+            <mat-label>Email</mat-label>
+            <input
+              matInput
+              type="email"
+              name="email"
+              [(ngModel)]="email"
+              #mail="ngModel"
+              class="form-control"
+              required
+              email
+            />
+            <mat-error *ngIf="mail.hasError('required')"
+              >Email is required</mat-error
+            >
+            <mat-error *ngIf="mail.hasError('email')"
+              >Please enter a valid email address</mat-error
+            >
+          </mat-form-field>
+        </div>
 
-          <div class="item-form">
-            
-              <mat-form-field class="input-field" appearance="outline">
-                <mat-label>Пароль:</mat-label>
-                <input
-                  matInput
-                  type="password"
-                  name="password"
-                  [(ngModel)]="password"
-                  #pass="ngModel"
-                  required
-                />
-                <mat-error *ngIf="pass.invalid"> </mat-error>
-              </mat-form-field>
-            </div>
-          
-       
+        <div class="item-form">
+          <mat-form-field class="input-field" appearance="standard">
+            <mat-label>Пароль:</mat-label>
+            <input
+              matInput
+              type="password"
+              name="password"
+              [(ngModel)]="password"
+              #pass="ngModel"
+              required
+              minlength="6"
+            />
+            <mat-error *ngIf="pass.hasError('required')"
+              >password is required</mat-error
+            >
+            <mat-error *ngIf="pass.hasError('minlength')"
+              >Please enter a valid password minlength 6
+            </mat-error>
+          </mat-form-field>
+        </div>
 
         <div class="check-field">
-          <mat-checkbox   [(ngModel)]="rememberme"  (click)="noCheckBox()" [ngModelOptions]="{standalone: true}"
+          <mat-checkbox
+            [(ngModel)]="rememberme"
+            [ngModelOptions]="{ standalone: true }"
             >запомнить меня</mat-checkbox
           >
         </div>
         <div class="route-field">
           <div>
-            <a
-              class="nav-link"
-              routerLink="forgot-password"
-              routerLinkActive="active"
-              >Забыли пароль?</a
-            >
+            <a class="nav-link" routerLink="forgot-password">Забыли пароль?</a>
           </div>
           <div>
-            <a class="nav-link" routerLink="sing-up" routerLinkActive="active"
+            <a class="nav-link" routerLink="sing-up"
               >Создать учетную запись?
             </a>
           </div>
@@ -109,9 +114,8 @@
             mat-raised-button
             color="accent"
             type="submit"
-            [disabled]="_flagButoon"
-           
-            style="width: 100%; margin-bottom: 0.5rem"
+            [disabled]="!authForm.valid"
+            style="width: 90%; margin-bottom: 0.5rem"
           >
             Войти
           </button>
@@ -120,7 +124,7 @@
             mat-flat-button
             class="cansel"
             routerLink=""
-            style="width: 100%"
+            style="width: 90%"
             name="login_button"
             value="cancel"
           >

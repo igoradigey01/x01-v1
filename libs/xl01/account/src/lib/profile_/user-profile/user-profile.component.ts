@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
-import { UserManagerService } from 'apps/xf01/src/app/_shared/services/user-manager.service';
+
 import { ProfileService } from '../../_shared/services/profile.service';
 import { User } from 'apps/xf01/src/app/_shared/_interfaces/user.model';
 import { Router } from '@angular/router';
-import { throwError } from 'rxjs';
+import {UserProfileDto} from '../../_shared/_interfaces/user-profileDto.model'
+import {UserManagerService} from '@x01-v1/xl01/auth-service'
+;
 
 @Component({
   selector: 'app-user-profile',
@@ -12,14 +14,14 @@ import { throwError } from 'rxjs';
   styleUrls: ['./user-profile.component.scss'],
 })
 export class UserProfileComponent implements OnInit {
-  public _user: User = <User>{
-    name: '',
-    password: '',
+  public _user: UserProfileDto = <UserProfileDto>{
+    firstName:'',
+    lastName:'',
     phone: '',
     address: '',
     email: '',
+    clientURI:''
   };
-
   /**Вывод профиля пользователя (возможно его заказы???-не раализовано) */
   constructor(
     private profileServece: ProfileService,
@@ -29,7 +31,7 @@ export class UserProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.profileServece.Get().subscribe(
-      (data: User) => {
+      (data: UserProfileDto) => {
         this._user = data;
 
         //   console.log("getUserProfile() next:"+ data.name);
@@ -42,14 +44,14 @@ export class UserProfileComponent implements OnInit {
 
   onEditButton() {
     //throwError("Not implement exepthion");
-    this.userMangagerService.user = this._user;
+    
     //  console.log('test button user-profile');
     this.router.navigateByUrl('auth/user-profile-edit');
   }
 
   onDeleteButton() {
-    throwError('Not implement exepthion');
-    this.userMangagerService.user = this._user;
+    Error('Not implement exepthion');
+    
     //  console.log('test button user-profile');
     this.router.navigateByUrl('auth/user-profile-delete');
   }

@@ -1,10 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { TokenService } from 'apps/xf01/src/app/_shared/services/token.service';
-import { ManagerServiceModule } from './maneger-service.module';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { RouteApiService } from 'apps/xf01/src/app/_shared/services/route-api.service';
-import { User } from 'apps/xf01/src/app/_shared/_interfaces/user.model';
+import { ManagerServiceModule } from './maneger-service.module';
+import { RouteApiService } from './route-api.service';
+import {UserProfileDto} from '../_interfaces/user-profileDto.model'
+import {UserManagerService} from '@x01-v1/xl01/auth-service'
+
+
+
+
+
 
 @Injectable({
   providedIn: ManagerServiceModule
@@ -15,23 +20,24 @@ export class ProfileService {
 
   constructor(
     private http: HttpClient,
-    private token: TokenService,
+    private userManager:UserManagerService,
     private url: RouteApiService
   ) {
     url.Controller = this._controller;
     url.Action = this._action;
   }
 
-  public Get(): Observable<User> {
+  public Get(): Observable<UserProfileDto> {
     this.url.Controller=this._controller;
     this.url.Action = 'Profile';
+    this.url.ID=null;
 
     let headers: HttpHeaders = new HttpHeaders({
       Accept: 'application/json',
-      Authorization: 'Bearer ' + this.token.AccessToken,
+      Authorization: 'Bearer ' + this.userManager.AccessToken,
     });
 
-    return this.http.get<User>(this.url.Url, {
+    return this.http.get<UserProfileDto>(this.url.Url, {
       headers
     }); //
   }
@@ -42,12 +48,12 @@ export class ProfileService {
 
     return this.http.post<any>(this.url.Url, user);
   } */
-  public Update(user: User): Observable<any> {
+  public Update(user: UserProfileDto): Observable<any> {
      throw new Error("Not implict");
     this.url.Action = 'Edit';
     let headers: HttpHeaders = new HttpHeaders({
       Accept: 'application/json',
-      Authorization: 'Bearer ' + this.token.AccessToken,
+      Authorization: 'Bearer ' + this.userManager.AccessToken,
     });
     return this.http.put(this.url.Url, user, { headers });
   }
@@ -57,7 +63,7 @@ export class ProfileService {
     this.url.Action = 'delete';
     let headers: HttpHeaders = new HttpHeaders({
       Accept: 'application/json',
-      Authorization: 'Bearer ' + this.token.AccessToken,
+      Authorization: 'Bearer ' + this.userManager.AccessToken,
     });
     let url = this.url.Url + '/' + id;
     return this.http.delete(url, { headers });

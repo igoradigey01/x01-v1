@@ -8,9 +8,11 @@ import {
   ValidatorFn,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UserManagerService } from 'apps/xf01/src/app/_shared/services/user-manager.service';
+import {UserProfileDto} from '../../_shared/_interfaces/user-profileDto.model'
+import {UserManagerService} from '@x01-v1/xl01/auth-service'
+;
 import { ProfileService } from '../../_shared/services/profile.service';
-import { User } from 'apps/xf01/src/app/_shared/_interfaces/user.model';
+
 import { HttpErrorResponse } from '@angular/common/http';
 
 
@@ -25,12 +27,13 @@ export class UserProfileEditComponent implements OnInit {
   _errorMgs: string[] = [];
   _flagButoon: boolean = false;
 
-  public _user: User = <User>{
-    name: '',
-    password: '',
+  public _user: UserProfileDto = <UserProfileDto>{
+    firstName:'',
+    lastName:'',
     phone: '',
     address: '',
     email: '',
+    clientURI:''
   };
 
   constructor(
@@ -41,7 +44,7 @@ export class UserProfileEditComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    if (this.userManagerService.user) this._user = this.userManagerService.user;
+   
 
     //console.log( " test user-profile-edit _user.address--"+this._user.address);
     this._form = new FormGroup({

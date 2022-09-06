@@ -1,21 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router , ActivatedRoute } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
-
-import { NgForm } from '@angular/forms';
+import { FormControl, NgForm } from '@angular/forms';
 import { UserManagerService } from '@x01-v1/xl01/auth-service';
 import { AccountService } from '../_shared/services/account.service';
-//import { MatCheckboxDefaultOptions, MAT_CHECKBOX_DEFAULT_OPTIONS } from '@angular/material/checkbox';
-
-
 import { Subscription } from 'rxjs';
 
+//https://code-maze.com/angular-security-with-asp-net-core-identity/
+//https://jasonwatmore.com/post/2019/05/17/angular-7-tutorial-part-4-login-form-authentication-service-route-guard
+//https://code-maze.com/angular-password-reset-functionality-with-aspnet-identity/
+//https://code-maze.com/angular-email-confirmation-aspnet-identity/
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
   styleUrls: ['./sign-in.component.scss'],
-  providers:[
-   
+  providers: [
+
   ]
 })
 export class SignInComponent implements OnInit {
@@ -23,25 +23,36 @@ export class SignInComponent implements OnInit {
 
   _flagButoon: boolean = false;
   _errorMgs: string[] = [];
-  _isUserValid=false;
+  _isUserInvalid = false;
 
   // parser file on load
   public password: string = '';
   public email: string = '';
   public rememberme: boolean = true;
+  public returnUrl: string='';
   /** вход пользователья ;создание токена */
   constructor(
     private _accountServie: AccountService,
     private _userManager: UserManagerService,
+    private route: ActivatedRoute,
     private router: Router,
-  
+
   ) { }
 
   ngOnInit(): void {
+
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+
     let subLogin = this._userManager.InvalidLogin$.subscribe(
-      d=>this._isUserValid
+      d => {
+        this._isUserInvalid=d
+       if(!d){
+        this.router.navigate(['/']);
+       }
+      }
+
     );
-   
+
     this._subscriptions.push(subLogin);
   }
 
@@ -49,41 +60,36 @@ export class SignInComponent implements OnInit {
     this._subscriptions.forEach((s) => s.unsubscribe());
   }
 
-  noCheckBox(){
-    console.log("noCheckBox------------------")
-    this.rememberme=!this.rememberme;
-  }
+  
 
-  externalLogin( name:string){
-    this._errorMgs=[];
-    console.log("---  externalLogin-- " +name);
-    this._errorMgs.push("провайдер авторизации  -"+name+"-временно недоступен");
+  externalLogin(name: string) {
+    this._errorMgs = [];
+    console.log("---  externalLogin-- " + name);
+    this._errorMgs.push("провайдер авторизации  -" + name + "-временно недоступен");
   }
 
   submitForm(loginForm: NgForm) {
-    // this._form.disable();
+  
     this._errorMgs = [];
 
     const credentials = JSON.stringify(loginForm.value);
-    // this._errorMgs.length=0;
+    
 
     this._accountServie.login(credentials).subscribe(
       (d) => {
-      //  debugger
-        this._userManager.setInvalidLogin$(false,d.access_token);
+        
+        this._userManager.setInvalidLogin$(false, d.access_token);
         this._flagButoon = true;
-        /* if (this.tokenService.IsAdmin()) {
-          this.userManagerService.isAdimin = true;
-        } */
+       
         this.router.navigateByUrl('');
       },
       (err: HttpErrorResponse) => {
         let body: string;
-        this._userManager.setInvalidLogin$(true,null);
+        this._userManager.setInvalidLogin$(true, null);
         this._flagButoon = false;
         if (err.status === 401 || err.status == 400) {
-          //this.userManagerService.invalidLogin = true;
-          //  console.log(  error.message);
+          
+           console.log(  err.message);
           this._errorMgs.push(err.error);
 
           return;
@@ -102,7 +108,10 @@ export class SignInComponent implements OnInit {
     // this.router.navigate(['/auth/sing-off']);
   }
 
- 
+  
+    
+  
+
 
   onFileInput(event: any) {
     let data = event.target.files[0];
