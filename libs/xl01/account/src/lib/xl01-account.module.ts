@@ -17,6 +17,10 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { Xl01AuthModule } from '@x01-v1/xl01/auth-service';
 import { MatchPasswordDirective } from './_shared/_helpers/must-match.directive';
+import {MainUserProfileComponent} from './profile_/main-user-profile/main-user-profile.component'
+import {UserOrdersMainComponent} from './user-orders_/user-orders-main/user-orders-main.component'
+import {UserOrdersTableComponent} from './user-orders_/user-orders-table/user-orders-table.component'
+import {UserOrdersItemComponent} from './user-orders_/user-orders-item/user-orders-item.component'
 
 
 
@@ -24,9 +28,7 @@ const routes: Routes = [
   { path: '', component: SignInComponent },
   { path: 'sing-up', component: SignUpComponent },
   { path: 'sing-off', component: LogOffComponent },
-  { path: 'user-profile', component: UserProfileComponent },
-  { path: 'user-profile-edit', component: UserProfileEditComponent },
-  { path: 'user-profile-delete', component: UserProfileDeleteComponent },
+  { path: 'user-profile', component: MainUserProfileComponent }, 
   { path: 'email-confirmation', component: EmailConfirmationComponent },
   { path: 'reset-password', component: ResetPasswordComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
@@ -34,8 +36,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    CommonModule,
-   
+    CommonModule,   
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
@@ -55,7 +56,11 @@ const routes: Routes = [
     EmailConfirmationComponent,
     ForgotPasswordComponent,
     ResetPasswordComponent,
-    MatchPasswordDirective
+    MatchPasswordDirective,
+    MainUserProfileComponent,
+    UserOrdersMainComponent,
+    UserOrdersTableComponent,
+    UserOrdersItemComponent
   ],
   exports: [
     SignInComponent,

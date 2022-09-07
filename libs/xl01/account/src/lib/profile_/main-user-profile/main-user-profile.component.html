@@ -1,6 +1,16 @@
 <p>main-user-profile works!</p>
-<mat-tab-group mat-align-tabs="center">
-  <mat-tab label="First">Content 1</mat-tab>
-  <mat-tab label="Second">Content 2</mat-tab>
-  <mat-tab label="Third">Content 3</mat-tab>
-</mat-tab-group>
+
+<div class="container mat-typography">
+  <mat-card class="cart"> 
+    <mat-card-content>
+      <mat-tab-group mat-align-tabs="center">
+        <mat-tab label="Профиль">
+          <app-user-profile></app-user-profile>
+         </mat-tab>
+        <mat-tab label="Заказы">
+         <user-orders-item></user-orders-item>
+        </mat-tab> 
+      </mat-tab-group>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -17,7 +17,7 @@ import { Xl01AuthModule } from '@x01-v1/xl01/auth-service';
   declarations: [AppComponent, PageNotFoundComponent],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule,
+    BrowserAnimationsModule,  // add buged 200
 
     Xl01BasicSectionsModule,
     Xl01SharedStylesModule,
