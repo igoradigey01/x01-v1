@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'user-orders-item',
+  selector: 'x01-v1-user-orders-item',
   templateUrl: './user-orders-item.component.html',
   styleUrls: ['./user-orders-item.component.scss'],
 })

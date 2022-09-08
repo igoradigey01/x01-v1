@@ -17,9 +17,9 @@
           "apps/xl01/src/favicon.ico",
           "apps/xl01/src/assets",
           {
-            "input": "libs/xl01/ui/src/assets",
+            "input": "libs/xl01/account/src/assets",
             "glob": "**/*",
-            "output": "assets/ui"
+            "output": "assets/account"
           }
         ],
         "styles": ["apps/xl01/src/styles/style.scss"],

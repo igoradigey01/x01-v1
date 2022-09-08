@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
 import { environment } from 'apps/xf01/src/environments/environment';
@@ -12,7 +12,7 @@ import { PasswordConfirmationValidatorService } from '../_shared/services/passwo
   styleUrls: ['./sign-up.component.scss'],
 })
 export class SignUpComponent implements OnInit {
-  @ViewChild('registerForm', {static: false}) _registerForm: NgForm|undefined;
+  
 
   public _user: UserRegistrationDto = {
     clientURI: '',

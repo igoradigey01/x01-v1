@@ -45,6 +45,7 @@ This project was generated using [Nx](https://nx.dev).
 
          }
 
+  restart nx server !!!  
   ```
 
   ### Router not work routerLink="{{item.url}}"

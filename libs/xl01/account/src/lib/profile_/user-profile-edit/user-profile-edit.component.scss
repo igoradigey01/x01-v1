@@ -10,6 +10,21 @@
   margin: auto;
   text-align: center;
 }
+.title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-header{
+  text-align: center;
+
+}
+.input-field {
+  width: 90%;
+  // background-color: st.$accent-lighter-color ;
+
+  color: st.$text-accent-lighter-color;
+}
 
 .error {
   color: st.$warn-color;

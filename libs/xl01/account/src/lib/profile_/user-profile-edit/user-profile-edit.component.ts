@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import {
   FormGroup,
   FormControl,
@@ -19,7 +20,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 @Component({
   selector: 'app-user-profile-edit',
   templateUrl: './user-profile-edit.component.html',
-  styleUrls: ['./user-profile-edit.component.css'],
+  styleUrls: ['./user-profile-edit.component.scss'],
 })
 export class UserProfileEditComponent implements OnInit {
   _form: FormGroup | null = null;
@@ -60,7 +61,16 @@ export class UserProfileEditComponent implements OnInit {
     });
   }
 
-  submitForm() {
+  submitForm(registerForm: NgForm) {
+
+    this._errorMgs = [];
+
+    const credentials = JSON.stringify(registerForm.value);
+    // this._errorMgs.length=0;
+
+  }
+
+  _submitForm() {
     // throw new Error("not Impliment Exeption");
     this._flagButoon = true;
     /*

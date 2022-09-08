@@ -1,79 +1,151 @@
 <p>user-profile-edit works!</p>
 
-<div class="container" style="margin: auto;">
-  <div class="row">
-    <div class="col-md-6 offset-md-3 col-xs-12">
-      <div class="card">
-        <div class="card-header" style="text-align: center;">Профиль</div>
-        <div class="card-body">
+<div class="container mat-typography">
+  <mat-card class="cart">
+    <mat-card-header class="title">
+      <div class="card-header mat-h3">Редактировать профиль</div>
+      <div> <a class="nav-link" routerLink="/account/user-profile" > <mat-icon>keyboard_backspace</mat-icon></a></div>
+    </mat-card-header>
+
+    <mat-card-content>
       <!--Error messages Server output start-->
-      <div class="alert alert-danger" role="alert" *ngIf="_errorMgs?.length">
 
-
+      <div class="error" *ngIf="_errorMgs?.length">
         <ul>
           <li *ngFor="let error of _errorMgs">
             {{ error }}
           </li>
         </ul>
-
-      </div>
-      <div class="alert alert-success" role="alert" *ngIf="_successfulSave">
-       Ваши Данные Успешно Изменены!
       </div>
 
+      <!--Error messages Server output end-->
+      <form
+        class="form-signin"
+        #registerForm="ngForm"
+        novalidate
+        (ngSubmit)="submitForm(registerForm)"        
+      >
+      <div class="item-form">
+        <mat-form-field class="input-field" appearance="standard">
+          <mat-label>Ваше Имя:</mat-label>
+          <input
+            matInput
+            type="text"
+            name="firstName"
+            [(ngModel)]="_user.firstName"
+            #firstN="ngModel"
+            class="form-control"
+            required
+            minlength="3"
+          />
+          <mat-error *ngIf="firstN.hasError('required')"
+              >firstName обязателeн</mat-error
+            >
+            <mat-error *ngIf="firstN.hasError('minlength')"
+              >Please enter a valid password minlength 3 </mat-error
+            >
+        </mat-form-field>
+      </div>
+      <div class="item-form">
+        <mat-form-field class="input-field" appearance="standard">
+          <mat-label>Ваше Отчество:</mat-label>
+          <input
+            matInput
+            type="text"
+            name="lastName"
+            [(ngModel)]="_user.lastName"
+            #lastN="ngModel"
+            class="form-control"
+            required
+            minlength="3"
+          />
+          <mat-error *ngIf="lastN.hasError('required')"
+              >lastName обязателeн</mat-error
+            >
+            <mat-error *ngIf="lastN.hasError('minlength')"
+              >Please enter a valid password minlength 3 </mat-error
+            >
+        </mat-form-field>
+      </div>
+      
+      <div class="item-form">
+        <mat-form-field class="input-field" appearance="standard">
+          <mat-label>Телефон:</mat-label>
+          <input
+            matInput
+            type="text"
+            name="phone"
+            [(ngModel)]="_user.phone"
+            #phone="ngModel"
+            class="form-control"
+            required
+            minlength="7"
+          />
+          <mat-error *ngIf="phone.hasError('required')"
+              >phone обязателeн</mat-error
+            >
+            <mat-error *ngIf="phone.hasError('minlength')"
+              >Please enter a valid phone minlength 7 </mat-error
+            >
+        </mat-form-field>
+      </div>
 
-       <!--Error messages Server output end-->
-
-
-
-       <form ![formGroup]="_form" (ngSubmit)="submitForm()">
-
-        <div class="form-group">
-          <label for="name"> Ваше Имя:</label>
-          <input type="name" class="form-control" id="name" formControlName="name" [(ngModel)]="_user.firstName" />
-          <div class="alert alert-danger"
-                        *ngIf="_form!.controls['name'].invalid && _form!.controls['name'].touched">
-                        Некорректное Имя
-                    </div>
-        </div>
-
-        <div class="form-group">
-          <label for="phone"> Телефон:</label>
-          <input type="phone" class="form-control" id="phone" formControlName="phone" [(ngModel)]="_user.phone" />
-          <div class="alert alert-danger"
-                        *ngIf="_form!.controls['phone'].invalid && _form!.controls['phone'].touched">
-                        Некорректный телефон
-                    </div>
-        </div>
-
-
-
-        <div class="form-group">
-          <label for="email"> Адрес электронной почты:</label>
-          <input type="email" class="form-control" id="email" formControlName="email" [(ngModel)]="_user.email" />
-          <div class="alert alert-danger"
-                        *ngIf="_form!.controls['email'].invalid && _form!.controls['email'].touched">
-                        Некорректный email
-                    </div>
-        </div>
-
-        <div class="form-group">
-          <label for="address"> Адрес доставки заказа:</label>
-          <input type="address" class="form-control" id="address" formControlName="address" [(ngModel)]="_user.address" />
-
-        </div>
-
+      <div class="item-form">
+        <mat-form-field class="input-field" appearance="standard">
+          <mat-label>Адрес доставки :</mat-label>
+          <textarea 
+            matInput
+            type="text"
+            rows="2"
+            name="address"
+            [(ngModel)]="_user.address"
+            #address="ngModel"
+            class="form-control"
+          
+          ></textarea>
         
-       
-        <div>
-        <button type="submit" [disabled]="_flagButoon" class="btn btn-primary" style="width: 100%;">Сохранить</button>
+        </mat-form-field>
       </div>
-      </form>
-      <div >
 
+      <div class="item-form">
+        <mat-form-field class="input-field" appearance="standard">
+          <mat-label>Email:</mat-label>
+          <input
+            matInput
+            type="text"
+            name="email"
+            [(ngModel)]="_user.email"
+            #mail="ngModel"
+            class="form-control"
+            required
+            email
+          />
+          <mat-error *ngIf="mail.hasError('required')"
+              >Email обязателeн</mat-error
+            >
+            <mat-error *ngIf="mail.hasError('email')"
+              >Please enter a valid email address</mat-error
+            >
+          </mat-form-field>
+       
       </div>
-    </div>
-  </div>
+
+      
+        <div>
+          <button
+            mat-raised-button
+            color="accent"
+            type="submit"
+            [disabled]="!registerForm.valid"
+            style="width: 90%;margin: 0 0 0 0; "
+          >
+            Зарегистрироваться
+          </button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
 </div>
-</div>
+<div>
+  
 </div>

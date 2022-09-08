@@ -131,3 +131,23 @@ docker volume prune // delete volume <br/>
  https://yandex.ru/dev/maps/jsapi/doc/2.1/quick-start/index.html
  https://yandex.ru/dev/maps/jsapi/?from=mapsapi
  ```
+
+ ### assets in libs/ui img-render  is  ok | use Photo in lib
+  ```
+  [libs/xl01/ui/src/assets/logo1.jpg]
+  [libs/xl01/ui/src/lib/img-render.componet.html ]
+  <img height="60" width="300" src="/assets/ui/logo1.jpg">
+  
+  [apps/xl01/project.json]
+
+  "assets": ["apps/xl01/src/favicon.ico",
+         "apps/xl01/src/assets",
+         {"input" :"libs/xl01/ui/src/assets",
+            "glob":"**/*",
+            "output":"assets/ui"
+
+         }
+
+  restart nx server !!!       
+
+  ```

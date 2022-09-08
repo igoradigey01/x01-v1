@@ -238,6 +238,8 @@ $altTheme: (
 @include mat.form-field-theme($theme);
 @include mat.tabs-theme($theme);
 @include mat.list-theme($theme);
+@include mat.divider-theme($theme);
+
 //@include mat.all-component-themes($theme);
 
 
