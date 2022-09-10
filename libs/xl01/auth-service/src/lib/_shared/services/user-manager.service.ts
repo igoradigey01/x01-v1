@@ -65,7 +65,7 @@ export class UserManagerService {
       this.accessTokenStorage.remove();
     }
   }
-
+  /**get role User or null */
   public get RoleUser(): string | null {
     let token = this.accessTokenStorage.Get;
     if (token) {
@@ -74,7 +74,7 @@ export class UserManagerService {
     }
     return null;
   }
-
+      /**get access Token */
   public get AccessToken(): string | null {
     return this.accessTokenStorage.Get;
   }
@@ -82,7 +82,8 @@ export class UserManagerService {
   public accessTokenRemove() {
     this.accessTokenStorage.remove();
   }
-
+  
+      /**get Refresh Token */
   public get RefreshToken(): string | null {
     return this.refreshTokenStorage.Get;
   }

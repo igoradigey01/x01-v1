@@ -1,4 +1,4 @@
-export interface ResetPasswordDto {
+export interface ResetPasswordMailDto {
   password: string;
   confirmPassword: string;
   email: string;

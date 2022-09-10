@@ -8,5 +8,6 @@ export enum StateView {
   wait=6,
   delete=7,
   priceEdit=8,
-  itemData=9
+  itemData=9,
+  resetPassword=10
 }

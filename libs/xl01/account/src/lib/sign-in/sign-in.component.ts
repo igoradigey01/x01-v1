@@ -10,6 +10,7 @@ import { Subscription } from 'rxjs';
 //https://jasonwatmore.com/post/2019/05/17/angular-7-tutorial-part-4-login-form-authentication-service-route-guard
 //https://code-maze.com/angular-password-reset-functionality-with-aspnet-identity/
 //https://code-maze.com/angular-email-confirmation-aspnet-identity/
+//https://docs.microsoft.com/ru-ru/aspnet/core/security/authentication/accconfirm?view=aspnetcore-6.0&tabs=netcore-cli
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',

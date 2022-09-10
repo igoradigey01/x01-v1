@@ -53,3 +53,12 @@ This project was generated using [Nx](https://nx.dev).
    import { RouterModule } from '@angular/router';
   ```
   ### Prettier - Code formatter (расширение)
+   ## NgForm input !!!! name="pass" and #pass одинаковые 
+   ```
+   <input matInput type="password"  name="pass" #pass="ngModel"  />    
+  
+   name="pass" (pass) === (pass) #pass 
+
+    <div>pass: {{registerForm.value.pass}}</div>
+  <div>confirm: {{registerForm.value.confirm}}</div>
+   ```

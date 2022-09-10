@@ -4,7 +4,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { environment } from 'apps/xf01/src/environments/environment';
 import { UserRegistrationDto } from '../_shared/_interfaces/user-registrationDto.model';
 import { AccountService } from '../_shared/services/account.service';
-import { PasswordConfirmationValidatorService } from '../_shared/services/password-confirmation-validator.service';
+
 
 @Component({
   selector: 'app-sign-up',
@@ -31,7 +31,7 @@ export class SignUpComponent implements OnInit {
 
   constructor(
     private _authService: AccountService,
-    private _passConfValidator: PasswordConfirmationValidatorService
+    
   ) {}
 
   ngOnInit(): void {}

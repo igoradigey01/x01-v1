@@ -29,7 +29,14 @@
     (onToggleViewState)="onChangeViewState($event)"
     ></app-user-profile-edit>
   </ng-template>
+  <ng-template name="ResetPassword" ngSwitchCase="10">
+  <x01-v1-reset-password-profile
+   [Email]="user.email"
+   (onToggleViewState)="onChangeViewState($event)"
+  >
 
+  </x01-v1-reset-password-profile>
+  </ng-template>
   <ng-template name="delete" ngSwitchCase="7">
     <app-user-profile-delete
     [User]="user"

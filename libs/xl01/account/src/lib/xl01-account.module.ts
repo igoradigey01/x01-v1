@@ -16,7 +16,8 @@ import { UserProfileEditComponent } from './profile_/user-profile-edit/user-prof
 import { UserProfileDeleteComponent } from './profile_/user-profile-delete/user-profile-delete.component';
 import { EmailConfirmationComponent } from './email-confirmation/email-confirmation.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { ResetPasswordFromMailComponent } from './reset-password_/reset-password-from-mail/reset-password-from-mail.component';
+import {ResetPasswordProfileComponent} from './reset-password_/reset-password-profile/reset-password-profile.component'
 import { Xl01AuthModule } from '@x01-v1/xl01/auth-service';
 import { MatchPasswordDirective } from './_shared/_helpers/must-match.directive';
 import {MainUserProfileComponent} from './profile_/main-user-profile/main-user-profile.component'
@@ -32,7 +33,7 @@ const routes: Routes = [
   { path: 'sing-off', component: LogOffComponent },
   { path: 'user-profile', component: MainUserProfileComponent }, 
   { path: 'email-confirmation', component: EmailConfirmationComponent },
-  { path: 'reset-password', component: ResetPasswordComponent },
+  { path: 'reset-password', component: ResetPasswordFromMailComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
 ];
 
@@ -57,7 +58,8 @@ const routes: Routes = [
     UserProfileDeleteComponent,
     EmailConfirmationComponent,
     ForgotPasswordComponent,
-    ResetPasswordComponent,
+    ResetPasswordFromMailComponent,
+    ResetPasswordProfileComponent,
     MatchPasswordDirective,
     MainUserProfileComponent,
     UserOrdersMainComponent,
@@ -73,7 +75,7 @@ const routes: Routes = [
     UserProfileDeleteComponent,
     EmailConfirmationComponent,
     ForgotPasswordComponent,
-    ResetPasswordComponent,
+    ResetPasswordFromMailComponent,
   ],
   providers:[
   

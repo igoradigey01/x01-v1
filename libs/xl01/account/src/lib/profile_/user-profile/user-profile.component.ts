@@ -61,7 +61,7 @@ export class UserProfileComponent implements OnInit {
   }
 
   onChangePassword(){
-    this.router.navigateByUrl('/account/reset-password');
+    this.onToggleViewState.next(StateView.resetPassword);
   }
 
   onEditButton() {

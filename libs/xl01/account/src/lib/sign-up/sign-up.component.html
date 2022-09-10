@@ -140,7 +140,7 @@
           <input
             matInput
             type="password"
-            name="password"
+            name="pass"
             [(ngModel)]="_user.password"
             #pass="ngModel"
             class="form-control"
@@ -163,6 +163,7 @@
             #confirm="ngModel"
             class="form-control"
             required
+           
             
           />
           <mat-error *ngIf="confirm.hasError('required')"
@@ -190,5 +191,5 @@
   </mat-card>
 </div>
 <div>
-  
+ 
 </div>

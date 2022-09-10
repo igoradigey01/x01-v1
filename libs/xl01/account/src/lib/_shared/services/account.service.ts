@@ -11,7 +11,7 @@ import { RegistrationResponseDto } from '../_interfaces/registration-responseDto
 import { UserRegistrationDto } from '../_interfaces/user-registrationDto.model';
 import { ForgotPasswordDto } from '../_interfaces/forgot-passwordDto.model';
 import { UrlEncoder } from '../class/url-encoder.class';
-import { ResetPasswordDto } from '../_interfaces/reset-passwordDto.model';
+import { ResetPasswordMailDto } from '../_interfaces/reset-password-mailDto.model';
 
 @Injectable({
   providedIn: ManagerServiceModule,
@@ -44,6 +44,7 @@ export class AccountService {
   public registerUser = (body: UserRegistrationDto) => {
     this.url.Controller = 'Account';
     this.url.Action = 'Registration'; //this._action;
+    this.url.ID = null;
 
     return this.http.post<RegistrationResponseDto>(this.url.Url, body);
   };
@@ -51,6 +52,7 @@ export class AccountService {
   public confirmEmail = (token: string, email: string) => {
     this.url.Controller = 'Account';
     this.url.Action = 'EmailConfirmation'; //this._action;
+    this.url.ID = null;
 
     let params = new HttpParams({ encoder: new UrlEncoder() });
     params = params.append('token', token);
@@ -62,13 +64,15 @@ export class AccountService {
   public forgotPassword = (body: ForgotPasswordDto) => {
     this.url.Controller = 'Account';
     this.url.Action = 'ForgotPassword';
+    this.url.ID = null;
 
     return this.http.post(this.url.Url, body);
   };
 
-  public resetPassword = (body: ResetPasswordDto) => {
+  public resetPassword = (body: ResetPasswordMailDto) => {
     this.url.Controller = 'Account';
-    this.url.Action = 'ResetPassword';
+    this.url.Action = 'ResetPasswordMail';
+    this.url.ID = null;
 
     return this.http.post(this.url.Url, body);
   };

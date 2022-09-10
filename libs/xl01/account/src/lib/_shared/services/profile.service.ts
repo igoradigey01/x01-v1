@@ -5,6 +5,7 @@ import { ManagerServiceModule } from './maneger-service.module';
 import { RouteApiService } from './route-api.service';
 import {UserProfileDto} from '../_interfaces/user-profileDto.model'
 import {UserManagerService} from '@x01-v1/xl01/auth-service'
+import {ResetPasswordProfileDto} from '../_interfaces/reset-password-profileDto.model'
 
 
 
@@ -28,7 +29,7 @@ export class ProfileService {
     
   }
 
-  public GetUser(): Observable<UserProfileDto>{
+  public GetUser=(): Observable<UserProfileDto>=>{
     this.url.Controller='Profile';
     this.url.Action = 'GetUser';
     this.url.ID=null;
@@ -46,7 +47,7 @@ export class ProfileService {
   }
 
 
-  public Update(credentials: string): Observable<any> {
+  public Update=(credentials: string): Observable<any> =>{
     this.url.Controller='Profile';
     this.url.Action = 'EditUser';
     this.url.ID=null;
@@ -57,7 +58,15 @@ export class ProfileService {
     return this.http.post(this.url.Url, credentials, { headers });
   }
 
-  public Delete(id: string): Observable<any> {
+  public ResetPassword = (body: ResetPasswordProfileDto) => {
+    this.url.Controller = 'Profile';
+    this.url.Action = 'ResetPasswordProfile';
+    this.url.ID = null;
+
+    return this.http.post(this.url.Url, body);
+  };
+
+  public Delete=(id: string): Observable<any> =>{
     throw new Error("Not implict");
     this.url.Action = 'delete';
     let headers: HttpHeaders = new HttpHeaders({
