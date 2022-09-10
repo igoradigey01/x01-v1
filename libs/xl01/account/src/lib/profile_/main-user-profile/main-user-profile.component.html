@@ -5,7 +5,11 @@
         <mat-card-content>
           <mat-tab-group mat-align-tabs="center">
             <mat-tab label="Профиль">
-              <app-user-profile></app-user-profile>
+              <app-user-profile
+              [User]="user"
+              (onToggleViewState)="onChangeViewState($event)"
+              
+              ></app-user-profile>
              </mat-tab>
             <mat-tab label="Заказы">
              <x01-v1-user-orders-main></x01-v1-user-orders-main>
@@ -20,11 +24,17 @@
 
   <!--  Edit -Delete template -->
   <ng-template name="Edit" ngSwitchCase="4">
-    <app-user-profile-edit></app-user-profile-edit>
+    <app-user-profile-edit
+    [User]="user"
+    (onToggleViewState)="onChangeViewState($event)"
+    ></app-user-profile-edit>
   </ng-template>
 
   <ng-template name="delete" ngSwitchCase="7">
-    <app-user-profile-delete></app-user-profile-delete>
+    <app-user-profile-delete
+    [User]="user"
+    (onToggleViewState)="onChangeViewState($event)"
+    ></app-user-profile-delete>
   </ng-template>
 </div>
 

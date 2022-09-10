@@ -1,12 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Output, EventEmitter,Input,} from '@angular/core';
 import {DomSanitizer} from '@angular/platform-browser';
 import {MatIconRegistry} from '@angular/material/icon';
 
-import { ProfileService } from '../../_shared/services/profile.service';
-import { User } from 'apps/xf01/src/app/_shared/_interfaces/user.model';
+import {StateView} from '../../_shared/_interfaces/state-view'
+
+
+
 import { Router } from '@angular/router';
 import { UserProfileDto } from '../../_shared/_interfaces/user-profileDto.model';
-import { UserManagerService } from '@x01-v1/xl01/auth-service';
+
 
 const THUMBUP_ICON = `
  <?xml version="1.0" ?><!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 1.1//EN' 
@@ -25,22 +27,25 @@ const THUMBUP_ICON = `
   templateUrl: './user-profile.component.html',
   styleUrls: ['./user-profile.component.scss'],
 })
-export class UserProfileComponent implements OnInit {
+export class UserProfileComponent implements OnInit {  
+
   _errorMgs: string[] = [];
 
-  public _user: UserProfileDto = <UserProfileDto>{
-    firstName: 'Igor',
-    lastName: 'Tsygankov',
-    phone: '+79034668368',
-    address: 'st. Hanskay,ul. Kuznechnaya 489a     Majkop g, Adygeya Resp, Russian Federation, 385060 Default',
-    email: 'admin@x-01.ru',
+  @Input() public User: UserProfileDto = <UserProfileDto>{
+    firstName: '',
+    lastName: '',
+    phone: '',
+    address: '',
+    email: '',
   };
 
-  public _massages: number = 0; // not reliz
-  /**Вывод профиля пользователя (возможно его заказы???-не раализовано) */
+  @Input()   public Massages: number = 0; // not reliz
+
+  @Output()
+     onToggleViewState:EventEmitter<StateView> = new EventEmitter()
+  
   constructor(
-    private profileServece: ProfileService,
-    private userMangagerService: UserManagerService,
+   
     private router: Router,
     iconRegistry: MatIconRegistry, 
     sanitizer: DomSanitizer
@@ -52,29 +57,18 @@ export class UserProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.profileServece.Get().subscribe(
-      (data: UserProfileDto) => {
-        this._user = data;
+    
+  }
 
-        //   console.log("getUserProfile() next:"+ data.name);
-      },
-      (error) => {
-        console.log('getUserProfile() error:' + error);
-      }
-    );
+  onChangePassword(){
+    this.router.navigateByUrl('/account/reset-password');
   }
 
   onEditButton() {
-    //throwError("Not implement exepthion");
-
-    //  console.log('test button user-profile');
-    //this.router.navigateByUrl('auth/user-profile-edit');
+    this.onToggleViewState.next(StateView.edit);
   }
 
   onDeleteButton() {
-    Error('Not implement exepthion');
-
-    //  console.log('test button user-profile');
-   // this.router.navigateByUrl('auth/user-profile-delete');
+   this.onToggleViewState.next(StateView.delete);
   }
 }

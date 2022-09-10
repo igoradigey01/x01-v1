@@ -57,13 +57,13 @@ export class SignUpComponent implements OnInit {
 
     this._errorMgs.length = 0;
 
-    this._authService.registerUser(this._user).subscribe(
-      (_) => {
+    this._authService.registerUser(this._user).subscribe({
+     next: (_) => {
         console.log('Successful registration');
         this._successfulSave = true;
         this._flagButoon = true;
       },
-      (error: HttpErrorResponse) => {
+      error:(error: HttpErrorResponse) => {
         this._successfulSave = false;
         this._flagButoon = false;
 
@@ -78,13 +78,8 @@ export class SignUpComponent implements OnInit {
           'Ошибка соединения с сервером -Сообщиете Администаратору Pесурса'
         );
       }
-    );
+  });
   };
 
-  private setRequired() {
-    // if(this._registerForm!==undefined){
-    // this._registerForm.form.get('confirm').setValidators([Validators.required])
-    // this._registerForm.form.get('confirm').updateValueAndValidity();
-    // }
-  }
+ 
 }

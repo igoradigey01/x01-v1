@@ -1,14 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+
 import {MaterialModule} from './material.module'
 import { SignInComponent } from './sign-in/sign-in.component';
-//import { MatButtonModule, MatCardModule, MatInputModule } from '@angular/material';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { LogOffComponent } from './log-off/log-off.component';
 import { UserProfileComponent } from './profile_/user-profile/user-profile.component';
-import { HttpClientModule } from '@angular/common/http';
+
 import { ManagerServiceModule } from './_shared/services/maneger-service.module';
 import { UserProfileEditComponent } from './profile_/user-profile-edit/user-profile-edit.component';
 import { UserProfileDeleteComponent } from './profile_/user-profile-delete/user-profile-delete.component';

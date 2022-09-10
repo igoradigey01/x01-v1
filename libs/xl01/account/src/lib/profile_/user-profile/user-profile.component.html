@@ -25,8 +25,8 @@
         </div>
         <div class="profileUserInfo_personDetail">
           <div class="profileUserInfo_personData">
-            <span style="margin-right: 0.5rem">{{ _user.firstName }}</span>
-            <span>{{ _user.lastName }}</span>
+            <span style="margin-right: 0.5rem">{{ User.firstName }}</span>
+            <span>{{ User.lastName }}</span>
           </div>
           <div class="profileUserInfo_messages">
             <svg
@@ -45,7 +45,7 @@
               ></path>
             </svg>
             <span> Непрочитанные сообщения </span> :
-            <span class="profileUserInfo_messages_count">{{ _massages }}</span>
+            <span class="profileUserInfo_messages_count">{{ Massages }}</span>
           </div>
         </div>
       </div>
@@ -54,13 +54,13 @@
         <div class="mat-subheader" mat-subheader>Телефон:</div>
         <mat-list-item>
           <mat-icon class="mat-subheader" mat-list-icon>phone</mat-icon>
-          <div mat-line>{{ _user.phone }}</div>
+          <div mat-line>{{ User.phone }}</div>
         </mat-list-item>
         <mat-divider></mat-divider>
         <div class="mat-subheader" mat-subheader>Еmail</div>
         <mat-list-item>
           <mat-icon mat-list-icon>email</mat-icon>
-          <div mat-line>{{ _user.email }}</div>
+          <div mat-line>{{ User.email }}</div>
         </mat-list-item>
         <mat-divider></mat-divider>
         <div class="mat-subheader" mat-subheader>
@@ -75,7 +75,7 @@
         </div>
       </mat-list>
       <div class="user_adresss">
-        {{ _user.address }}
+        {{ User.address }}
       </div>
       <mat-divider></mat-divider>
 
@@ -86,7 +86,17 @@
           (click)="onEditButton()"
           class="btn"
         >
-          Редактировать
+          Редактировать Профиль
+        </button>
+      </div>
+      <div>
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="onChangePassword()"
+          class="btn"
+        >
+          сменить пароль
         </button>
       </div>
       <div>

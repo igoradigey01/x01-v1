@@ -79,6 +79,7 @@
             #phone="ngModel"
             class="form-control"
             required
+            pattern="[+0-9]{12}"
             minlength="7"
           />
           <mat-error *ngIf="phone.hasError('required')"
@@ -87,6 +88,9 @@
             <mat-error *ngIf="phone.hasError('minlength')"
               >Please enter a valid phone minlength 7 </mat-error
             >
+            <mat-error *ngIf="phone.hasError('pattern')"
+            >Please enter a valid phone 
+          </mat-error>
         </mat-form-field>
       </div>
 

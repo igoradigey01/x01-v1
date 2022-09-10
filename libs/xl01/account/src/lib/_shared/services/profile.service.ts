@@ -15,22 +15,25 @@ import {UserManagerService} from '@x01-v1/xl01/auth-service'
   providedIn: ManagerServiceModule
 })
 export class ProfileService {
-  readonly _controller: string = 'Account';
-  readonly _action = 'Profile';
+  
+  
+  
 
   constructor(
     private http: HttpClient,
     private userManager:UserManagerService,
     private url: RouteApiService
   ) {
-    url.Controller = this._controller;
-    url.Action = this._action;
+    
+    
   }
 
-  public Get(): Observable<UserProfileDto> {
-    this.url.Controller=this._controller;
-    this.url.Action = 'Profile';
+  public GetUser(): Observable<UserProfileDto>{
+    this.url.Controller='Profile';
+    this.url.Action = 'GetUser';
     this.url.ID=null;
+
+    console.log("getUser token-"+this.userManager.AccessToken);
 
     let headers: HttpHeaders = new HttpHeaders({
       Accept: 'application/json',
@@ -39,23 +42,19 @@ export class ProfileService {
 
     return this.http.get<UserProfileDto>(this.url.Url, {
       headers
-    }); //
+    }); 
   }
 
-/*   public Create(user: User): Observable<any> {
-    // throw new Error("Not implict");
-    this.url.Action = 'Register';
 
-    return this.http.post<any>(this.url.Url, user);
-  } */
-  public Update(user: UserProfileDto): Observable<any> {
-     throw new Error("Not implict");
-    this.url.Action = 'Edit';
+  public Update(credentials: string): Observable<any> {
+    this.url.Controller='Profile';
+    this.url.Action = 'EditUser';
+    this.url.ID=null;
     let headers: HttpHeaders = new HttpHeaders({
-      Accept: 'application/json',
-      Authorization: 'Bearer ' + this.userManager.AccessToken,
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + this.userManager.AccessToken,
     });
-    return this.http.put(this.url.Url, user, { headers });
+    return this.http.post(this.url.Url, credentials, { headers });
   }
 
   public Delete(id: string): Observable<any> {

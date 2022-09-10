@@ -21,7 +21,7 @@ import { Subscription } from 'rxjs';
 export class SignInComponent implements OnInit {
   private _subscriptions: Subscription[] = [];
 
-  _flagButoon: boolean = false;
+ 
   _errorMgs: string[] = [];
   _isUserInvalid = false;
 
@@ -75,18 +75,18 @@ export class SignInComponent implements OnInit {
     const credentials = JSON.stringify(loginForm.value);
     
 
-    this._accountServie.login(credentials).subscribe(
-      (d) => {
+    this._accountServie.login(credentials).subscribe({
+      next: d => {
         
         this._userManager.setInvalidLogin$(false, d.access_token);
-        this._flagButoon = true;
+      //  console.log("login_in-"+d.access_token)
        
         this.router.navigateByUrl('');
       },
-      (err: HttpErrorResponse) => {
+      error:(err: HttpErrorResponse) => {
         let body: string;
         this._userManager.setInvalidLogin$(true, null);
-        this._flagButoon = false;
+     
         if (err.status === 401 || err.status == 400) {
           
            console.log(  err.message);
@@ -103,7 +103,7 @@ export class SignInComponent implements OnInit {
 
         this._errorMgs.push(body);
       }
-    );
+  });
 
     // this.router.navigate(['/auth/sing-off']);
   }
