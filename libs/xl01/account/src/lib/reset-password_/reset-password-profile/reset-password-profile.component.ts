@@ -1,6 +1,6 @@
 import { Component, OnInit,Input,Output, EventEmitter, } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+
 import { HttpErrorResponse } from '@angular/common/http';
 import {StateView} from '../../_shared/_interfaces/state-view'
 
@@ -33,8 +33,7 @@ export class ResetPasswordProfileComponent implements OnInit {
      onToggleViewState:EventEmitter<StateView> = new EventEmitter()
 
   constructor(
-    private repozitory: ProfileService,
-    private route: ActivatedRoute,
+    private repozitory: ProfileService,   
     private userManager: UserManagerService
   ) {}
 
@@ -48,11 +47,11 @@ export class ResetPasswordProfileComponent implements OnInit {
     
     this._errorMgs = [];
 
-    const resetPass = { ... resetPasswordForm }; 
+   
     //const resetPass = JSON.stringify(resetPasswordForm.value);
      // resetPass===this.resetPassDto
 
-     console.log("resetPasswordForm--"+resetPass);
+     console.log("resetPasswordForm--"+JSON.stringify(this.resetPassDto))
     this.repozitory.ResetPassword(this.resetPassDto).subscribe({
       next: (_) => {
         this.userManager.setInvalidLogin$(true, null);
@@ -67,8 +66,8 @@ export class ResetPasswordProfileComponent implements OnInit {
         }
 
         if (err.status == 400) {
-          if (err.error.errors) this._errorMgs.push(err.error.errors);
-          else this._errorMgs.push(err.error);
+          
+           this._errorMgs.push(err.error.title);
           return;
         }
 

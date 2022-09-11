@@ -11,10 +11,8 @@ import { HttpErrorResponse } from '@angular/common/http';
   styleUrls: ['./forgot-password.component.scss']
 })
 export class ForgotPasswordComponent implements OnInit {
-
-  public forgotPasswordForm: FormGroup=new FormGroup({
-    email: new FormControl("", [Validators.required])
-});
+   public _email:string|undefined;
+ 
   public successMessage: string|null=null;
   public _errorMgs: string[]=[];
   public showSuccess: boolean=false;
@@ -26,12 +24,7 @@ export class ForgotPasswordComponent implements OnInit {
   ngOnInit(): void {
    // this.forgotPasswordForm =
 }
-  public validateControl = (controlName: string) => {
-    return this.forgotPasswordForm!.controls[controlName].invalid && this.forgotPasswordForm!.controls[controlName].touched
-  }
-  public hasError = (controlName: string, errorName: string) => {
-    return this.forgotPasswordForm!.controls[controlName].hasError(errorName)
-  }
+ 
 
   public forgotPassword = (forgotPasswordFormValue:any) => {
     //this.showError = this.showSuccess = false;
@@ -45,7 +38,7 @@ export class ForgotPasswordComponent implements OnInit {
     .subscribe(_ => {
       this.showSuccess = true;
       this._flagButoon=true;
-      this.successMessage = 'Ссылка была отправлена, пожалуйста, проверьте свою электронную почту, чтобы сбросить пароль.'
+     
     },
     (error: HttpErrorResponse) => {
 
@@ -63,6 +56,12 @@ export class ForgotPasswordComponent implements OnInit {
 
       this._errorMgs.push('Ошибка соединения с сервером -Сообщиете Администаратору Pесурса');
     })
+  }
+
+  public onBack(){
+
+   
+
   }
 
 

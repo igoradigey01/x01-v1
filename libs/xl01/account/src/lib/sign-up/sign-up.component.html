@@ -17,6 +17,12 @@
       </div>
 
       <!--Error messages Server output end-->
+      
+      <div *ngIf="showSuccess"  role="alert">
+        На почтовый адрес {{_user.email}}  Вам высланы дальнейшие
+        инструкции по завершению регистрации
+      </div>
+      <div *ngIf="!showSuccess">
       <form
         class="form-signin"
         #registerForm="ngForm"
@@ -80,14 +86,12 @@
             class="form-control"
             required
             pattern="[+0-9]{12}"
-            minlength="7"
+           
           />
           <mat-error *ngIf="phone.hasError('required')"
               >phone обязателeн</mat-error
             >
-            <mat-error *ngIf="phone.hasError('minlength')"
-              >Please enter a valid phone minlength 7 </mat-error
-            >
+            
             <mat-error *ngIf="phone.hasError('pattern')"
             >Please enter a valid phone 
           </mat-error>
@@ -122,13 +126,17 @@
             #mail="ngModel"
             class="form-control"
             required
+            minlength="4"
             email
           />
           <mat-error *ngIf="mail.hasError('required')"
               >Email обязателeн</mat-error
             >
+            <mat-error *ngIf="mail.hasError('minlength')"
+              >Please enter a valid email address minlength 4 </mat-error
+            >
             <mat-error *ngIf="mail.hasError('email')"
-              >Please enter a valid email address</mat-error
+              >Please enter a valid email address  </mat-error
             >
           </mat-form-field>
        
@@ -145,10 +153,14 @@
             #pass="ngModel"
             class="form-control"
             required
+            minlength="6"
           />
           <mat-error *ngIf="pass.hasError('required')"
           >Password обязателeн</mat-error
         >
+        <mat-error *ngIf="pass.hasError('minlength')"
+              >Please enter a valid phone minlength 6 </mat-error
+            >
         </mat-form-field>
       </div>
 
@@ -163,7 +175,7 @@
             #confirm="ngModel"
             class="form-control"
             required
-           
+            
             
           />
           <mat-error *ngIf="confirm.hasError('required')"
@@ -187,6 +199,7 @@
           </button>
         </div>
       </form>
+      </div>
     </mat-card-content>
   </mat-card>
 </div>

@@ -15,6 +15,7 @@ import { StateView } from '../../_shared/_interfaces/state-view';
 })
 export class UserProfileEditComponent implements OnInit {
   _errorMgs: string[] = [];
+  public showSuccess: boolean = false;
 
   @Input() public User: UserProfileDto = <UserProfileDto>{
     firstName: '',
@@ -37,11 +38,13 @@ export class UserProfileEditComponent implements OnInit {
 
   submitForm(registerForm: NgForm) {
     this._errorMgs = [];
+    this.showSuccess=false;
 
     const credentials = JSON.stringify(registerForm.value);
 
     this.profileServece.Update(credentials).subscribe({
       next: (data) => {
+        this.showSuccess=true;
         this.onToggleViewState.next(StateView.default);
       },
       error: (err: HttpErrorResponse) => {
@@ -51,8 +54,9 @@ export class UserProfileEditComponent implements OnInit {
           this._errorMgs.push('отказ в доступе');
           return;
         }
-        if (err.status == 400) {
+        if (err.status === 400) {
           this._errorMgs.push(' 400 Bad Request');
+          return;
         }
 
         this._errorMgs.push(
@@ -60,5 +64,11 @@ export class UserProfileEditComponent implements OnInit {
         );
       },
     });
+  }
+
+  public onBack(){
+
+    this.onToggleViewState.next(StateView.default);
+
   }
 }

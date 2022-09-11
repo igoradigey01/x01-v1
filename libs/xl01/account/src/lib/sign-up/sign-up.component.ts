@@ -5,81 +5,64 @@ import { environment } from 'apps/xf01/src/environments/environment';
 import { UserRegistrationDto } from '../_shared/_interfaces/user-registrationDto.model';
 import { AccountService } from '../_shared/services/account.service';
 
-
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.scss'],
 })
 export class SignUpComponent implements OnInit {
-  
+  public showSuccess: boolean = false;
 
   public _user: UserRegistrationDto = {
     clientURI: '',
     firstName: '',
     lastName: '',
-    address:'',
-    phone:'',
+    address: '',
+    phone: '',
     confirmPassword: '',
     email: '',
     password: '',
   };
 
-  _successfulSave: boolean = false; // пользователь успешно сохранен
+  // _successfulSave: boolean = false; // пользователь успешно сохранен
   _errorMgs: string[] = [];
-  _flagButoon: boolean = true;
 
-  constructor(
-    private _authService: AccountService,
-    
-  ) {}
+  constructor(private _authService: AccountService) {}
 
   ngOnInit(): void {}
-
-  submitForm(registerForm: NgForm) {
-
-    this._errorMgs = [];
-
-    const credentials = JSON.stringify(registerForm.value);
-    // this._errorMgs.length=0;
-
-  }
 
   onReset(form: NgForm): void {
     form.reset();
   }
 
-  private registerUser = (registerFormValue: any) => {
-    const formValues = {
-      // let array1 = ['h', 'e', 'l', 'l', 'o'];
-      ...registerFormValue, //  let array2 = [...array1]; // -- ['h', 'e', 'l', 'l', 'o'] --- вывод
-    };
+  public submitForm = (registerForm: NgForm) => {
+    this._errorMgs = [];
 
-    this._errorMgs.length = 0;
+    // const credentials = JSON.stringify(registerForm.value);
+    // this._errorMgs.length=0;
 
     this._authService.registerUser(this._user).subscribe({
-     next: (_) => {
+      next: (_) => {
         console.log('Successful registration');
-        this._successfulSave = true;
-        this._flagButoon = true;
+        this.showSuccess = true;
       },
-      error:(error: HttpErrorResponse) => {
-        this._successfulSave = false;
-        this._flagButoon = false;
-
-        if (error.status === 401 || error.status == 400) {
-          console.log(error.error);
-          if (error.error.errors) this._errorMgs.push(error.error.errors);
-          else this._errorMgs.push(error.error);
+      error: (err: HttpErrorResponse) => {
+        this.showSuccess = true;
+        console.error(err);
+        if (err.status === 401) {
+          this._errorMgs.push('отказ в доступе');
+          return;
+        }
+        if (err.status === 400) {
+          this._errorMgs.push(' 400 Bad Request');
+          this._errorMgs.push(err.error);
           return;
         }
 
         this._errorMgs.push(
           'Ошибка соединения с сервером -Сообщиете Администаратору Pесурса'
         );
-      }
-  });
+      },
+    });
   };
-
- 
 }

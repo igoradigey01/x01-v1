@@ -1,13 +1,11 @@
-<p>user-profile-edit works!</p>
-
 <div class="container mat-typography">
   <mat-card class="cart">
     <mat-card-header class="title">
       <div class="card-header mat-h3">Редактировать профиль</div>
       <div>
-        <a class="nav-link" routerLink="/account/user-profile">
-          <mat-icon>keyboard_backspace</mat-icon></a
-        >
+        <button mat-button (click)="onBack()">
+          <mat-icon>keyboard_backspace</mat-icon>
+        </button>
       </div>
     </mat-card-header>
 
@@ -23,6 +21,11 @@
       </div>
 
       <!--Error messages Server output end-->
+
+      <div *ngIf="showSuccess"  role="alert">
+        Данные Пользователя Обновлены !!
+      </div>
+      <div *ngIf="!showSuccess">
       <form
         class="form-signin"
         #registerForm="ngForm"
@@ -125,14 +128,18 @@
               #mail="ngModel"
               class="form-control"
               required
+              minlength="4"
               email
             />
             <mat-error *ngIf="mail.hasError('required')"
               >Email обязателeн</mat-error
             >
-            <mat-error *ngIf="mail.hasError('email')"
-              >Please enter a valid email address</mat-error
-            >
+            <mat-error *ngIf="mail.hasError('minlength')"
+            >Please enter a valid email address minlength 4 </mat-error
+          >
+          <mat-error *ngIf="mail.hasError('email')"
+            >Please enter a valid email address  </mat-error
+          >
           </mat-form-field>
         </div>
 
@@ -142,12 +149,14 @@
             color="accent"
             type="submit"
             [disabled]="!registerForm.valid"
-            style="width: 90%; margin: 0 0 0 0"
+          
+            class="btn"
           >
             Обновить
           </button>
         </div>
       </form>
+      </div>
     </mat-card-content>
   </mat-card>
 </div>

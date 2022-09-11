@@ -34,7 +34,7 @@ export class ProfileService {
     this.url.Action = 'GetUser';
     this.url.ID=null;
 
-    console.log("getUser token-"+this.userManager.AccessToken);
+   // console.log("getUser token-"+this.userManager.AccessToken);
 
     let headers: HttpHeaders = new HttpHeaders({
       Accept: 'application/json',
@@ -62,18 +62,24 @@ export class ProfileService {
     this.url.Controller = 'Profile';
     this.url.Action = 'ResetPasswordProfile';
     this.url.ID = null;
+    let headers: HttpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + this.userManager.AccessToken,
+    });
 
-    return this.http.post(this.url.Url, body);
+    return this.http.post(this.url.Url, body,{ headers });
   };
 
   public Delete=(id: string): Observable<any> =>{
-    throw new Error("Not implict");
-    this.url.Action = 'delete';
+    this.url.Controller = 'Profile';
+    this.url.Action = 'Delete';
+    this.url.ID=null;
     let headers: HttpHeaders = new HttpHeaders({
       Accept: 'application/json',
       Authorization: 'Bearer ' + this.userManager.AccessToken,
     });
     let url = this.url.Url + '/' + id;
+    console.log("url delete profile-"+url);
     return this.http.delete(url, { headers });
   }
 }
