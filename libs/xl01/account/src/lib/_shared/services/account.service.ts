@@ -11,7 +11,7 @@ import { RegistrationResponseDto } from '../_interfaces/registration-responseDto
 import { UserRegistrationDto } from '../_interfaces/user-registrationDto.model';
 import { ForgotPasswordDto } from '../_interfaces/forgot-passwordDto.model';
 import { UrlEncoder } from '../class/url-encoder.class';
-import { ResetPasswordMailDto } from '../_interfaces/reset-password-mailDto.model';
+import { ResetPasswordMailDto } from '../_interfaces/reset-passwordDto.model';
 
 @Injectable({
   providedIn: ManagerServiceModule,
@@ -62,6 +62,7 @@ export class AccountService {
   };
 
   public forgotPassword = (body: ForgotPasswordDto) => {
+   // debugger
     this.url.Controller = 'Account';
     this.url.Action = 'ForgotPassword';
     this.url.ID = null;

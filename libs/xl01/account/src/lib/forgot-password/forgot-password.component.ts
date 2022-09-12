@@ -1,68 +1,58 @@
 import { Component, OnInit } from '@angular/core';
-import {ForgotPasswordDto} from '../_shared/_interfaces/forgot-passwordDto.model';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import {AccountService} from '../_shared/services/account.service';
+import { ForgotPasswordDto } from '../_shared/_interfaces/forgot-passwordDto.model';
+
+import { AccountService } from '../_shared/services/account.service';
 import { environment } from 'apps/xf01/src/environments/environment';
 import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-forgot-password',
   templateUrl: './forgot-password.component.html',
-  styleUrls: ['./forgot-password.component.scss']
+  styleUrls: ['./forgot-password.component.scss'],
 })
 export class ForgotPasswordComponent implements OnInit {
-   public _email:string|undefined;
- 
-  public successMessage: string|null=null;
-  public _errorMgs: string[]=[];
-  public showSuccess: boolean=false;
-  public _flagButoon:boolean=false;
-  constructor(
-    private _authService: AccountService
-  ) { }
+
+
+  public _forgotPass:ForgotPasswordDto=<ForgotPasswordDto>{
+    email:'',
+    clientURI: environment.clientRoot + 'account/reset-password',
+
+  }
+  public _errorMgs: string[] = [];
+  public showSuccess: boolean = false;
+  public _flagButoon: boolean = false;
+  constructor(private repozitory: AccountService) {}
 
   ngOnInit(): void {
-   // this.forgotPasswordForm =
-}
- 
+    // this.forgotPasswordForm =
+  }
 
-  public forgotPassword = (forgotPasswordFormValue:any) => {
+  public forgotPassword = () => {
     //this.showError = this.showSuccess = false;
-    const forgotPass = { ...forgotPasswordFormValue };
-    const forgotPassDto: ForgotPasswordDto = {
-      email: forgotPass.email,
-      clientURI:environment.clientRoot + 'account/reset-password'
-    }
-    this._errorMgs=[];
-    this._authService.forgotPassword( forgotPassDto)
-    .subscribe(_ => {
-      this.showSuccess = true;
-      this._flagButoon=true;
-     
-    },
-    (error: HttpErrorResponse) => {
-
-
-      this._flagButoon = false;
-
-      if (error.status === 401 || error.status == 400) {
-        console.log(error.error);
-        if (error.error.errors)
-          this._errorMgs.push(error.error.errors);
-        else
-          this._errorMgs.push(error.error);
-        return;
-      }
-
-      this._errorMgs.push('Ошибка соединения с сервером -Сообщиете Администаратору Pесурса');
-    })
-  }
-
-  public onBack(){
-
    
+    this._errorMgs = [];
+    this.repozitory.forgotPassword(this._forgotPass).subscribe({
+      next: (_) => {
+        this.showSuccess = true;
+        this._flagButoon = false;
+      },
+      error: (err: HttpErrorResponse) => {
+        this._flagButoon = false;
+        console.error(err);
+        if (err.status == 400) {
+          this._errorMgs.push(' 400 Bad Request');
+          if (err.error.errors.Email) //this testing!!
+            this._errorMgs.push(err.error.errors.Email);
+          else this._errorMgs.push(err.error.errors);
+          return;
+        }
 
-  }
+        this._errorMgs.push(
+          'Ошибка соединения с сервером -Сообщиете Администаратору Pесурса'
+        );
+      },
+    });
+  };
 
-
+  public onBack() {}
 }

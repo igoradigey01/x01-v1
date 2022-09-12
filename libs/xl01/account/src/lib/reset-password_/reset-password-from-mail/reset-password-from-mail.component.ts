@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 
 import {AccountService} from '../../_shared/services/account.service';
-import {ResetPasswordMailDto} from '../../_shared/_interfaces/reset-password-mailDto.model';
+import {ResetPasswordMailDto} from '../../_shared/_interfaces/reset-passwordDto.model';
 import { UserManagerService } from '@x01-v1/xl01/auth-service';
 
 
@@ -79,10 +79,8 @@ export class ResetPasswordFromMailComponent implements OnInit {
 
       if ( err.status == 400) {
         
-        if (err.error.errors)
+        this._errorMgs.push(' 400 Bad Request');
           this._errorMgs.push(err.error.errors);
-        else
-          this._errorMgs.push(err.error);
         return;
       }
 

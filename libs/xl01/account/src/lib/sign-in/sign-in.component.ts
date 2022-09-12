@@ -7,10 +7,10 @@ import { AccountService } from '../_shared/services/account.service';
 import { Subscription } from 'rxjs';
 
 //https://code-maze.com/angular-security-with-asp-net-core-identity/
-//https://jasonwatmore.com/post/2019/05/17/angular-7-tutorial-part-4-login-form-authentication-service-route-guard
-//https://code-maze.com/angular-password-reset-functionality-with-aspnet-identity/
-//https://code-maze.com/angular-email-confirmation-aspnet-identity/
+//https://account.mail.ru/user/2-step-auth/passwords/
+//https://help.mail.ru/mail/security/protection/external
 //https://docs.microsoft.com/ru-ru/aspnet/core/security/authentication/accconfirm?view=aspnetcore-6.0&tabs=netcore-cli
+
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
@@ -87,10 +87,15 @@ export class SignInComponent implements OnInit {
       error:(err: HttpErrorResponse) => {
         let body: string;
         this._userManager.setInvalidLogin$(true, null);
-     
-        if (err.status === 401 || err.status == 400) {
+         console.error(err);  
+         if(err.status === 401){
+          this._errorMgs.push("пользователь не авторизован,войдите на сайт");
+          this._errorMgs.push(err.error);
+          return;
+        }   
+        if ( err.status == 400) {
           
-           console.log(  err.message);
+          this._errorMgs.push(' 400 Bad Request');
           this._errorMgs.push(err.error);
 
           return;

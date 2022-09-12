@@ -63,8 +63,4 @@ This project was generated using [Nx](https://nx.dev).
   <div>confirm: {{registerForm.value.confirm}}</div>
    ```
 
-  ### email validator not work
-  ```
-   minlength
-   email=furn@x-01.ru --not validate
-  ``` 
+  

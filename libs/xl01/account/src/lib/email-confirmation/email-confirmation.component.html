@@ -1,11 +1,28 @@
-<div class="card">
-  <div class="card-body">
-      <h1 class="card-title">Email Confirmation</h1>
-      <div *ngIf="showError" class="alert alert-danger" role="alert">
-          {{errorMessage}}
-      </div>
-      <div *ngIf="showSuccess" class="alert alert-success" role="alert">
-          Your email has been successfully confirmed. Please <a [routerLink]="['/account']"> click here to log in. </a>
-      </div>
+<div class="container mat-typography">
+    <mat-card class="cart">
+      <mat-card-header class="title">
+        <div class="card-header mat-h3">Подтверждение Email </div>
+        <div>
+          <button mat-button [routerLink]="['/account/']" >
+            <mat-icon>keyboard_backspace</mat-icon>
+          </button>
+        </div>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="error" *ngIf="_errorMgs?.length">
+          <ul>
+            <li *ngFor="let error of _errorMgs">
+              {{ error }}
+            </li>
+          </ul>
+        </div>
+        <div *ngIf="showSuccess" >
+            Ваш адрес электронной почты был успешно подтвержден. Пожалуйста <a class="email-comfirmation" [routerLink]="['/account']"> нажмите здесь, чтобы войти в систему. </a>
+          
+        </div>
+        
+      </mat-card-content>
+    </mat-card>
   </div>
-</div>
+
+

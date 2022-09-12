@@ -66,8 +66,8 @@ export class ResetPasswordProfileComponent implements OnInit {
         }
 
         if (err.status == 400) {
-          
-           this._errorMgs.push(err.error.title);
+          this._errorMgs.push(' 400 Bad Request');
+           this._errorMgs.push( err.error.errors ); //правильно -см asp net controller
           return;
         }
 

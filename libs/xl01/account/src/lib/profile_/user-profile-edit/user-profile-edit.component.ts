@@ -50,12 +50,14 @@ export class UserProfileEditComponent implements OnInit {
       error: (err: HttpErrorResponse) => {
         //   this._errorMgs=error.error;// error может быть и 400 и 500 -- если err===400 то можно setValidationErrors(this.form, error)
         console.error(err);
+        this.showSuccess=false;
         if (err.status === 401) {
-          this._errorMgs.push('отказ в доступе');
+          this._errorMgs.push("пользователь не авторизован,войдите на сайт")
           return;
         }
         if (err.status === 400) {
           this._errorMgs.push(' 400 Bad Request');
+          this._errorMgs.push(err.error);
           return;
         }
 

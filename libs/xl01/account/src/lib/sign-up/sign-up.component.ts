@@ -14,7 +14,7 @@ export class SignUpComponent implements OnInit {
   public showSuccess: boolean = false;
 
   public _user: UserRegistrationDto = {
-    clientURI: '',
+    clientURI:  environment.clientRoot + 'account/email-confirmation',
     firstName: '',
     lastName: '',
     address: '',
@@ -47,15 +47,12 @@ export class SignUpComponent implements OnInit {
         this.showSuccess = true;
       },
       error: (err: HttpErrorResponse) => {
-        this.showSuccess = true;
+        this.showSuccess = false;
         console.error(err);
-        if (err.status === 401) {
-          this._errorMgs.push('отказ в доступе');
-          return;
-        }
+        
         if (err.status === 400) {
           this._errorMgs.push(' 400 Bad Request');
-          this._errorMgs.push(err.error);
+          this._errorMgs.push(err.error.errors);
           return;
         }
 
