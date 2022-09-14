@@ -151,3 +151,9 @@ docker volume prune // delete volume <br/>
   restart nx server !!!       
 
   ```
+   ### Good Sample Lazy Loading  JS
+  [goole_maps]('https://github.com/angular/components/tree/main/src/google-maps#readme')
+  ```
+  Know what JSONP is and how it overcomes CORS.
+  https://codecraft.tv/courses/angular/http/jsonp-with-observables/
+  ```
