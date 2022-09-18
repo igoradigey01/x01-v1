@@ -48,7 +48,12 @@
               {
                 "sourceTag": "scope:xl01account-lib",
                 "onlyDependOnLibsWithTags": ["scope:xl01account-lib", "type:xl01-lib"]
+              },
+              {
+                "sourceTag": "scope:xl01cs-lib",
+                "onlyDependOnLibsWithTags": ["scope:xl01cs-lib", "type:xl01-lib"]
               }
+              
               
             ]
           }

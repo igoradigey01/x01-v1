@@ -20,6 +20,11 @@
             "input": "libs/xl01/account/src/assets",
             "glob": "**/*",
             "output": "assets/account"
+          },
+          {
+            "input": "libs/xl01/basic-sections/src/assets",
+            "glob": "**/*",
+            "output": "assets/basic-sections"
           }
         ],
         "styles": ["apps/xl01/src/styles/style.scss"],

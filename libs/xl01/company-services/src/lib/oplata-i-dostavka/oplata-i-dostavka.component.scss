@@ -1,5 +1,5 @@
 
-@use  '../../../styles/company-services.scss';
+@use  '../../style.scss';
 
 @for $i from 2 through 4 {
   h#{$i} {

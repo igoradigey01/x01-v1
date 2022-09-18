@@ -5,16 +5,18 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 
 import { RouterModule } from '@angular/router';
+import { MaterialModule } from './material.module';
 
 import { Xl01BasicSectionsModule } from '@x01-v1/xl01/basic-sections';
-import { MaterialModule } from './material.module';
+
 import { Xl01SharedStylesModule } from '@x01-v1/xl01/shared/styles';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { MainComponent } from '@x01-v1/xl01/basic-sections';
+import { PageNotFoundComponent } from '@x01-v1/xl01/basic-sections';
+import { RootComponent} from '@x01-v1/xl01/basic-sections';
 import { Xl01AuthModule } from '@x01-v1/xl01/auth-service';
 
+
 @NgModule({
-  declarations: [AppComponent, PageNotFoundComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,  // add buged 200
@@ -27,19 +29,29 @@ import { Xl01AuthModule } from '@x01-v1/xl01/auth-service';
       [
         {
           path: '',
-          component: MainComponent,
-        },
-        {
-          path: 'menu',
-          loadChildren: () =>
-            import('./company-services/company-services.module').then(
-              (m) => m.CompanyServicesModule
-            ),
-        },        
-        {
-          path: 'account',
-          loadChildren: () =>
-            import('@x01-v1/xl01/account').then((m) => m.Xl01AccountModule),
+          component: RootComponent,
+          children: [ 
+            {
+              path: 'account',
+              loadChildren: () =>
+                import('@x01-v1/xl01/account').then((m) => m.Xl01AccountModule),
+            },
+        
+        
+            {
+              path: 'menu',
+              loadChildren: () =>
+                import('@x01-v1/xl01/company-services').then(
+                  (m) => m.Xl01CompanyServicesModule
+                ),
+            } ,         
+            
+            {
+              path: '**',
+              component: PageNotFoundComponent,
+            },
+          
+          ]
         },
         {
           path: 'content',
@@ -47,11 +59,7 @@ import { Xl01AuthModule } from '@x01-v1/xl01/auth-service';
             import('@x01-v1/xl01/content-section').then(
               (module) => module.Xl01ContentSectionModule
             ),
-        },
-        {
-          path: '**',
-          component: PageNotFoundComponent,
-        },
+        }
       ],
       { initialNavigation: 'enabledNonBlocking' }
     ),
