@@ -11,5 +11,5 @@ export class GarantiyaComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  
 }
