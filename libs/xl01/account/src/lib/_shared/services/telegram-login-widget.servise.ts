@@ -12,9 +12,12 @@ export interface ScriptModel {
   providedIn: 'root',
 })
 export class TelegramLoginWidgetService {
+
+ private TELEGRAM_WIDGET_VERSION = 19;
+
   script: ScriptModel = <ScriptModel>{
     name: 'telegram_widget',
-    src: 'https://telegram.org/js/telegram-widget.js?19',
+    src: 'https://telegram.org/js/telegram-widget.js?${TELEGRAM_WIDGET_VERSION}',
     loaded: false,
   };
 
@@ -34,7 +37,7 @@ export class TelegramLoginWidgetService {
       scriptElement.setAttribute('data-size', 'large');
       scriptElement.setAttribute(
         'data-auth-url',
-        'https://xl-01.ru/telelram-callback'
+        'https://xl-01.ru/account/auth-callback-telegram'
       );
       scriptElement.setAttribute('data-request-access', 'write');
 

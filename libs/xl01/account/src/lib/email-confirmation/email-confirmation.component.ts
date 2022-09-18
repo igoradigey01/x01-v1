@@ -13,8 +13,8 @@ export class EmailConfirmationComponent implements OnInit {
   public _errorMgs: string[] = [];
 
   constructor(
-    private _authService: AccountService,
-    private _route: ActivatedRoute
+    private repozitory: AccountService,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
@@ -22,10 +22,10 @@ export class EmailConfirmationComponent implements OnInit {
   }
 
   private confirmEmail = () => {
-    const token = this._route.snapshot.queryParams['token'];
-    const email = this._route.snapshot.queryParams['email'];
+    const token = this.route.snapshot.queryParams['token'];
+    const email = this.route.snapshot.queryParams['email'];
     console.log(token);
-    this._authService.confirmEmail(token, email).subscribe({
+    this.repozitory.confirmEmail(token, email).subscribe({
       next: (_) => {
         this.showSuccess = true;
       },
