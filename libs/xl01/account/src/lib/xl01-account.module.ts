@@ -28,7 +28,7 @@ import {TelegramLoginWidgetComponent} from './telegram-login-widget/telegram-log
 import {AuthCallbackTelegramComponent} from './auth-callback-telegram/auth-callback-telegram.component'
 import {AuthCallbackVkComponent} from './auth-callback-vk/auth-callback-vk.component'
 import {AuthCallbackYandexComponent} from './auth-callback-yandex/auth-callback-yandex.component'
-import {GoogleLoginWidgetComponent} from './google-login-widget/google-login-widget.component'
+
 
 
 
@@ -82,7 +82,7 @@ const routes: Routes = [
     AuthCallbackTelegramComponent,
     AuthCallbackVkComponent,
     AuthCallbackYandexComponent,
-    GoogleLoginWidgetComponent
+    
     
   ],
   exports: [
