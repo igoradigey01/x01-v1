@@ -11,10 +11,12 @@ export class RouteApiService {
   private _action: string | null = null;
   private _id: number | null = null;
   private _postavchikId: number | undefined;
+  private _clientRootUrl:string='';
 
   constructor() {
     this._postavchikId = +environment.postavchikId;
     this._serverAuthority = environment.serverAuthority;
+    this._clientRootUrl=environment.clientRoot;
   }
 
   public set Controller(name: string) {
@@ -33,7 +35,10 @@ export class RouteApiService {
     if (this._postavchikId) return this._postavchikId;
     else return -1;
   }
-
+  
+  public get ClientRootUrl():string{
+    return this._clientRootUrl;
+  }
   public get Url(): string {
     if (this._serverAuthority)
       return this.createCompleteRoute(

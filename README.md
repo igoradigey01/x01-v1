@@ -62,5 +62,12 @@ This project was generated using [Nx](https://nx.dev).
     <div>pass: {{registerForm.value.pass}}</div>
   <div>confirm: {{registerForm.value.confirm}}</div>
    ```
-
+ ## Secret | Enable secret storage
+ ```
+ https://learn.microsoft.com/ru-ru/aspnet/core/security/app-secrets?view=aspnetcore-6.0&tabs=windows#enable-secret-storage
+ dotnet user-secrets set "Authentication:Google:ClientId" "<client-id>"
+dotnet user-secrets set "Authentication:Google:ClientSecret" "<client-secret>"
+```
+### External Provider
+yarn add  i @abacritt/angularx-social-login   
  

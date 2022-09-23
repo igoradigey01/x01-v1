@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , OnDestroy} from '@angular/core';
+import { Subscription } from 'rxjs';
 import { NgForm } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
 import { environment } from 'apps/xf01/src/environments/environment';
@@ -10,7 +11,9 @@ import { AccountService } from '../_shared/services/account.service';
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.scss'],
 })
-export class SignUpComponent implements OnInit {
+export class SignUpComponent implements OnInit , OnDestroy  {
+
+  private _subscriptions: Subscription[] = [];
   public showSuccess: boolean = false;
 
   public _user: UserRegistrationDto = {
@@ -31,6 +34,10 @@ export class SignUpComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  ngOnDestroy() {
+    this._subscriptions.forEach((s) => s.unsubscribe());
+  }
+
   onReset(form: NgForm): void {
     form.reset();
   }
@@ -41,7 +48,7 @@ export class SignUpComponent implements OnInit {
     // const credentials = JSON.stringify(registerForm.value);
     // this._errorMgs.length=0;
 
-    this._authService.registerUser(this._user).subscribe({
+   var sub=  this._authService.registerUser(this._user).subscribe({
       next: (_) => {
         console.log('Successful registration');
         this.showSuccess = true;
@@ -61,5 +68,7 @@ export class SignUpComponent implements OnInit {
         );
       },
     });
+
+    this._subscriptions.push(sub);
   };
 }

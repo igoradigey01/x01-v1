@@ -28,6 +28,11 @@ import {TelegramLoginWidgetComponent} from './telegram-login-widget/telegram-log
 import {AuthCallbackTelegramComponent} from './auth-callback-telegram/auth-callback-telegram.component'
 import {AuthCallbackVkComponent} from './auth-callback-vk/auth-callback-vk.component'
 import {AuthCallbackYandexComponent} from './auth-callback-yandex/auth-callback-yandex.component'
+import {GoogleLoginWidgetComponent} from './google-login-widget/google-login-widget.component'
+
+
+
+
 
 
 const routes: Routes = [
@@ -38,7 +43,7 @@ const routes: Routes = [
   { path: 'email-confirmation', component: EmailConfirmationComponent },
   { path: 'reset-password', component: ResetPasswordFromMailComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
-  {path: 'auth-callback-yandex',component:AuthCallbackYandexComponent},
+  {path: 'auth-callback-google',component:AuthCallbackYandexComponent},
   {path: 'auth-callback-vk',component:AuthCallbackVkComponent},
   {path: 'auth-callback-telegram' ,component:AuthCallbackTelegramComponent}
 ];
@@ -54,7 +59,8 @@ const routes: Routes = [
     ManagerServiceModule,
     RouterModule.forChild(routes),
     Xl01AuthModule,
-    
+   
+   
   ],
   declarations: [
     SignInComponent,
@@ -75,7 +81,9 @@ const routes: Routes = [
     TelegramLoginWidgetComponent,
     AuthCallbackTelegramComponent,
     AuthCallbackVkComponent,
-    AuthCallbackYandexComponent
+    AuthCallbackYandexComponent,
+    GoogleLoginWidgetComponent
+    
   ],
   exports: [
     SignInComponent,
@@ -89,7 +97,8 @@ const routes: Routes = [
     ResetPasswordFromMailComponent,
   ],
   providers:[
-  
+    
+   
   ]
 })
 export class Xl01AccountModule {}

@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable,Subject } from 'rxjs';
 
+import { SocialAuthService, SocialUser } from "@abacritt/angularx-social-login";
+import { GoogleLoginProvider } from "@abacritt/angularx-social-login";
 
 import { ManagerServiceModule } from './maneger-service.module';
 
@@ -17,14 +19,16 @@ import { ResetPasswordMailDto } from '../_interfaces/reset-passwordDto.model';
   providedIn: ManagerServiceModule,
 })
 export class AccountService {
-  // readonly _controller: string = 'Account';
-  // readonly _action = 'Login';
+  
+  
 
   constructor(
     private http: HttpClient,
-
-    private url: RouteApiService
-  ) {}
+    private url: RouteApiService,
+    
+  ) {
+    
+  }
 
   /** Get token login pass */
   public login = (credentials: string): Observable<any> => {
@@ -40,6 +44,8 @@ export class AccountService {
       }),
     });
   };
+
+
 
   public registerUser = (body: UserRegistrationDto) => {
     this.url.Controller = 'Account';

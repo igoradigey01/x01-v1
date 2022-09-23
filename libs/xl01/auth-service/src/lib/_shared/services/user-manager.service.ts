@@ -11,6 +11,21 @@ import { CarStorage } from '../services/car-strorage.services';
   providedIn: 'root',
 })
 export class UserManagerService {
+
+/* sample state Obj$
+private authChangeSub = new Subject<boolean>();
+  private extAuthChangeSub = new Subject<SocialUser>();
+  //Оператор asObservable можно использовать для преобразования Subject в наблюдаемый объект. 
+  //Это может быть полезно, если вы хотите предоставить данные из субъекта, 
+  //но в то же время предотвратить непреднамеренное попадание данных в субъект:
+  //authChanged не поддерживает next, error и complete.
+  public authChanged = this.authChangeSub.asObservable();
+  public extAuthChanged = this.extAuthChangeSub.asObservable();
+
+*/
+
+  //BehaviorSubject повторно выдают только последнее сгенерированное значение 
+  //или значение по умолчанию, если ранее не было сгенерировано никакого значения
   private _invalidLogin$: BehaviorSubject<boolean> =
     new BehaviorSubject<boolean>(true);
 

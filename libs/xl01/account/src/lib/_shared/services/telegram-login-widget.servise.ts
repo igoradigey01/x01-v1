@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Observer } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {UserTelegramDto} from '../_interfaces/user-telegramDto.model'
+import { RouteApiService } from './route-api.service';
+import { ManagerServiceModule } from './maneger-service.module';
 
 export interface ScriptModel {
   name: string;
@@ -9,7 +12,7 @@ export interface ScriptModel {
 }
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: ManagerServiceModule
 })
 export class TelegramLoginWidgetService {
 
@@ -20,6 +23,11 @@ export class TelegramLoginWidgetService {
     src: 'https://telegram.org/js/telegram-widget.js?${TELEGRAM_WIDGET_VERSION}',
     loaded: false,
   };
+
+  constructor(
+    private http: HttpClient,   
+    private url: RouteApiService
+  ) { }
 
   public loadWidgetScript(): void {
     // Complete if already loaded
@@ -52,4 +60,18 @@ export class TelegramLoginWidgetService {
       document.getElementsByTagName('x01-v1-telegram-login-widget')[0].appendChild(scriptElement);
     }
   }
+
+   public CheckUser(user:UserTelegramDto){
+
+    this.url.Controller='Profile';
+    this.url.Action = 'EditUser';
+    this.url.ID=null;
+    let headers: HttpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + '',
+    });
+    var credentials=JSON.stringify(user);
+    return this.http.post(this.url.Url, credentials, { headers });
+
+   }
 }

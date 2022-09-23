@@ -1,7 +1,7 @@
 export interface UserTelegramDto {
     id: number;
     firstName?: string;    
-    username?: string;   
+    userName?: string;   
     authDate: number;
     hash: string;
   }

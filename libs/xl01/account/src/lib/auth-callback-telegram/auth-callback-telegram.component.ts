@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit,OnDestroy } from '@angular/core';
+import { Router ,ActivatedRoute } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Subscription } from 'rxjs';
+import { UserManagerService } from '@x01-v1/xl01/auth-service';
 import {TelegramLoginWidgetService} from '../_shared/services/telegram-login-widget.servise'
 import {UserTelegramDto} from '../_shared/_interfaces/user-telegramDto.model'
 //https://core.telegram.org/widgets/login
@@ -9,21 +12,67 @@ import {UserTelegramDto} from '../_shared/_interfaces/user-telegramDto.model'
   templateUrl: './auth-callback-telegram.component.html',
   styleUrls: ['./auth-callback-telegram.component.scss'],
 })
-export class AuthCallbackTelegramComponent implements OnInit {
- 
+export class AuthCallbackTelegramComponent implements OnInit , OnDestroy {
+
+  _errorMgs: string[] = [];
+  private _subscriptions: Subscription[] = [];   
   public user:UserTelegramDto=<UserTelegramDto>{}
 
   constructor(
     private repozitory: TelegramLoginWidgetService,
-    private route: ActivatedRoute
+    private _userManager: UserManagerService,
+    private route: ActivatedRoute,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
     this.user.id = this.route.snapshot.queryParams['id'];
     this.user.firstName = this.route.snapshot.queryParams['first_name'];
-    this.user.username=this.route.snapshot.queryParams['username'];
+    this.user.userName=this.route.snapshot.queryParams['username'];
     this.user.authDate=this.route.snapshot.queryParams['auth_date'];
     this.user.hash=this.route.snapshot.queryParams['hash'];
+    var subLogin=  this.repozitory.CheckUser(this.user).subscribe(
+      {
+        next: (d:any) => {
+        
+          this._userManager.setInvalidLogin$(false, d.access_token);
+        //  console.log("login_in-"+d.access_token)
+         
+          this.router.navigateByUrl('');
+        },
+        error:(err: HttpErrorResponse) => {
+          let body: string;
+          this._userManager.setInvalidLogin$(true, null);
+           console.error(err);  
+           if(err.status === 401){
+            this._errorMgs.push("пользователь не авторизован,войдите на сайт");
+            this._errorMgs.push(err.error);
+            return;
+          }   
+          if ( err.status == 400) {
+            
+            this._errorMgs.push(' 400 Bad Request');
+            this._errorMgs.push(err.error);
+  
+            return;
+  
+            //  body = 'Не верный логин или пароль';
+          }
+  
+  
+          body =
+            'Ошибка соединения с сервером -Сообщиете Администаратору Pесурса';
+  
+          this._errorMgs.push(body);
+        }
+       
+      }
+     )
+
+     this._subscriptions.push(subLogin);
     
+  }
+  ngOnDestroy() {
+    this._subscriptions.forEach((s) => s.unsubscribe());
   }
 }
