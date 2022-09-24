@@ -27,9 +27,10 @@ import {UserOrdersItemComponent} from './user-orders_/user-orders-item/user-orde
 import {TelegramLoginWidgetComponent} from './telegram-login-widget/telegram-login-widget.component'
 import {AuthCallbackTelegramComponent} from './auth-callback-telegram/auth-callback-telegram.component'
 import {AuthCallbackVkComponent} from './auth-callback-vk/auth-callback-vk.component'
-import {AuthCallbackYandexComponent} from './auth-callback-yandex/auth-callback-yandex.component'
 
 
+import { SocialLoginModule, SocialAuthServiceConfig } from '@abacritt/angularx-social-login';
+import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
 
 
 
@@ -43,7 +44,7 @@ const routes: Routes = [
   { path: 'email-confirmation', component: EmailConfirmationComponent },
   { path: 'reset-password', component: ResetPasswordFromMailComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
-  {path: 'auth-callback-google',component:AuthCallbackYandexComponent},
+  
   {path: 'auth-callback-vk',component:AuthCallbackVkComponent},
   {path: 'auth-callback-telegram' ,component:AuthCallbackTelegramComponent}
 ];
@@ -59,6 +60,7 @@ const routes: Routes = [
     ManagerServiceModule,
     RouterModule.forChild(routes),
     Xl01AuthModule,
+    SocialLoginModule
    
    
   ],
@@ -81,7 +83,7 @@ const routes: Routes = [
     TelegramLoginWidgetComponent,
     AuthCallbackTelegramComponent,
     AuthCallbackVkComponent,
-    AuthCallbackYandexComponent,
+   
     
     
   ],
@@ -97,7 +99,18 @@ const routes: Routes = [
     ResetPasswordFromMailComponent,
   ],
   providers:[
-    
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider('344759916833-h3r1fju9hj53jd86d142tn44vta9vnsa.apps.googleusercontent.com'),
+          },
+        ],
+      } as SocialAuthServiceConfig,
+    },
    
   ]
 })

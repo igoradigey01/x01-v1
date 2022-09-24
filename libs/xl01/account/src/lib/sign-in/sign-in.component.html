@@ -143,8 +143,8 @@
               <button (click)="externalLogin('VK')" class="btn-link btn-social">
                 <span class="dot vk">
                   <svg
-                    width="24"
-                    height="24"
+                    width="18"
+                    height="18"
                     viewBox="0 0 24 24"
                     fill="currentColor"
                     xmlns="http://www.w3.org/2000/svg"
@@ -156,13 +156,15 @@
                 </span>
               </button>
             </li>
-
+            <li>
+              <asl-google-signin-button  (click)="externalLogin('Google')" type='icon' shape="circle" size='large'></asl-google-signin-button>
+            </li>
          
           </ul>
           
         </div>
         <div class="goole_widget">
-          
+         
         </div>
         <div class="telegram_widget">
         <x01-v1-telegram-login-widget ></x01-v1-telegram-login-widget>

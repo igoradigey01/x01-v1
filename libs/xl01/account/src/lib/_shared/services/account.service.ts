@@ -14,19 +14,39 @@ import { UserRegistrationDto } from '../_interfaces/user-registrationDto.model';
 import { ForgotPasswordDto } from '../_interfaces/forgot-passwordDto.model';
 import { UrlEncoder } from '../class/url-encoder.class';
 import { ResetPasswordMailDto } from '../_interfaces/reset-passwordDto.model';
+import {ExternalAuthSocialDto} from '../_interfaces/ExternalAuthSocialDto.model';
+import {AuthResponseDto} from '../_interfaces/AuthResponseDto.model'
 
 @Injectable({
   providedIn: ManagerServiceModule,
 })
 export class AccountService {
+
+  private authChangeSub = new Subject<boolean>();
+private extAuthChangeSub = new Subject<SocialUser>();
+public authChanged = this.authChangeSub.asObservable();
+public extAuthChanged = this.extAuthChangeSub.asObservable();
   
-  
+public sendAuthStateChangeNotification = (isAuthenticated: boolean) => {
+  this.authChangeSub.next(isAuthenticated);
+}
+
+public logout = () => {
+  localStorage.removeItem("token");
+  this.sendAuthStateChangeNotification(false);
+}
 
   constructor(
     private http: HttpClient,
     private url: RouteApiService,
+    private externalAuthService: SocialAuthService
     
   ) {
+
+    this.externalAuthService.authState.subscribe((user) => {
+      console.log(user)
+      this.extAuthChangeSub.next(user);
+    })
     
   }
 
@@ -45,6 +65,26 @@ export class AccountService {
     });
   };
 
+  public signInWithGoogle = ()=> {
+    this.externalAuthService.signIn(GoogleLoginProvider.PROVIDER_ID);
+  }
+  public signOutExternal = () => {
+    this.externalAuthService.signOut();
+  }
+
+  public externalLogin = ( credentials: ExternalAuthSocialDto) => {
+    this.url.Controller = 'Account';
+    this.url.Action = 'Login';
+    this.url.ID = null;
+
+    //  console.log('login-credentials = '+credentials);
+    return this.http.post<AuthResponseDto>(this.url.Url, credentials, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+    });
+   
+  }
 
 
   public registerUser = (body: UserRegistrationDto) => {
