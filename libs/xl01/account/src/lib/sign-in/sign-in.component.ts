@@ -4,6 +4,11 @@ import {
   OnDestroy,
   ChangeDetectionStrategy,
 } from '@angular/core';
+import {
+  SocialAuthService,
+  GoogleLoginProvider,
+  SocialUser,
+} from '@abacritt/angularx-social-login';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { FormControl, NgForm } from '@angular/forms';
@@ -27,6 +32,9 @@ import { ExternalAuthSocialDto } from '../_shared/_interfaces/ExternalAuthSocial
 export class SignInComponent implements OnInit, OnDestroy {
   private _subscriptions: Subscription[] = [];
 
+  socialUser!: SocialUser;
+  isLoggedin?: boolean;
+
   _errorMgs: string[] = [];
   _isUserInvalid = false;
 
@@ -35,21 +43,34 @@ export class SignInComponent implements OnInit, OnDestroy {
   public email: string = '';
   public rememberme: boolean = true;
   public returnUrl: string = '/';
-  /** вход пользователья ;создание токена */
+
+  public get ClintGoogleUrl(){
+    return this.repozitory.RootClientUrl+'account/auth-callback-vk'
+  }
+
   constructor(
     private repozitory: AccountService,
     private userManager: UserManagerService,
     private route: ActivatedRoute,
+    private socialAuthService: SocialAuthService,
     private router: Router
   ) {}
 
   ngOnInit(): void {
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+    this.socialAuthService.authState.subscribe((user) => {
+      this.socialUser = user;
+      this.isLoggedin =( user != null);
+      if(this.isLoggedin==true){
+
+      }
+      //console.log(this.socialUser);
+    });
 
     let subLogin = this.userManager.InvalidLogin$.subscribe((d) => {
       this._isUserInvalid = d;
       if (!d) {
-        this.router.navigate(['/']);
+        this.router.navigate([this.returnUrl]);;
       }
     });
 
@@ -63,21 +84,12 @@ export class SignInComponent implements OnInit, OnDestroy {
   externalLogin(name: string) {
     this._errorMgs = [];
     console.log('---  externalLogin-- ' + name);
-    if (name === 'Google') {
-      this.repozitory.signInWithGoogle();
-      this.repozitory.extAuthChanged.subscribe((user) => {
-        const externalAuth: ExternalAuthSocialDto = {
-          provider: user.provider,
-          idToken: user.idToken,
-        };
-        this.validateExternalAuth(externalAuth);
-        return;
-      });
+    
 
       this._errorMgs.push(
         'провайдер авторизации  -' + name + '-временно недоступен'
       );
-    }
+  
   }
 
 
@@ -144,7 +156,7 @@ export class SignInComponent implements OnInit, OnDestroy {
   }
 
   private validateExternalAuth(externalAuth: ExternalAuthSocialDto) {
-    this.repozitory.externalLogin( externalAuth)
+    this.repozitory.googleLogin( externalAuth)
       .subscribe({
         next: (d:any) => {
            // localStorage.setItem("token", d.token);
@@ -156,7 +168,7 @@ export class SignInComponent implements OnInit, OnDestroy {
         error: (err: HttpErrorResponse) => {
           this._errorMgs.push( err.message);
          
-          this.repozitory.signOutExternal();
+          this.socialAuthService.signOut();
         }
       });
   }

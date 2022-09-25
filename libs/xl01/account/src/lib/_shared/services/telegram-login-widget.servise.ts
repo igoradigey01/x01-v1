@@ -63,8 +63,8 @@ export class TelegramLoginWidgetService {
 
    public CheckUser(user:UserTelegramDto){
 
-    this.url.Controller='Profile';
-    this.url.Action = 'EditUser';
+    this.url.Controller='Account';
+    this.url.Action = 'TelegramExternalLogin';
     this.url.ID=null;
     let headers: HttpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',

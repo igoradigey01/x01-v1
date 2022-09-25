@@ -22,19 +22,11 @@ import {AuthResponseDto} from '../_interfaces/AuthResponseDto.model'
 })
 export class AccountService {
 
-  private authChangeSub = new Subject<boolean>();
-private extAuthChangeSub = new Subject<SocialUser>();
-public authChanged = this.authChangeSub.asObservable();
-public extAuthChanged = this.extAuthChangeSub.asObservable();
   
-public sendAuthStateChangeNotification = (isAuthenticated: boolean) => {
-  this.authChangeSub.next(isAuthenticated);
-}
 
-public logout = () => {
-  localStorage.removeItem("token");
-  this.sendAuthStateChangeNotification(false);
-}
+ public get RootClientUrl(){
+  return this.url.ClientRootUrl;
+ }
 
   constructor(
     private http: HttpClient,
@@ -43,10 +35,7 @@ public logout = () => {
     
   ) {
 
-    this.externalAuthService.authState.subscribe((user) => {
-      console.log(user)
-      this.extAuthChangeSub.next(user);
-    })
+   
     
   }
 
@@ -65,16 +54,17 @@ public logout = () => {
     });
   };
 
-  public signInWithGoogle = ()=> {
+/*   public signInWithGoogle = ()=> {
     this.externalAuthService.signIn(GoogleLoginProvider.PROVIDER_ID);
   }
   public signOutExternal = () => {
     this.externalAuthService.signOut();
   }
-
-  public externalLogin = ( credentials: ExternalAuthSocialDto) => {
+ */
+  
+  public googleLogin = ( credentials: ExternalAuthSocialDto) => {
     this.url.Controller = 'Account';
-    this.url.Action = 'Login';
+    this.url.Action = 'GoogleExternalLogin';
     this.url.ID = null;
 
     //  console.log('login-credentials = '+credentials);
