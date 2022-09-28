@@ -6,7 +6,7 @@ import {
 } from '@angular/core';
 import {
   SocialAuthService,
-  GoogleLoginProvider,
+  VKLoginProvider,
   SocialUser,
 } from '@abacritt/angularx-social-login';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -58,13 +58,81 @@ export class SignInComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-    this.socialAuthService.authState.subscribe((user) => {
-      this.socialUser = user;
-      this.isLoggedin =( user != null);
-      if(this.isLoggedin==true){
+    let subGoogle =   this.socialAuthService.authState.subscribe((user) => {
+      // this.socialUser = user;
+      let credentials=<ExternalAuthSocialDto>{provider:user.provider,idToken:user.idToken,idUser:user.id};
+    
+    if(user.provider=="GOOGLE"){
+      let subApiGoogle=    this.repozitory.googleLogin(credentials).subscribe({
+        next: (d) => {
+          this.userManager.setInvalidLogin$(false, d.access_token);
+          //  console.log("login_in-"+d.access_token)
+          this.router.navigate([this.returnUrl]);
+         
+        },
+        error: (err: HttpErrorResponse) => {
+          let body: string;
+          this.userManager.setInvalidLogin$(true, null);
+          console.error(err);
+          if (err.status === 401) {
+            this._errorMgs.push('пользователь не авторизован,войдите на сайт');
+            this._errorMgs.push(err.error);
+            return;
+          }
+          if (err.status == 400) {
+            this._errorMgs.push(' 400 Bad Request');
+            this._errorMgs.push(err.error);
+  
+            return;
+  
+            //  body = 'Не верный логин или пароль';
+          }
+  
+          body =
+            'Ошибка соединения с сервером -Сообщиете Администаратору Pесурса';
+  
+          this._errorMgs.push(body);
+        },
+      });
+     this._subscriptions.push(subApiGoogle);
+    }
+        if(user.provider=="VK"){
 
-      }
-      //console.log(this.socialUser);
+          let subApiVK=    this.repozitory.vkLogin(credentials).subscribe({
+            next: (d) => {
+              this.userManager.setInvalidLogin$(false, d.access_token);
+              //  console.log("login_in-"+d.access_token)
+              this.router.navigate([this.returnUrl]);
+             
+            },
+            error: (err: HttpErrorResponse) => {
+              let body: string;
+              this.userManager.setInvalidLogin$(true, null);
+              console.error(err);
+              if (err.status === 401) {
+                this._errorMgs.push('пользователь не авторизован,войдите на сайт');
+                this._errorMgs.push(err.error);
+                return;
+              }
+              if (err.status == 400) {
+                this._errorMgs.push(' 400 Bad Request');
+                this._errorMgs.push(err.error);
+      
+                return;
+      
+                //  body = 'Не верный логин или пароль';
+              }
+      
+              body =
+                'Ошибка соединения с сервером -Сообщиете Администаратору Pесурса';
+      
+              this._errorMgs.push(body);
+            },
+          });
+         this._subscriptions.push(subApiVK);
+
+        }
+    console.log(user)
     });
 
     let subLogin = this.userManager.InvalidLogin$.subscribe((d) => {
@@ -73,7 +141,7 @@ export class SignInComponent implements OnInit, OnDestroy {
         this.router.navigate([this.returnUrl]);;
       }
     });
-
+    this._subscriptions.push(subGoogle);
     this._subscriptions.push(subLogin);
   }
 
@@ -81,17 +149,11 @@ export class SignInComponent implements OnInit, OnDestroy {
     this._subscriptions.forEach((s) => s.unsubscribe());
   }
 
-  externalLogin(name: string) {
-    this._errorMgs = [];
-    console.log('---  externalLogin-- ' + name);
-    
 
-      this._errorMgs.push(
-        'провайдер авторизации  -' + name + '-временно недоступен'
-      );
-  
+ 
+  signInWithVK(): void {
+    this.socialAuthService.signIn(VKLoginProvider.PROVIDER_ID);
   }
-
 
 
   submitForm(loginForm: NgForm) {

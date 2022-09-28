@@ -30,7 +30,11 @@ import {AuthCallbackVkComponent} from './auth-callback-vk/auth-callback-vk.compo
 
 
 import { SocialLoginModule, SocialAuthServiceConfig } from '@abacritt/angularx-social-login';
-import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
+import { 
+  GoogleLoginProvider ,
+  VKLoginProvider
+
+} from '@abacritt/angularx-social-login';
 
 
 
@@ -107,6 +111,10 @@ const routes: Routes = [
           {
             id: GoogleLoginProvider.PROVIDER_ID,
             provider: new GoogleLoginProvider('344759916833-h3r1fju9hj53jd86d142tn44vta9vnsa.apps.googleusercontent.com'),
+          },
+          {
+            id: VKLoginProvider.PROVIDER_ID,
+            provider: new VKLoginProvider('51431968'),
           },
         ],
       } as SocialAuthServiceConfig,

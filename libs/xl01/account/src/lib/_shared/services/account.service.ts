@@ -76,6 +76,20 @@ export class AccountService {
    
   }
 
+  public vkLogin = ( credentials: ExternalAuthSocialDto) => {
+    this.url.Controller = 'Account';
+    this.url.Action = 'VKExternalLogin';
+    this.url.ID = null;
+
+    //  console.log('login-credentials = '+credentials);
+    return this.http.post<AuthResponseDto>(this.url.Url, credentials, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+    });
+   
+  }
+
 
   public registerUser = (body: UserRegistrationDto) => {
     this.url.Controller = 'Account';
